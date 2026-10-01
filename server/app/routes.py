@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import json
 import random
 import secrets
+import threading
 import time
 from pathlib import Path
 from typing import Any, Literal
@@ -10,6 +12,8 @@ from fastapi import APIRouter, Depends, HTTPException, Request, status
 
 from .agora_client import AgoraClient, AgoraTimeoutError, AgoraUpstreamError
 from .config import Settings
+from .manual.helplines import helpline_for
+from .manual.manual_pipeline import lookup_manual
 from .schemas import (
     ActionResponse,
     AgentActionRequest,
@@ -39,6 +43,40 @@ def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -
         if not path.is_file():
             raise HTTPException(status_code=503, detail="Project guidance is unavailable.")
         return {"topic": topic, "source": f"docs/{topic}.md", "content": path.read_text(encoding="utf-8")}
+
+
+
+    @router.get("/v1/tools/manual", dependencies=throttled)
+    def manual(make: str, model: str):
+        # Never make the driver wait on a search: answer from cache or say it's being fetched,
+        # and run the full (minutes-long) lookup in the background so the next ask is instant.
+        result = lookup_manual(make, model, search=False)
+        if result.pop("fetching", False):
+            start_background_lookup(make, model)
+        manual_url = str(result.get("manual_url") or "").lower()
+        if result.get("roadside_number") and not (".in/" in manual_url or "/in/" in manual_url):
+            result["roadside_number"] = None  # e.g. the US EQS manual lists a US 1-800 line
+        result = compact_manual(result)
+        # Verified brand helpline beats a number Gemini may or may not have found in the manual.
+        helpline = helpline_for(make)
+        if helpline:
+            result["roadside_number"] = helpline["number"]
+            result["roadside_label"] = helpline["label"]
+        elif not result.get("roadside_number"):
+            result["roadside_number"] = None
+            result["roadside_label"] = "No verified helpline for this brand; tell the driver to check the owner's manual or the carmaker's website."
+        print(f"[manual] tool response for {make} {model}: {len(json.dumps(result))} bytes", flush=True)
+        return result
+
+    @router.get("/v1/debug/agent/{agent_id}")
+    async def debug_agent(agent_id: str, request: Request):
+        # Local-only: requests through the ngrok tunnel always carry X-Forwarded-For.
+        client_host = request.client.host if request.client else ""
+        if client_host not in ("127.0.0.1", "::1") or "x-forwarded-for" in request.headers:
+            raise HTTPException(status_code=404)
+        return await agora.debug_history(agent_id)
+
+
 
     @router.get("/health", response_model=HealthResponse)
     async def health() -> HealthResponse:
@@ -178,6 +216,47 @@ def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -
         )
 
     return router
+
+
+_fetching: set[str] = set()
+_fetching_lock = threading.Lock()
+
+
+def start_background_lookup(make: str, model: str) -> None:
+    key = f"{make.split()[0]}_{model}".lower()
+    with _fetching_lock:
+        if key in _fetching:
+            return  # already being fetched
+        _fetching.add(key)
+
+    def run() -> None:
+        try:
+            lookup_manual(make, model)
+        finally:
+            with _fetching_lock:
+                _fetching.discard(key)
+
+    threading.Thread(target=run, name=f"manual-{key}", daemon=True).start()
+
+
+def compact_manual(result: dict) -> dict:
+    """One short line per lamp, so the voice LLM gets a small tool result."""
+    if not result.get("lamps"):
+        return result  # "none", or unstructured manual pages in "lamp_text" (passed through as-is)
+    lines = []
+    for lamp in result["lamps"]:
+        line = f"{lamp.get('lamp')} ({lamp.get('colour')})"
+        if lamp.get("steady"):
+            line += f". Steady: {lamp['steady']}"
+        if lamp.get("flashing"):
+            line += f". Flashing: {lamp['flashing']}"
+        lines.append(line)
+    return {
+        "source": result["source"],
+        "car": result["car"],
+        "roadside_number": result.get("roadside_number"),
+        "lamps": lines,
+    }
 
 
 async def require_session(store: SessionStore, channel_name: str) -> SessionRecord:
