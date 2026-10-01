@@ -104,7 +104,7 @@ private val Inter = FontFamily(
     Font(R.font.inter_semibold, FontWeight.SemiBold),
 )
 private val Label = TextStyle(fontFamily = Inter, fontWeight = FontWeight.Medium, fontSize = 11.sp, letterSpacing = 1.6.sp, color = TextFaint)
-private val Body = TextStyle(fontFamily = Inter, fontSize = 14.sp, color = TextMuted)
+private val Body = TextStyle(fontFamily = Inter, fontSize = 13.sp, color = TextMuted)
 
 private const val DEFAULT_AGENT_LINE = "Show me the dashboard and tell me what's bothering you."
 
@@ -149,7 +149,7 @@ fun ClusterScreen(
             Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
                 Text(
                     text = userLine,
-                    style = Body.copy(color = TextPrimary, fontSize = 14.sp),
+                    style = Body.copy(color = TextPrimary, fontSize = 13.sp),
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier
@@ -177,7 +177,7 @@ fun ClusterScreen(
             Spacer(Modifier.height(8.dp))
             Text(
                 text = message,
-                style = Body.copy(fontSize = 13.sp, color = if (uiState.errorMessage != null) Red else Amber),
+                style = Body.copy(fontSize = 12.sp, color = if (uiState.errorMessage != null) Red else Amber),
                 maxLines = 3,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.clickable(onClick = onDismissMessages),
@@ -198,7 +198,7 @@ private fun Header(uiState: ConversationUiState) {
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().height(40.dp)) {
         LensMark(Modifier.size(28.dp))
         Spacer(Modifier.width(10.dp))
-        Text("DashLens", fontFamily = Grotesk, fontWeight = FontWeight.Bold, fontSize = 22.sp, color = TextPrimary)
+        Text("DashLens", fontFamily = Grotesk, fontWeight = FontWeight.Bold, fontSize = 20.sp, color = TextPrimary)
         Spacer(Modifier.weight(1f))
         if (uiState.inConversation) {
             val (label, color) = when (uiState.agentVisualState) {
@@ -334,15 +334,15 @@ private fun CameraCard(
                     "Point your phone at the\ninstrument cluster",
                     fontFamily = Grotesk,
                     fontWeight = FontWeight.Medium,
-                    fontSize = 18.sp,
-                    lineHeight = 24.sp,
+                    fontSize = 16.sp,
+                    lineHeight = 22.sp,
                     color = TextPrimary,
                     textAlign = TextAlign.Center,
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
                     if (uiState.cameraPermissionGranted) "DashLens reads the warning lights with you" else "Tap to allow camera access",
-                    style = Body.copy(fontSize = 13.sp),
+                    style = Body.copy(fontSize = 12.sp),
                     textAlign = TextAlign.Center,
                 )
             }
@@ -356,9 +356,9 @@ private fun CameraCard(
             ) {
                 Icon(Icons.Filled.VideocamOff, contentDescription = null, tint = TextMuted, modifier = Modifier.size(36.dp))
                 Spacer(Modifier.height(12.dp))
-                Text("Camera paused", fontFamily = Grotesk, fontWeight = FontWeight.Medium, fontSize = 17.sp, color = TextPrimary)
+                Text("Camera paused", fontFamily = Grotesk, fontWeight = FontWeight.Medium, fontSize = 16.sp, color = TextPrimary)
                 Spacer(Modifier.height(4.dp))
-                Text("The agent can't see the dashboard", style = Body.copy(fontSize = 13.sp))
+                Text("The agent can't see the dashboard", style = Body.copy(fontSize = 12.sp))
             }
         }
 
@@ -394,7 +394,7 @@ private fun CameraCard(
                     if (uiState.cameraZoom > 1f) "2×" else "1×",
                     fontFamily = Inter,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 13.sp,
+                    fontSize = 12.sp,
                     color = if (uiState.cameraZoom > 1f) Amber else TextPrimary,
                     modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
                 )
@@ -496,7 +496,7 @@ private fun StartControls(uiState: ConversationUiState, onStart: () -> Unit) {
         Spacer(Modifier.height(6.dp))
         Text(
             if (uiState.isStarting) "Connecting to your co-driver…" else "Tap to talk · hands-free after that",
-            style = Body.copy(fontSize = 13.sp),
+            style = Body.copy(fontSize = 12.sp),
         )
     }
 }
@@ -646,8 +646,8 @@ private fun AgentCaption(full: String, speaking: Boolean, live: Boolean) {
         text = text,
         fontFamily = Grotesk,
         fontWeight = FontWeight.Medium,
-        fontSize = 22.sp,
-        lineHeight = 29.sp,
+        fontSize = 19.sp,
+        lineHeight = 26.sp,
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(max = 150.dp)
