@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "agent-quickstart-android"
+rootProject.name = "DashLens"
 include(":app")

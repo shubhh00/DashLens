@@ -26,7 +26,7 @@ fun quote(value: String): String {
 }
 
 android {
-    namespace = "com.androidengineers.agent_quickstart_android"
+    namespace = "com.dashlens.app"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -34,7 +34,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.androidengineers.agent_quickstart_android"
+        applicationId = "com.dashlens.app"
         minSdk = 24
         targetSdk = 36
         versionCode = 2
@@ -42,8 +42,8 @@ android {
 
         buildConfigField(
             "String",
-            "QUICKSTART_SERVER_URL",
-            quote(localOrEnv("QUICKSTART_SERVER_URL"))
+            "DASHLENS_SERVER_URL",
+            quote(localOrEnv("DASHLENS_SERVER_URL", "QUICKSTART_SERVER_URL"))
         )
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

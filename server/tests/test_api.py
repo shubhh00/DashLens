@@ -134,8 +134,8 @@ async def test_sdk_custom_tool_and_text_actions_reach_agora():
     properties = json.loads(requests[0].content)["properties"]
     assert properties["advanced_features"]["enable_tools"] is True
     tool = properties["llm"]["tools"][0]
-    assert tool["function"]["name"] == "getProjectGuidance"
-    assert tool["server"]["url"] == "https://example.com/v1/tools/guidance?topic={{args.topic}}"
+    assert tool["function"]["name"] == "lookupManual"
+    assert tool["server"]["url"] == "https://example.com/v1/tools/manual?make={{args.make}}&model={{args.model}}"
     assert requests[1].url.path.endswith("/agents/agent-1/speak")
     assert json.loads(requests[1].content)["priority"] == "APPEND"
     assert requests[2].url.path.endswith("/agents/agent-1/think")
@@ -145,11 +145,9 @@ async def test_sdk_custom_tool_and_text_actions_reach_agora():
         assert instruction[f"on_{state}_action"] == "append"
 
 
-def test_guidance_restricts_topics_and_text_actions_validate_sessions_and_input():
+def test_text_actions_validate_sessions_and_input():
     fake = FakeAgoraClient()
     with TestClient(create_app(settings(), fake)) as client:
-        assert "QUICKSTART_SERVER_URL" in client.get("/v1/tools/guidance?topic=setup").json()["content"]
-        assert client.get("/v1/tools/guidance?topic=../../server/.env.local").status_code == 422
         channel = client.post("/v1/conversation/bootstrap", json={"requester_rtc_uid": 42}).json()["channel_name"]
         client.post("/v1/conversation/join", json={"channel_name": channel, "requester_rtc_uid": 42})
         body = {"channel_name": channel, "agent_id": "agent-1", "text": "Hello"}

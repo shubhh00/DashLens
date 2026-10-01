@@ -105,50 +105,6 @@ class AgoraClient:
             tools.append({
                 "type": "function",
                 "function": {
-                    "name": "getProjectGuidance",
-                    "description": "Look up this Android quickstart's setup or troubleshooting instructions. Use for questions about configuring or debugging this project.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {"topic": {"type": "string", "enum": ["setup", "troubleshooting"]}},
-                        "required": ["topic"],
-                        "additionalProperties": False,
-                    },
-                },
-                "execution": {"mode": "sync"},
-                "server": {
-                    "method": "GET",
-                    "url": self.settings.public_base_url.rstrip("/") + "/v1/tools/guidance?topic={{args.topic}}",
-                    "timeout_ms": 5000,
-                },
-            })
-
-
-
-    def _build_agent(self, system_prompt: str | None = None) -> Agent:
-        tools = []
-        if self.settings.public_base_url:
-            tools.append({
-                "type": "function",
-                "function": {
-                    "name": "getProjectGuidance",
-                    "description": "Look up this Android quickstart's setup or troubleshooting instructions. Use for questions about configuring or debugging this project.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {"topic": {"type": "string", "enum": ["setup", "troubleshooting"]}},
-                        "required": ["topic"],
-                        "additionalProperties": False,
-                    },
-                },
-                "execution": {"mode": "sync"},
-                "server": {
-                    "method": "GET",
-                    "url": self.settings.public_base_url.rstrip("/") + "/v1/tools/guidance?topic={{args.topic}}",
-                    "timeout_ms": 5000,
-                },
-            })
-            tools.append({
-                "type": "function",
-                "function": {
                     "name": "lookupManual",
                     "description": "Look up the warning lamp meanings from a car's owner manual. Call this as soon as you know the car's make and model, before explaining any warning light.",
                     "parameters": {

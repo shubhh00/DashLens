@@ -32,7 +32,7 @@ def create_app(
         await agora.close()
 
     application = FastAPI(
-        title="Agora Android Quickstart Server",
+        title="DashLens Server",
         version=resolved_settings.build_version,
         lifespan=lifespan,
     )

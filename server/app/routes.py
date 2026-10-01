@@ -5,8 +5,7 @@ import random
 import secrets
 import threading
 import time
-from pathlib import Path
-from typing import Any, Literal
+from typing import Any
 
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 
@@ -35,16 +34,6 @@ def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -
     router = APIRouter()
     rate_limit = build_rate_limiter(settings)
     throttled = [Depends(rate_limit)]
-
-    @router.get("/v1/tools/guidance", dependencies=throttled)
-    def guidance(topic: Literal["setup", "troubleshooting"]):
-        # Only these public project documents are readable; no arbitrary paths.
-        path = Path(__file__).resolve().parents[2] / "docs" / f"{topic}.md"
-        if not path.is_file():
-            raise HTTPException(status_code=503, detail="Project guidance is unavailable.")
-        return {"topic": topic, "source": f"docs/{topic}.md", "content": path.read_text(encoding="utf-8")}
-
-
 
     @router.get("/v1/tools/manual", dependencies=throttled)
     def manual(make: str, model: str):
