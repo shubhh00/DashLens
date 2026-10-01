@@ -1,0 +1,194 @@
+{
+  "source": "manual",
+  "car": "Hyundai Creta",
+  "manual_url": "https://www.hyundai.com/content/dam/hyundai/in/en/data/connect-to-service/owners-manual/new/Cretasep2020-Jan2024.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Air bag Warning Light",
+      "colour": "red",
+      "steady": "SRS malfunction. Have the vehicle inspected by an authorized HYUNDAI dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Seat Belt Warning Light",
+      "colour": "red",
+      "steady": "The driver or front passenger seat belt is not fastened.",
+      "flashing": null
+    },
+    {
+      "lamp": "Parking Brake & Brake Fluid Warning Light",
+      "colour": "red",
+      "steady": "Parking brake is applied or brake fluid is low. If low, stop safely, check fluid, or tow vehicle.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) Warning Light",
+      "colour": "yellow",
+      "steady": "ABS malfunction. Normal brakes still work. Have vehicle inspected by HYUNDAI dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Parking Brake (EPB) Warning Light",
+      "colour": "yellow",
+      "steady": "EPB malfunction. Have the vehicle inspected by an authorized HYUNDAI dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "AUTO HOLD Indicator Light",
+      "colour": "yellow",
+      "steady": "White: Auto Hold active. Green: Vehicle stopped by Auto Hold. Yellow: Malfunction; have inspected by HYUNDAI dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Stability Control (ESC) Indicator Light",
+      "colour": "yellow",
+      "steady": "ESC malfunction. Have the vehicle inspected by an authorized HYUNDAI dealer.",
+      "flashing": "ESC is operating. Drive slowly and do not accelerate."
+    },
+    {
+      "lamp": "Electronic Stability Control (ESC) OFF Indicator Light",
+      "colour": "yellow",
+      "steady": "ESC system is deactivated.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electric Power Steering (EPS) Warning Light",
+      "colour": "yellow",
+      "steady": "EPS malfunction. Steering effort may change. Have vehicle inspected by HYUNDAI dealer.",
+      "flashing": "May indicate VSM malfunction. Have checked by HYUNDAI dealer."
+    },
+    {
+      "lamp": "Malfunction Indicator Lamp (MIL)",
+      "colour": "yellow",
+      "steady": "Emission control malfunction or catalytic converter damage. Have vehicle inspected by HYUNDAI dealer.",
+      "flashing": "Diesel engine injection quantity adjustment error. Have engine control system inspected."
+    },
+    {
+      "lamp": "Charging System Warning Light",
+      "colour": "red",
+      "steady": "Alternator or electrical charging system malfunction. Stop safely, check drive belt, and contact HYUNDAI.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Pressure Warning Light",
+      "colour": "red",
+      "steady": "Low engine oil pressure. Stop safely immediately, turn off engine, check oil, and add if needed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel Level Warning Light",
+      "colour": "yellow",
+      "steady": "Fuel tank is nearly empty. Refuel as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Overspeed Warning Light",
+      "colour": "red",
+      "steady": null,
+      "flashing": "Vehicle speed exceeds 120 km/h. Slow down to prevent fast driving."
+    },
+    {
+      "lamp": "Master Warning Light",
+      "colour": "yellow",
+      "steady": "Malfunction in systems like TPMS or lamps. Check LCD display for details.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Tire Pressure / TPMS Warning Light",
+      "colour": "yellow",
+      "steady": "One or more tires are significantly under-inflated. Reduce speed and check tire pressure.",
+      "flashing": "TPMS malfunction. Have the system inspected by an authorized HYUNDAI dealer."
+    },
+    {
+      "lamp": "Fuel Filter Warning Light",
+      "colour": "yellow",
+      "steady": "Water has accumulated in the fuel filter. Drain water immediately to avoid engine damage.",
+      "flashing": null
+    },
+    {
+      "lamp": "Exhaust System (DPF or LNT) Warning Light",
+      "colour": "yellow",
+      "steady": "DPF/LNT malfunction or high soot. Drive over 60 km/h in 2nd+ gear at 1500-2500 RPM for 25 minutes.",
+      "flashing": "DPF system may be damaged if blinking for a long time. Have checked."
+    },
+    {
+      "lamp": "Glow Indicator Light",
+      "colour": "yellow",
+      "steady": "Engine is preheating. Start the engine after the light goes off.",
+      "flashing": "Engine preheating system malfunction if blinking after engine warms up. Have inspected."
+    },
+    {
+      "lamp": "Immobilizer Indicator Light (without smart key)",
+      "colour": "yellow",
+      "steady": "Key detected. Engine can be started.",
+      "flashing": "Immobilizer system malfunction. Have vehicle inspected by HYUNDAI dealer."
+    },
+    {
+      "lamp": "Immobilizer Indicator Light (with smart key)",
+      "colour": "yellow",
+      "steady": "Smart key detected. Engine can start. If lit for 2 seconds and off, key not detected; have inspected.",
+      "flashing": "Smart key not in vehicle, battery weak, or system malfunction. Have inspected."
+    },
+    {
+      "lamp": "Turn Signal Indicator Light",
+      "colour": "green",
+      "steady": "System malfunction if it stays on instead of blinking. Have checked.",
+      "flashing": "Turn signals are operating. Rapid blinking indicates system malfunction."
+    },
+    {
+      "lamp": "LED Headlamp Warning Light",
+      "colour": "yellow",
+      "steady": "LED headlamp malfunction. Have vehicle inspected by HYUNDAI dealer.",
+      "flashing": "LED headlamp related part malfunction. Have inspected by HYUNDAI dealer."
+    },
+    {
+      "lamp": "Low Beam Indicator Light",
+      "colour": "green",
+      "steady": "Headlamps are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Beam Indicator Light",
+      "colour": "blue",
+      "steady": "High beams are on or headlights are flashed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Light ON Indicator Light",
+      "colour": "green",
+      "steady": "Tail lights or headlamps are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Fog Indicator Light",
+      "colour": "green",
+      "steady": "Front fog lights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise Indicator Light",
+      "colour": "green",
+      "steady": "Cruise control system is enabled.",
+      "flashing": null
+    },
+    {
+      "lamp": "COMFORT Mode Indicator Light",
+      "colour": "green",
+      "steady": "COMFORT drive mode is selected.",
+      "flashing": null
+    },
+    {
+      "lamp": "ECO Mode Indicator Light",
+      "colour": "green",
+      "steady": "ECO drive mode is selected.",
+      "flashing": null
+    },
+    {
+      "lamp": "SPORT Mode Indicator Light",
+      "colour": "yellow",
+      "steady": "SPORT drive mode is selected.",
+      "flashing": null
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "source": "manual",
+  "car": "Hyundai Venue",
+  "manual_url": "https://www.hyundai.com/content/dam/hyundai/in/en/data/connect-to-service/owners-manual/2025/venue-venue-n-line-nov-2025-to-present.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Seat belt warning light",
+      "colour": "red",
+      "steady": "Seat belt is unfastened. Fasten your seat belt before driving.",
+      "flashing": "Seat belt unfastened while driving above 20 km/h. Fasten seat belt immediately."
+    },
+    {
+      "lamp": "Airbag warning light",
+      "colour": "red",
+      "steady": "Malfunction in SRS airbag or pretensioner system. Have vehicle inspected by authorised repairer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine oil pressure warning light",
+      "colour": "red",
+      "steady": "Engine oil pressure is low. Turn off engine and check oil level; add oil if required.",
+      "flashing": null
+    },
+    {
+      "lamp": "MDPS warning light",
+      "colour": "red",
+      "steady": "Malfunction in Motor Driven Power Steering. Have vehicle inspected by authorised repairer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Parking brake warning light",
+      "colour": "red",
+      "steady": "Parking brake applied or brake fluid level low. Check brake fluid or release parking brake.",
+      "flashing": null
+    },
+    {
+      "lamp": "EBD system warning light",
+      "colour": "red",
+      "steady": "ABS and brake systems malfunction. Avoid high speed and abrupt braking; inspect vehicle.",
+      "flashing": null
+    },
+    {
+      "lamp": "ABS warning light",
+      "colour": "yellow",
+      "steady": "Malfunction in ABS. Hydraulic brakes still work. Have vehicle inspected by authorised repairer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low fuel level warning light",
+      "colour": "yellow",
+      "steady": "Fuel tank is nearly empty. Refuel vehicle as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indicator Lamp (MIL)",
+      "colour": "yellow",
+      "steady": "Malfunction in emission control system, engine, or powertrain. Inspect vehicle as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charging system warning light",
+      "colour": "red",
+      "steady": "Malfunction in alternator or electrical charging system. Check drive belt and inspect vehicle.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low tyre pressure warning light",
+      "colour": "yellow",
+      "steady": "One or more tyres are under-inflated. Stop and inflate tyres to proper pressure.",
+      "flashing": "TPMS malfunction. Have vehicle inspected by authorised repairer as soon as possible."
+    },
+    {
+      "lamp": "Electronic Parking Brake (EPB) warning light",
+      "colour": "yellow",
+      "steady": "Malfunction with Electronic Parking Brake. Have vehicle inspected by authorised repairer.",
+      "flashing": null
+    },
+    {
+      "lamp": "AUTO HOLD indicator light",
+      "colour": "white",
+      "steady": "White when standby, green when holding vehicle, yellow when malfunctioning. Inspect if yellow.",
+      "flashing": null
+    },
+    {
+      "lamp": "Master warning light",
+      "colour": "yellow",
+      "steady": "Malfunction in driver assistance or vehicle systems. Check cluster display to resolve.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobiliser indicator light",
+      "colour": "yellow",
+      "steady": "Smart key detected in vehicle. If key present but undetected, inspect vehicle.",
+      "flashing": "Smart key not in vehicle or immobiliser malfunction. Have vehicle inspected."
+    },
+    {
+      "lamp": "LED headlight warning light",
+      "colour": "yellow",
+      "steady": "Malfunction with LED headlight. Have vehicle inspected by authorised repairer.",
+      "flashing": "Malfunction with LED headlight related part. Inspect vehicle as soon as possible."
+    },
+    {
+      "lamp": "ESC indicator light",
+      "colour": "yellow",
+      "steady": "Malfunction with ESC system. Have vehicle inspected by authorised repairer.",
+      "flashing": "ESC system is actively operating."
+    },
+    {
+      "lamp": "ESC OFF indicator light",
+      "colour": "yellow",
+      "steady": "ESC system is deactivated.",
+      "flashing": null
+    },
+    {
+      "lamp": "Forward Safety warning light",
+      "colour": "yellow",
+      "steady": "Forward Safety deselected, disabled, or malfunctioning. Inspect vehicle if light stays on.",
+      "flashing": "Red when Forward Safety function is actively operating."
+    },
+    {
+      "lamp": "Lane Safety indicator light",
+      "colour": "yellow",
+      "steady": "Grey when inactive, green when ready, yellow when malfunctioning. Inspect if yellow.",
+      "flashing": "Green when Lane Keeping Assist is operating."
+    },
+    {
+      "lamp": "Inattentive Driving Warning light",
+      "colour": "yellow",
+      "steady": "Driver Attention Warning disabled or malfunctioning. Inspect vehicle if light stays on.",
+      "flashing": "Driver Attention Warning recommends taking a break."
+    },
+    {
+      "lamp": "Lane Following Assist indicator light",
+      "colour": "green",
+      "steady": "Green when operating, grey when conditions are not satisfied.",
+      "flashing": "White when steering wheel assist is cancelled."
+    },
+    {
+      "lamp": "High beam indicator light",
+      "colour": "blue",
+      "steady": "High beam headlights are turned on or flashed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low beam indicator light",
+      "colour": "green",
+      "steady": "Low beam headlights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Light ON indicator light",
+      "colour": "green",
+      "steady": "Position lights or headlights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Speed Limiter indicator light",
+      "colour": "green",
+      "steady": "Speed limiter feature is enabled.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise indicator light",
+      "colour": "green",
+      "steady": "Cruise control system is enabled.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn signal indicator light",
+      "colour": "green",
+      "steady": "Turn signal system malfunction if light stays steady without blinking. Inspect vehicle.",
+      "flashing": "Turn signal lever is operating."
+    },
+    {
+      "lamp": "High Beam Assist indicator light",
+      "colour": "white",
+      "steady": "White when ready, green when operating.",
+      "flashing": null
+    },
+    {
+      "lamp": "Door open indicator light",
+      "colour": "red",
+      "steady": "Door is open or not fully closed. Close door completely before driving.",
+      "flashing": null
+    },
+    {
+      "lamp": "Icy road warning light",
+      "colour": "yellow",
+      "steady": "Road surface may be icy. Avoid speeding, sudden acceleration, or sharp turning.",
+      "flashing": null
+    },
+    {
+      "lamp": "BCA warning light",
+      "colour": "yellow",
+      "steady": "Vehicle detected in rear blind spot area.",
+      "flashing": "Collision risk detected when turn signal is on toward detected vehicle."
+    },
+    {
+      "lamp": "DPF warning light",
+      "colour": "yellow",
+      "steady": "Soot accumulated in DPF. Drive above 60 km/h in 2nd gear or higher to clear.",
+      "flashing": "DPF malfunction or self-regeneration required. Visit an authorised repairer."
+    },
+    {
+      "lamp": "SCR warning light",
+      "colour": "yellow",
+      "steady": "Urea solution level is low. Refill as soon as possible.",
+      "flashing": null
+    }
+  ]
+}

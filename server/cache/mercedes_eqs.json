@@ -1,0 +1,170 @@
+{
+  "source": "manual",
+  "car": "Mercedes EQS",
+  "manual_url": "https://www.mbusa.com/content/dam/mb-nafta/us/owners/manuals/2023/owners-manuals/MY23%20EQS%20SUV%20Owners%20Manual.pdf",
+  "roadside_number": "1-800-367-6372",
+  "lamps": [
+    {
+      "lamp": "Restraint system warning lamp",
+      "colour": "red",
+      "steady": "Restraint system malfunction. Drive carefully and have it checked immediately at a qualified workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Seat belt warning lamp",
+      "colour": "red",
+      "steady": "Reminds the driver and front passenger to fasten their seat belts.",
+      "flashing": "Driver or passenger belt is unfastened while moving, or objects are on passenger seat. Fasten belt."
+    },
+    {
+      "lamp": "Occupant presence reminder warning lamp (white)",
+      "colour": "white",
+      "steady": "The occupant presence reminder is deactivated. Switch it on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Occupant presence reminder warning lamp (yellow)",
+      "colour": "yellow",
+      "steady": "The occupant presence reminder is malfunctioning. Note messages on driver's display.",
+      "flashing": null
+    },
+    {
+      "lamp": "Reduced power warning lamp",
+      "colour": "yellow",
+      "steady": "Drive system power output is reduced. Note messages on the driver's display.",
+      "flashing": null
+    },
+    {
+      "lamp": "System malfunction warning lamp",
+      "colour": "red",
+      "steady": "There is a malfunction in the drive system. Note messages on driver's display.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electrical malfunction warning lamp",
+      "colour": "red",
+      "steady": "There is an electrical malfunction. Note messages on the driver's display.",
+      "flashing": null
+    },
+    {
+      "lamp": "RBS warning lamp (USA only)",
+      "colour": "yellow",
+      "steady": "Brake system malfunction. Drive carefully and have it checked immediately at a qualified workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brakes warning lamp (yellow) (Canada only)",
+      "colour": "yellow",
+      "steady": "Brake system malfunction. Drive carefully and have it checked immediately at a qualified workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brakes warning lamp (USA only)",
+      "colour": "red",
+      "steady": "Brake force boosting malfunction or low brake fluid. Stop safely immediately and consult a qualified workshop. Do not drive.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brakes warning lamp (Canada only)",
+      "colour": "red",
+      "steady": "Brake force boosting malfunction or low brake fluid. Stop safely immediately and consult a qualified workshop. Do not drive.",
+      "flashing": null
+    },
+    {
+      "lamp": "ABS warning lamp",
+      "colour": "yellow",
+      "steady": "ABS is malfunctioning. Wheels may lock during braking. Drive carefully and have it checked at a workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP warning lamp",
+      "colour": "yellow",
+      "steady": "ESP is malfunctioning. Drive carefully and have ESP checked at a qualified specialist workshop.",
+      "flashing": "One or more wheels have reached grip limits. Adapt driving style to road conditions."
+    },
+    {
+      "lamp": "ESP OFF warning lamp",
+      "colour": "yellow",
+      "steady": "ESP is deactivated. Drive carefully and only deactivate it as long as required.",
+      "flashing": null
+    },
+    {
+      "lamp": "Distance warning lamp",
+      "colour": "red",
+      "steady": "Distance to the vehicle in front is too small. Be prepared to brake immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Suspension warning lamp (yellow)",
+      "colour": "yellow",
+      "steady": "A malfunction has occurred in AIRMATIC. Note the messages on the driver's display.",
+      "flashing": null
+    },
+    {
+      "lamp": "Suspension warning lamp (red)",
+      "colour": "red",
+      "steady": "AIRMATIC malfunction. Driving characteristics have changed. Consult a qualified specialist workshop immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Tire pressure monitoring system warning lamp",
+      "colour": "yellow",
+      "steady": "Tire pressure loss detected in at least one tire. Stop safely, check and adjust tire pressure.",
+      "flashing": "Tire pressure monitoring system is malfunctioning. Have it checked at a qualified workshop."
+    },
+    {
+      "lamp": "Supply voltage indicator",
+      "colour": "white",
+      "steady": "The supply voltage is connected.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charging process indicator",
+      "colour": "green",
+      "steady": null,
+      "flashing": "The high-voltage battery is charging."
+    },
+    {
+      "lamp": "Temperature monitor indicator",
+      "colour": "red",
+      "steady": "Overtemperature detected. Charging performance is reduced or stopped.",
+      "flashing": "Overtemperature at the mains plug. The charging process is stopped."
+    },
+    {
+      "lamp": "Safety system indicator",
+      "colour": "red",
+      "steady": "Power supply or vehicle malfunction. Reset charging cable unit or replace socket.",
+      "flashing": "Charging cable malfunction. Cannot charge. Reset the charging cable operating unit."
+    },
+    {
+      "lamp": "Vehicle socket locking status",
+      "colour": "white",
+      "steady": "Vehicle socket is unlocked. You can insert or remove the charging cable.",
+      "flashing": "Disconnection or malfunction during locking or unlocking."
+    },
+    {
+      "lamp": "Vehicle socket condition of charge (blue)",
+      "colour": "blue",
+      "steady": "The charging process is completed.",
+      "flashing": "The vehicle is charging with active energy flow."
+    },
+    {
+      "lamp": "Vehicle socket condition of charge (orange)",
+      "colour": "amber",
+      "steady": "The charging process is paused.",
+      "flashing": "A connection to the charging station is being established."
+    },
+    {
+      "lamp": "Vehicle socket condition of charge (red)",
+      "colour": "red",
+      "steady": null,
+      "flashing": "A malfunction has occurred in the vehicle. Charging is not possible."
+    },
+    {
+      "lamp": "Blind Spot Assist outside mirror warning lamp",
+      "colour": "red",
+      "steady": "A vehicle is detected in the warning range.",
+      "flashing": "Vehicle detected in warning range and turn signal is on. Double warning tone sounds."
+    }
+  ]
+}

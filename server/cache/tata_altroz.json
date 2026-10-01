@@ -1,0 +1,170 @@
+{
+  "source": "manual",
+  "car": "Tata Altroz",
+  "manual_url": "https://riyatata.com/assets/images/Altroz_BSVI_OMSB_18.12.19.pdf",
+  "roadside_number": "1800 209 7979",
+  "lamps": [
+    {
+      "lamp": "Driver Seat belt indicator",
+      "colour": "red",
+      "steady": "Fasten your seat belt. The buzzer and lamp turn off once buckled.",
+      "flashing": "Blinks if the driver's seat belt is not fastened."
+    },
+    {
+      "lamp": "Front Passenger Seat belt indicator",
+      "colour": "red",
+      "steady": "Fasten the passenger seat belt. The buzzer and lamp turn off once buckled.",
+      "flashing": "Blinks if the occupant is an adult and seat belt is not fastened."
+    },
+    {
+      "lamp": "Airbag status / SRS",
+      "colour": "red",
+      "steady": "Indicates a system malfunction. Contact an authorized service center immediately.",
+      "flashing": "System is malfunctioning if it blinks while the engine is running."
+    },
+    {
+      "lamp": "Low Fuel indicator",
+      "colour": "amber",
+      "steady": "Fuel level is low. Fill fuel immediately.",
+      "flashing": "Indicates a fault in the fuel system. Contact an authorized service center."
+    },
+    {
+      "lamp": "High Coolant Temperature",
+      "colour": "red",
+      "steady": "Engine is overheating. Stop the vehicle and engine to allow it to cool.",
+      "flashing": "Temperature is very high. Stop the vehicle immediately and contact service center."
+    },
+    {
+      "lamp": "Malfunction Indication Lamp (MIL)",
+      "colour": "amber",
+      "steady": "Engine fault detected that may increase emissions. Contact service center for rectification.",
+      "flashing": null
+    },
+    {
+      "lamp": "Check Engine Lamp",
+      "colour": "amber",
+      "steady": "A fault has occurred in the Engine Management System. Contact service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer",
+      "colour": "red",
+      "steady": "Problem with the key or system. Contact an authorized service center.",
+      "flashing": "Vehicle is in immobilized condition when the key is not inserted."
+    },
+    {
+      "lamp": "Pre-Heat / Glow Plug indicator",
+      "colour": "amber",
+      "steady": "Wait for the indicator to turn off before starting the diesel engine.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn Signal",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Indicates the direction of turn or that hazard lights are active."
+    },
+    {
+      "lamp": "High Beam",
+      "colour": "blue",
+      "steady": "High beam headlamps are switched on or flashed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Oil Pressure indicator",
+      "colour": "red",
+      "steady": "Fault in the lubrication system. Contact service center to rectify the issue.",
+      "flashing": null
+    },
+    {
+      "lamp": "Battery charging",
+      "colour": "red",
+      "steady": "Battery is not charging. Switch off unnecessary electrical equipment and contact service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "Park Brake / Brake Fluid Low / EBD malfunction",
+      "colour": "red",
+      "steady": "Parking brake is applied, brake fluid is low, or EBD is malfunctioning.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise Control lamp",
+      "colour": "green",
+      "steady": "Cruise control feature is activated.",
+      "flashing": null
+    },
+    {
+      "lamp": "ABS",
+      "colour": "amber",
+      "steady": "Malfunction in the ABS. Normal braking system remains operational. Contact service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "Key Not Detected",
+      "colour": "amber",
+      "steady": "A valid smart key is not detected inside the vehicle.",
+      "flashing": null
+    },
+    {
+      "lamp": "Press Clutch Pedal to Start Engine",
+      "colour": "amber",
+      "steady": "Press the clutch pedal to start the engine.",
+      "flashing": null
+    },
+    {
+      "lamp": "Water in fuel indicator",
+      "colour": "amber",
+      "steady": "Excess water has accumulated in the fuel filter.",
+      "flashing": "Water must be drained immediately to avoid serious fuel system damage."
+    },
+    {
+      "lamp": "Daytime running lamps (DRL)",
+      "colour": "amber / green",
+      "steady": "Daytime running lamps are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Door Ajar lamp",
+      "colour": "white / red",
+      "steady": "Indicates that one or more doors or the tailgate are open.",
+      "flashing": null
+    },
+    {
+      "lamp": "Speed limit warning indicator",
+      "colour": "amber",
+      "steady": "Vehicle speed is above 80 kmph.",
+      "flashing": "Vehicle speed is above 120 kmph. Continuous audio warning will sound."
+    },
+    {
+      "lamp": "ECO",
+      "colour": "green",
+      "steady": "Vehicle is in Economy drive mode for better fuel economy.",
+      "flashing": null
+    },
+    {
+      "lamp": "CITY",
+      "colour": "white / blue",
+      "steady": "Vehicle is in City drive mode for optimum torque and economy.",
+      "flashing": null
+    },
+    {
+      "lamp": "DPF",
+      "colour": "amber",
+      "steady": "DPF needs cleaning. Drive at 50-80 kmph until regeneration is complete.",
+      "flashing": null
+    },
+    {
+      "lamp": "Start/Stop button LED (Green)",
+      "colour": "green",
+      "steady": "Engine has started successfully.",
+      "flashing": "Contact dealer if it blinks for more than 10 seconds."
+    },
+    {
+      "lamp": "Start/Stop button LED (Amber)",
+      "colour": "amber",
+      "steady": "Vehicle is in accessory mode; electrical equipment can be used while engine is off.",
+      "flashing": null
+    }
+  ]
+}

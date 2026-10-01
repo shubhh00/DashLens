@@ -1,0 +1,194 @@
+{
+  "source": "manual",
+  "car": "MG Hector",
+  "manual_url": "https://www.team-bhp.com/forum/attachments/technical-stuff/2193553d1629039690-download-owners-manual-indian-cars-pdf-format-hector_e-manual.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Turn Signal Lamp / Hazard Warning Indicator",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Confirms whether outside turn signal or hazard flasher works normally. If the green arrow does not flash, inspect fuse and bulb."
+    },
+    {
+      "lamp": "Engine Oil Pressure Too Low Warning Lamp",
+      "colour": "red",
+      "steady": "Indicates engine oil pressure has dropped to a dangerous level. Stop engine and check oil level immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charging System Warning Lamp",
+      "colour": "red",
+      "steady": "Indicates a charging system fault. Drive off the lane safely, stop, and check the drive belt.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Fog Lamp Indicator",
+      "colour": null,
+      "steady": "Illuminates when the front fog lamp is turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Coolant Temperature Too High Warning Lamp",
+      "colour": "red",
+      "steady": "Indicates excessively high coolant temperature and the engine has overheated. Do not continue driving.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear Fog Lamp Indicator",
+      "colour": null,
+      "steady": "Illuminates when the rear fog lamp is turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Position Lamp Indicator",
+      "colour": null,
+      "steady": "Illuminates when the position lamp is turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Headlamp High Beam Indicator",
+      "colour": null,
+      "steady": "Illuminates when the headlamp high beam is turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Malfunction Indicator Lamp (MIL)",
+      "colour": null,
+      "steady": "Illuminates upon occurrence of any component or subsystem fault related to the emission system.",
+      "flashing": "Indicates serious misfire detected, which can cause damage to the catalytic converter."
+    },
+    {
+      "lamp": "ABS Fault Warning Lamp",
+      "colour": null,
+      "steady": "Indicates possibility of an ABS fault if illuminated during driving. Have the system inspected.",
+      "flashing": null
+    },
+    {
+      "lamp": "EPS Fault Warning Lamp",
+      "colour": null,
+      "steady": "Indicates the electronic power steering system has detected a fault. Steering will demand much greater effort.",
+      "flashing": null
+    },
+    {
+      "lamp": "Airbag Fault Warning Lamp",
+      "colour": null,
+      "steady": "Indicates an airbag system fault, meaning the airbag will deactivate and fail to trigger in an accident.",
+      "flashing": "Indicates an airbag system fault, meaning the airbag will deactivate and fail to trigger in an accident."
+    },
+    {
+      "lamp": "Brake System / EBD Warning Lamp",
+      "colour": null,
+      "steady": "Indicates parking brake is engaged, brake fluid level is too low, or an EBD system fault has occurred.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Immobilizer System Indicator",
+      "colour": null,
+      "steady": "Illuminates when the door is opened and goes out after the engine is started to show normal operation.",
+      "flashing": null
+    },
+    {
+      "lamp": "Driver Fasten-Seat-Belt Warning Lamp",
+      "colour": null,
+      "steady": "Illuminates if the driver does not fasten the seat belt properly after the ignition switch is turned on.",
+      "flashing": "Flashes if vehicle speed exceeds 20 km/h and seat belt remains unfastened."
+    },
+    {
+      "lamp": "Front Passenger Fasten-Seat-Belt Warning Lamp",
+      "colour": null,
+      "steady": "Illuminates if the front passenger seat is occupied and the occupant does not fasten the seat belt properly.",
+      "flashing": "Flashes if vehicle speed exceeds 20 km/h and front passenger seat belt remains unfastened."
+    },
+    {
+      "lamp": "Fuel Level Too Low Warning Lamp",
+      "colour": null,
+      "steady": "Indicates fuel amount in the fuel tank is insufficient and you should replenish fuel in time.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Parking Brake (EPB) Working Indicator",
+      "colour": null,
+      "steady": "Illuminates when the electronic parking brake is pulled up, indicating the vehicle is parked.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Parking Brake (EPB) Fault Warning Lamp",
+      "colour": null,
+      "steady": "Indicates an electronic parking brake fault or warning lamp fault, which can cause the vehicle to coast.",
+      "flashing": null
+    },
+    {
+      "lamp": "Automatic Vehicle Hold (AVH) Working Indicator",
+      "colour": null,
+      "steady": "Illuminates when the automatic vehicle hold function works and the vehicle is being parked.",
+      "flashing": null
+    },
+    {
+      "lamp": "Automatic Vehicle Hold (AVH) Fault Warning Lamp",
+      "colour": null,
+      "steady": "Indicates an automatic vehicle hold function module fault or warning lamp fault.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESC Fault Warning Lamp",
+      "colour": null,
+      "steady": "Indicates an ESC fault if it keeps illuminated.",
+      "flashing": "Indicates the ESC function is currently being triggered."
+    },
+    {
+      "lamp": "ESC OFF Indicator",
+      "colour": null,
+      "steady": "Illuminates when certain functions of ESC are deactivated by pressing the ESC OFF switch.",
+      "flashing": null
+    },
+    {
+      "lamp": "Transmission Fault Warning Lamp",
+      "colour": null,
+      "steady": "Indicates an automatic transmission system fault.",
+      "flashing": "Indicates an automatic transmission system fault."
+    },
+    {
+      "lamp": "Cruise Control System Working Condition Indicator",
+      "colour": null,
+      "steady": "Illuminates when the cruise control function is activated.",
+      "flashing": null
+    },
+    {
+      "lamp": "TPMS Fault Indicator",
+      "colour": null,
+      "steady": "Illuminates when tyre pressure is too low or too high, or when a TPMS fault occurs.",
+      "flashing": null
+    },
+    {
+      "lamp": "Vehicle - Start / Stop Fault Indicator",
+      "colour": null,
+      "steady": "Indicates when the vehicle start / stop function is functioning and automatically starting or stopping the engine.",
+      "flashing": null
+    },
+    {
+      "lamp": "Diesel Particulate Filter Indicator",
+      "colour": null,
+      "steady": "Indicates the DPF is blocked completely or partially, which may affect engine power performance.",
+      "flashing": null
+    },
+    {
+      "lamp": "Fuel Water Indicator Light",
+      "colour": null,
+      "steady": "Indicates water is mixed with fuel. Immediately drain the water through the bottom of the water separator.",
+      "flashing": null
+    },
+    {
+      "lamp": "SCR (Selective Catalytic Reduction) Warning Light",
+      "colour": null,
+      "steady": "Illuminates when the Diesel Exhaust Fluid level is low. Fill the tank with at least 5 liters of DEF.",
+      "flashing": null
+    },
+    {
+      "lamp": "Diesel Exhaust Fluid (DEF) Injection System Failure Warning Light",
+      "colour": null,
+      "steady": "Illuminates if an unknown fluid not conforming with acceptable characteristics is inserted, or if average DEF consumption over 50% is detected.",
+      "flashing": null
+    }
+  ]
+}

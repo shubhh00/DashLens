@@ -1,0 +1,110 @@
+{
+  "source": "manual",
+  "car": "Maruti Alto K10",
+  "manual_url": "https://www.marutisuzuki.com/content/dam/msil/arena/in/en/assets/cars/alto-k10/manuals/Alto_99011M53T09-74W.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "AIRBAG warning light",
+      "colour": "red",
+      "steady": "Fault in airbag or seat belt pretensioner system. Have inspected by an authorised workshop as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer system warning light",
+      "colour": "amber",
+      "steady": "Light comes on briefly when ignition is turned ON to check function.",
+      "flashing": "Problem with key or immobilizer system; engine will not start. Switch to LOCK then ON; if blinking continues, contact workshop."
+    },
+    {
+      "lamp": "Brake system warning light",
+      "colour": "red",
+      "steady": "Parking brake engaged, low brake fluid, or ABS proportioning valve failure. Stop safely, test brakes, or tow to workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock brake system (ABS) warning light",
+      "colour": "amber",
+      "steady": "ABS malfunction. Stop safely, restart engine; if light stays on, have system inspected at an authorised workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Oil pressure warning light",
+      "colour": "red",
+      "steady": "Insufficient oil pressure. Pull over, stop engine, check oil level, and inspect lubrication system before driving again.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charging warning light",
+      "colour": "red",
+      "steady": "Battery charging system malfunction. Have charging system inspected immediately by an authorised workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front seat belt reminder light",
+      "colour": "red",
+      "steady": "Driver or front passenger seat belt is not fastened.",
+      "flashing": "Driver or front passenger seat belt is unbuckled while driving. Fasten seat belts properly."
+    },
+    {
+      "lamp": "Rear passenger's seat belt reminder light",
+      "colour": "red",
+      "steady": "Rear passengers have not fastened their seat belts. Fasten seat belts.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction indicator light",
+      "colour": "amber",
+      "steady": "Emission control or Auto Gear Shift system problem. Have vehicle inspected at an authorised workshop.",
+      "flashing": "Engine misfire detected that can damage catalytic converter. Stop immediately in a safe place and contact workshop."
+    },
+    {
+      "lamp": "Transmission warning light",
+      "colour": "amber",
+      "steady": "Auto Gear Shift system problem. Have system inspected at an authorised workshop.",
+      "flashing": "Auto Gear Shift clutch temperature is too high. Stop vehicle in a safe place to cool down."
+    },
+    {
+      "lamp": "Electric power steering warning light",
+      "colour": "red",
+      "steady": "Power steering system malfunction. Have system inspected by an authorised workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "High engine coolant temperature warning light",
+      "colour": "red",
+      "steady": "Engine is overheating. Stop safely, idle engine to cool, check coolant level, and follow manual instructions.",
+      "flashing": "Engine is running hot. Avoid driving conditions that lead to actual overheating."
+    },
+    {
+      "lamp": "Turn signal indicators light",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Turn signals or hazard lights active. Rapid blinking indicates turn signal system malfunction."
+    },
+    {
+      "lamp": "Main beam indicator light",
+      "colour": "blue",
+      "steady": "Headlight high beams are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Illumination indicator light",
+      "colour": "green",
+      "steady": "Position lights, tail lights, or headlights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP warning light",
+      "colour": "amber",
+      "steady": "Malfunction in ESP systems (other than ABS). Have system inspected by an authorised workshop.",
+      "flashing": "Traction or stability control system is actively operating. Drive carefully."
+    },
+    {
+      "lamp": "ESP OFF indicator light",
+      "colour": "amber",
+      "steady": "ESP traction and stability control systems are deactivated using ESP OFF switch.",
+      "flashing": null
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "source": "manual",
+  "car": "MG Astor",
+  "manual_url": "https://www.team-bhp.com/forum/attachments/official-new-car-reviews/2238569d1638110150-mg-astor-review-astor-manual.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "High Beam Indicator",
+      "colour": "blue",
+      "steady": "The headlamp high beam is turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Side Lamp Indicator",
+      "colour": "green",
+      "steady": "The side lamps are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Auto Main Beam Indicator",
+      "colour": "green",
+      "steady": "The auto main beam function has switched on the main beam lamps.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear Fog Lamp Indicator",
+      "colour": "yellow",
+      "steady": "The rear fog lamps are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Fog Lamp Indicator",
+      "colour": "green",
+      "steady": "Illuminates when the headlamp high beam is turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Direction Indicator Lamp",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Flashes when the turning signals or hazard lights are on. Rapid flashing indicates turn signal light failure."
+    },
+    {
+      "lamp": "Anti-theft System Warning Lamp",
+      "colour": "red",
+      "steady": "No valid key is detected. Use correct key or place smart key in cup holder.",
+      "flashing": "The remote key battery is low. Replace the battery as soon as possible."
+    },
+    {
+      "lamp": "Airbag Warning Lamp",
+      "colour": "red",
+      "steady": "There is a failure in the airbag system or seat belt. Contact an MG dealer immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Seat Belt Unfastened Warning Lamp",
+      "colour": "red",
+      "steady": "The driver or front passenger seat belt is unfastened.",
+      "flashing": "The driver or front passenger seat belt remains unfastened."
+    },
+    {
+      "lamp": "Engine Malfunction Warning",
+      "colour": "yellow",
+      "steady": "Engine fault detected. Stop safely, switch off the engine, and contact an MG dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Emissions Malfunction Warning",
+      "colour": "yellow",
+      "steady": "An engine emissions fault has occurred. Contact an MG dealer as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Coolant Temperature Warning",
+      "colour": "red",
+      "steady": "Coolant temperature is too high. Stop safely, turn engine off, and contact an MG dealer immediately.",
+      "flashing": "The coolant temperature sensor has failed. Stop safely, turn engine off, and contact an MG dealer."
+    },
+    {
+      "lamp": "Low Oil Pressure Warning",
+      "colour": "red",
+      "steady": "Oil pressure is too low. Stop safely, turn engine off, check oil level, and contact MG.",
+      "flashing": null
+    },
+    {
+      "lamp": "Alternator Malfunction Warning",
+      "colour": "red",
+      "steady": "The 12V battery charging system has failed. Contact an MG dealer immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise Control Indicator (Yellow)",
+      "colour": "yellow",
+      "steady": "Cruise control system is enabled and in standby.",
+      "flashing": "Cruise control system failure detected. Contact an MG dealer as soon as possible."
+    },
+    {
+      "lamp": "Cruise Control Indicator (Green)",
+      "colour": "green",
+      "steady": "Cruise control system is active and operating.",
+      "flashing": null
+    },
+    {
+      "lamp": "Tyre Pressure Monitoring System (TPMS) Warning Lamp",
+      "colour": "yellow",
+      "steady": "Tyre pressure is low. Check tyre pressures.",
+      "flashing": "The TPMS has failed. Contact an MG dealer at the earliest opportunity."
+    },
+    {
+      "lamp": "Stability Control/Traction Control System Warning Lamp",
+      "colour": "yellow",
+      "steady": "The stability or traction control system has failed. Contact an MG dealer immediately.",
+      "flashing": "The stability or traction control system is actively operating."
+    },
+    {
+      "lamp": "Stability Control/Traction Control System Off Warning Lamp",
+      "colour": "yellow",
+      "steady": "The stability or traction control system is manually switched off.",
+      "flashing": null
+    },
+    {
+      "lamp": "ABS Malfunction Warning Lamp",
+      "colour": "yellow",
+      "steady": "ABS fault detected. Normal braking is still functional. Contact an MG dealer as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brake System Malfunction Indicator Lamp",
+      "colour": "red",
+      "steady": "Braking system failure, such as low fluid or brake force distribution failure. Stop safely and contact MG.",
+      "flashing": "Parking brake is not released while vehicle speed is above 5 km/h."
+    },
+    {
+      "lamp": "Electronic Parking Brake (EPB) Status Indicator Lamp",
+      "colour": "red",
+      "steady": "Electronic parking brake is enabled or dynamic braking is active.",
+      "flashing": "The electronic parking brake has failed. Contact an MG dealer as soon as possible."
+    },
+    {
+      "lamp": "Automatic Parking Status Indicator Lamp",
+      "colour": "green",
+      "steady": "The auto hold system is operating to assist the driver.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Parking Brake (EPB) System Malfunction Indicator Lamp",
+      "colour": "yellow",
+      "steady": "EPB system failure detected or system is under diagnosis. Contact an MG dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Hill Descent Control (HDC) Indicator (Green)",
+      "colour": "green",
+      "steady": "HDC is active in standby mode.",
+      "flashing": "The vehicle is actively under the control of the HDC system."
+    },
+    {
+      "lamp": "Hill Descent Control (HDC) Malfunction Indicator",
+      "colour": "yellow",
+      "steady": "HDC system has failed or detected a fault. Contact an MG dealer immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electric Power Steering System (EPS) Warning Lamp (Yellow)",
+      "colour": "yellow",
+      "steady": "EPS system has a general failure and performance is reduced. Stop safely and restart.",
+      "flashing": "Electric steering column lock has failed. Stop safely, turn engine off, and contact MG."
+    },
+    {
+      "lamp": "Electric Power Steering System (EPS) Warning Lamp (Red)",
+      "colour": "red",
+      "steady": "EPS has a steering angle sensor failure. Contact an MG dealer.",
+      "flashing": "EPS has a severe failure and steering will be heavy. Contact an MG dealer immediately."
+    },
+    {
+      "lamp": "Low Fuel Warning Lamp",
+      "colour": "yellow",
+      "steady": "Fuel remaining in the tank is low. Refuel as soon as possible.",
+      "flashing": "Fuel level continues to fall. Refuel immediately."
+    },
+    {
+      "lamp": "System Fault Messages Indicator",
+      "colour": "yellow",
+      "steady": "A warning message is stored in the vehicle instrument pack system.",
+      "flashing": null
+    },
+    {
+      "lamp": "Active Speed Limit System Warning Lamp",
+      "colour": "yellow",
+      "steady": "Active speed limit system failure detected. Contact an MG dealer as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Active Speed Limit System Indicator",
+      "colour": "red",
+      "steady": "Active speed limit system is armed or active, displaying the set target speed.",
+      "flashing": "Vehicle speed exceeds target speed. System will reduce speed using engine braking."
+    },
+    {
+      "lamp": "Speed Assist System Warning Indicator",
+      "colour": "yellow",
+      "steady": "Speed assist system failure is detected. Contact an MG dealer.",
+      "flashing": "Speed assist system failure is detected. Flashes first then stays on."
+    },
+    {
+      "lamp": "Speed Assist System Speed Indicator",
+      "colour": "red",
+      "steady": "Speed assist system is enabled, displaying the current speed limit.",
+      "flashing": "Vehicle speed exceeds the speed limit. Slow down."
+    },
+    {
+      "lamp": "Adaptive Cruise Control System Indicator (Yellow)",
+      "colour": "yellow",
+      "steady": "Adaptive cruise function is enabled and in standby.",
+      "flashing": null
+    },
+    {
+      "lamp": "Adaptive Cruise Control System Indicator (Green)",
+      "colour": "green",
+      "steady": "Adaptive cruise control system is active.",
+      "flashing": null
+    },
+    {
+      "lamp": "Adaptive Cruise Control System Malfunction Indicator",
+      "colour": "yellow",
+      "steady": "Adaptive cruise control system failure detected. Contact an MG dealer as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Forward Collision Assist System Indicator",
+      "colour": "yellow",
+      "steady": "Forward collision assist is disabled or not functioning normally. Contact an MG dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lane Departure Warning System Indicator (Yellow)",
+      "colour": "yellow",
+      "steady": "Lane departure warning function is enabled.",
+      "flashing": "System failed. Flashes yellow then stays on. Contact an MG dealer."
+    },
+    {
+      "lamp": "Lane Departure Warning System Indicator (Green)",
+      "colour": "green",
+      "steady": "Lane departure warning function is active.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lane Departure Prevention System Indicator",
+      "colour": "yellow",
+      "steady": "Lane departure prevention function is enabled.",
+      "flashing": null
+    }
+  ]
+}

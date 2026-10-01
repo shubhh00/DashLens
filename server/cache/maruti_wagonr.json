@@ -1,0 +1,152 @@
+{
+  "source": "manual",
+  "car": "Maruti WagonR",
+  "manual_url": "https://www.marutisuzuki.com/content/dam/msil/arena/in/en/assets/cars/wagonr/manuals/WagonR-99011M69R13-74W.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Airbag warning light",
+      "colour": "red",
+      "steady": "System malfunction in airbag or seat belt pretensioners. Have it inspected by an authorized Maruti Suzuki workshop immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer system warning light",
+      "colour": "amber",
+      "steady": "Normal bulb check when turning ignition ON.",
+      "flashing": "Problem with key or immobilizer system. Turn ignition to LOCK and back to ON, or visit a workshop."
+    },
+    {
+      "lamp": "Low fuel warning light",
+      "colour": "amber",
+      "steady": "Fuel tank is nearly empty. Fill the fuel tank immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brake system warning light (red)",
+      "colour": "red",
+      "steady": "Parking brake engaged, low brake fluid, or system failure. Stop safely and check brake fluid or consult a workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock brake system (ABS) warning light",
+      "colour": "amber",
+      "steady": "Problem with the ABS system. Stop safely, restart engine, and have system inspected if light remains on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine oil pressure warning light",
+      "colour": "red",
+      "steady": "Insufficient engine oil pressure. Stop immediately, turn off engine, check oil level, and contact a workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charge warning light",
+      "colour": "red",
+      "steady": "Problem with the battery charging system. Have it inspected immediately by an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front seat belt reminder light",
+      "colour": "red",
+      "steady": "Driver or front passenger seat belt is not fastened. Fasten the seat belt.",
+      "flashing": "Driver or front passenger seat belt is unbuckled while driving. Fasten the seat belt."
+    },
+    {
+      "lamp": "Rear passenger's seat belt reminder light",
+      "colour": "red",
+      "steady": "Rear passengers have not fastened their seat belts. Fasten seat belts.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction indicator light",
+      "colour": "amber",
+      "steady": "Fault in emission control or Auto Gear Shift system. Have vehicle inspected at an authorized workshop.",
+      "flashing": "Engine misfire detected, which can damage catalytic converter. Stop vehicle immediately in a safe place."
+    },
+    {
+      "lamp": "Transmission warning light",
+      "colour": "amber",
+      "steady": "Fault in Auto Gear Shift system. Stop in a safe place and contact an authorized workshop.",
+      "flashing": "Clutch temperature is too high or system fault present. Stop safely and let system cool down."
+    },
+    {
+      "lamp": "Open door warning light",
+      "colour": "red",
+      "steady": "One or more doors or tailgate are not completely closed. Close all doors properly.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electric power steering light",
+      "colour": "amber",
+      "steady": "Power steering system may not be working properly. Have it inspected by an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "High engine coolant temperature warning light",
+      "colour": "red",
+      "steady": "Engine is overheating. Stop in a safe place, idle engine, and follow overheating procedures.",
+      "flashing": "Engine is running hot. Avoid driving conditions that lead to actual overheating."
+    },
+    {
+      "lamp": "Front fog light indicator light",
+      "colour": "green",
+      "steady": "Front fog lights are turned on and operating.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn signal indicators",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Left/right turn signal or hazard lights active. Fast flashing indicates turn signal system fault."
+    },
+    {
+      "lamp": "Main beam indicator light",
+      "colour": "blue",
+      "steady": "Headlight main beams (high beams) are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Security system indicator",
+      "colour": "red",
+      "steady": null,
+      "flashing": "If blinking while ignition is ON, there may be a problem with security system. Have it inspected."
+    },
+    {
+      "lamp": "Depress brake pedal indicator",
+      "colour": "green",
+      "steady": "Prompts driver to depress brake pedal for Auto Gear Shift operation.",
+      "flashing": null
+    },
+    {
+      "lamp": "ENG A-STOP indicator light",
+      "colour": "green",
+      "steady": "Engine has automatically stopped via ENG A-STOP system.",
+      "flashing": null
+    },
+    {
+      "lamp": "ENG A-STOP OFF light",
+      "colour": "amber",
+      "steady": "ENG A-STOP system is turned off by switch.",
+      "flashing": "Problem with ENG A-STOP system. Have system inspected by an authorized workshop."
+    },
+    {
+      "lamp": "Brake system warning light (amber)",
+      "colour": "amber",
+      "steady": "Problem with hill hold control system. Have vehicle inspected at an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP warning light",
+      "colour": "amber",
+      "steady": "Fault in ESP systems (other than ABS). Have system inspected by an authorized workshop.",
+      "flashing": "Stability control or traction control system is actively operating. Drive carefully."
+    },
+    {
+      "lamp": "ESP OFF indicator light",
+      "colour": "amber",
+      "steady": "ESP systems (other than ABS) have been manually turned off using ESP OFF switch.",
+      "flashing": null
+    }
+  ]
+}

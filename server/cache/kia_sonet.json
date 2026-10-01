@@ -1,0 +1,212 @@
+{
+  "source": "manual",
+  "car": "Kia Sonet",
+  "manual_url": "https://www.kia.com/content/dam/kia2/in/en/images/service/service-and-maintenance/owners-manual/Sonet_Latest_Manual_2026.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Seat belt warning light",
+      "colour": "red",
+      "steady": "Driver or passenger seat belt is unfastened. Fasten the seat belt.",
+      "flashing": "Seat belt is unfastened while driving 20 km/h or faster. Fasten the seat belt."
+    },
+    {
+      "lamp": "Air bag warning light",
+      "colour": "red",
+      "steady": "Malfunction in the supplemental restraint system (SRS). Have system checked by an authorised Kia dealer.",
+      "flashing": "Malfunction in the SRS system when ignition switch is ON. Have system checked."
+    },
+    {
+      "lamp": "Parking brake & brake fluid warning light",
+      "colour": "red",
+      "steady": "Parking brake applied or brake fluid level is low. Stop safely, check fluid level, or tow vehicle.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) warning light",
+      "colour": "amber",
+      "steady": "Malfunction with the ABS system. Normal braking remains operational; have vehicle inspected.",
+      "flashing": null
+    },
+    {
+      "lamp": "Motor Driven Power Steering (MDPS) warning light",
+      "colour": "amber",
+      "steady": "Malfunction with power steering system. Move to safe zone and have system inspected.",
+      "flashing": "Abnormality detected in MDPS system and steering assist is stopped. Check immediately."
+    },
+    {
+      "lamp": "Charging system warning light",
+      "colour": "red",
+      "steady": "Malfunction with alternator or electrical charging system. Stop safely, check drive belt, and get vehicle inspected.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indicator Lamp (MIL)",
+      "colour": "yellow",
+      "steady": "Malfunction with emission control system, engine, or powertrain. Have vehicle inspected.",
+      "flashing": "In diesel engine, injection quantity error or DPF issue causing engine power loss. Drive to clear or inspect."
+    },
+    {
+      "lamp": "Engine oil pressure warning light",
+      "colour": "red",
+      "steady": "Engine oil pressure is low. Stop safely, turn off engine, check oil level, and add oil if needed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Fuel filter warning light",
+      "colour": "amber",
+      "steady": "Water has accumulated inside the diesel fuel filter. Drain water from the fuel filter immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low fuel level warning light",
+      "colour": "amber",
+      "steady": "Fuel tank is nearly empty. Refill fuel as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low tyre pressure warning light / TPMS malfunction indicator",
+      "colour": "yellow",
+      "steady": "One or more tyres are significantly underinflated. Stop safely and adjust inflation pressure.",
+      "flashing": "Flashes for 60 seconds then remains steady when TPMS has a malfunction. Have system inspected."
+    },
+    {
+      "lamp": "Master warning light",
+      "colour": "amber",
+      "steady": "Indicates lamp failure, LED headlamp error, or driver assistance sensor issue. Check LCD display details.",
+      "flashing": null
+    },
+    {
+      "lamp": "Exhaust system (DPF or LNT) warning light",
+      "colour": "amber",
+      "steady": "DPF/LNT malfunction or soot accumulated. Drive above 60 km/h or gear 2+ at 1,500-2,500 RPM to regenerate.",
+      "flashing": "DPF regeneration required or system error. Have DPF system checked by a professional workshop."
+    },
+    {
+      "lamp": "Exhaust system (PPF) warning light",
+      "colour": "amber",
+      "steady": "PPF soot accumulation or system malfunction. Drive over 80 km/h in 3rd gear or higher for 30 minutes.",
+      "flashing": "PPF system error persists. Have the PPF system inspected by a professional workshop."
+    },
+    {
+      "lamp": "SCR warning light",
+      "colour": "amber",
+      "steady": "Urea solution tank is nearly empty. Refill urea solution as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "LED headlamp warning light",
+      "colour": "amber",
+      "steady": "Malfunction with the LED headlamp. Have vehicle inspected by a professional workshop.",
+      "flashing": "Malfunction with an LED headlamp related component. Have vehicle inspected by a professional workshop."
+    },
+    {
+      "lamp": "Electronic stability control (ESC) indicator light",
+      "colour": "amber",
+      "steady": "ESC system malfunction detected. Have vehicle inspected by a professional workshop.",
+      "flashing": "ESC system is actively operating while driving."
+    },
+    {
+      "lamp": "Electronic stability control (ESC) OFF indicator light",
+      "colour": "amber",
+      "steady": "ESC system is turned off by pressing the ESC OFF button.",
+      "flashing": null
+    },
+    {
+      "lamp": "Auto Stop indicator",
+      "colour": "green",
+      "steady": "Engine has entered Idle Stop mode of the ISG system.",
+      "flashing": "Automatic engine restarting is occurring (blinks for 5 seconds)."
+    },
+    {
+      "lamp": "Immobiliser indicator light (without smart key)",
+      "colour": "amber",
+      "steady": "Key with immobiliser is detected properly; engine can be started.",
+      "flashing": "Malfunction with immobiliser system. Have vehicle inspected by a professional workshop."
+    },
+    {
+      "lamp": "Immobiliser indicator light (with smart key)",
+      "colour": "amber",
+      "steady": "Smart key detected in vehicle properly or undetected key warning. Inspect if engine will not start.",
+      "flashing": "Smart key not in vehicle, battery weak, or immobiliser malfunction detected."
+    },
+    {
+      "lamp": "Turn signal indicator light",
+      "colour": "green",
+      "steady": "System malfunction if light remains steady without blinking. Have vehicle inspected.",
+      "flashing": "Turn signal or hazard switch activated. Rapid blinking indicates bulb/system malfunction."
+    },
+    {
+      "lamp": "Low beam indicator light",
+      "colour": "green",
+      "steady": "Headlights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "High beam indicator light",
+      "colour": "blue",
+      "steady": "Headlights are switched to high beam or flash-to-pass is active.",
+      "flashing": null
+    },
+    {
+      "lamp": "Light ON indicator light",
+      "colour": "green",
+      "steady": "Tail lights or headlights are switched on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front fog indicator light",
+      "colour": "green",
+      "steady": "Front fog lights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Glow indicator light",
+      "colour": "amber",
+      "steady": "Engine is preheating. Wait until light turns off before starting engine.",
+      "flashing": "Engine preheating system malfunction if blinking while driving. Have vehicle inspected."
+    },
+    {
+      "lamp": "Cruise indicator light",
+      "colour": "green",
+      "steady": "Cruise control system is enabled.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise SET Indicator Light",
+      "colour": "green",
+      "steady": "Cruise control cruising speed is set.",
+      "flashing": null
+    },
+    {
+      "lamp": "Door Ajar Warning Light",
+      "colour": "red",
+      "steady": "A door is not securely closed. Close all doors properly.",
+      "flashing": null
+    },
+    {
+      "lamp": "Tailgate Open Warning Light",
+      "colour": "red",
+      "steady": "Tailgate is not securely closed. Close tailgate properly.",
+      "flashing": null
+    },
+    {
+      "lamp": "Forward Safety warning light",
+      "colour": "amber",
+      "steady": "Forward Collision-Avoidance Assist system malfunctioned or front camera is obscured. Clean glass or inspect.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lane safety warning light",
+      "colour": "yellow",
+      "steady": "Lane Keeping Assist system malfunctioned or front view camera is blocked. Clean windscreen or inspect.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lane Following Assist indicator light",
+      "colour": "green",
+      "steady": "System enabled and assisting steering (green) or in standby (grey).",
+      "flashing": "Steering wheel is not assisted (blinks white before turning grey)."
+    }
+  ]
+}

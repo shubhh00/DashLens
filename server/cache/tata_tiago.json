@@ -1,0 +1,122 @@
+{
+  "source": "manual",
+  "car": "Tata Tiago",
+  "manual_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1588697530/module/15688345922/name/Tata%20Tiago%20Owner%27s%20Manual.pdf",
+  "roadside_number": "1800 209 7979",
+  "lamps": [
+    {
+      "lamp": "Malfunction Indication Lamp (MIL)",
+      "colour": "amber",
+      "steady": "Engine fault that may increase emission levels. Contact a TATA MOTORS Authorised Service Centre.",
+      "flashing": null
+    },
+    {
+      "lamp": "Check Engine",
+      "colour": "amber",
+      "steady": "Fault in the Engine Management System. Contact a TATA MOTORS Authorised Service Centre.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer",
+      "colour": "red",
+      "steady": "Problem with key or system. Contact a TATA MOTORS Authorised Service Centre.",
+      "flashing": "Vehicle is immobilized because the original key is not inserted."
+    },
+    {
+      "lamp": "Water in fuel (Diesel)",
+      "colour": "amber",
+      "steady": "Excess water in the fuel filter. Drain it immediately at a service centre to avoid damage.",
+      "flashing": null
+    },
+    {
+      "lamp": "Glow Plug (Diesel)",
+      "colour": "amber",
+      "steady": "Glow plugs are active for engine preheating. Start the engine only after this light turns off.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn Signal",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Indicates the direction of the turn signal. Blinks along with a buzzer."
+    },
+    {
+      "lamp": "High Beam",
+      "colour": "blue",
+      "steady": "High beam headlights are switched on or flashed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Oil Pressure",
+      "colour": "red",
+      "steady": "Insufficient oil pressure. Stop safely, switch off engine, check oil, and contact TATA MOTORS assistance.",
+      "flashing": null
+    },
+    {
+      "lamp": "Battery charging",
+      "colour": "red",
+      "steady": "Malfunction in the charging system. Contact a TATA MOTORS Authorised Service Centre.",
+      "flashing": null
+    },
+    {
+      "lamp": "Park Brake / Brake Fluid Low / ABS Fault / EBD Fault",
+      "colour": "red",
+      "steady": "Parking brake is on, brake fluid is low, or there is an ABS/EBD system fault.",
+      "flashing": null
+    },
+    {
+      "lamp": "Seat belt warning",
+      "colour": "red",
+      "steady": "Seat belt is not fastened. An alarm sounds if vehicle speed exceeds 25 kmph.",
+      "flashing": null
+    },
+    {
+      "lamp": "Airbag status",
+      "colour": "red",
+      "steady": "Malfunction in the airbag (SRS) system. Contact a TATA MOTORS Authorised Service Centre immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "EPAS",
+      "colour": "amber",
+      "steady": "Fault in the Electric Power Assisted Steering. Contact a TATA MOTORS Authorised Service Centre immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Coolant Temperature",
+      "colour": "blue",
+      "steady": "Engine coolant temperature is low. Turns off when engine temperature reaches normal levels.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Coolant Temperature",
+      "colour": "red",
+      "steady": "Engine coolant temperature is very high. Stop engine and allow it to cool.",
+      "flashing": "Engine temperature is extremely high. Stop engine, cool down, and contact service centre."
+    },
+    {
+      "lamp": "ABS",
+      "colour": "amber",
+      "steady": "ABS malfunction. Normal braking remains operational without ABS assistance. Contact service centre immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel",
+      "colour": "amber",
+      "steady": "Fuel level is low. Refill the tank as soon as possible.",
+      "flashing": "Fault in the fuel system. Contact a TATA MOTORS Authorised Service Centre immediately."
+    },
+    {
+      "lamp": "ECO",
+      "colour": "green",
+      "steady": "Economy drive mode is active for better fuel mileage.",
+      "flashing": null
+    },
+    {
+      "lamp": "CITY",
+      "colour": "blue",
+      "steady": "Default driving mode is active for optimum torque.",
+      "flashing": null
+    }
+  ]
+}

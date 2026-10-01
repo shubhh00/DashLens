@@ -1,0 +1,158 @@
+{
+  "source": "manual",
+  "car": "Hyundai i20",
+  "manual_url": "https://www.hyundai.com/content/dam/hyundai/in/en/data/connect-to-service/owners-manual/2025/i20%26i20nlineFromOct2023-Present.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Seat Belt Warning",
+      "colour": "red",
+      "steady": "Reminder to fasten belt. Remains on if unfastened when driving under 20 km/h or stopped.",
+      "flashing": "Belt is unfastened while driving 20 km/h or faster. Chime will sound."
+    },
+    {
+      "lamp": "Air Bag Warning",
+      "colour": "red",
+      "steady": "Malfunction with air bag system or seat belt pre-tensioner. See a dealer immediately.",
+      "flashing": "Indicates a malfunction with the air bag system if flashing while ignition is on."
+    },
+    {
+      "lamp": "Parking Brake & Brake Fluid Warning",
+      "colour": "red",
+      "steady": "Parking brake is engaged or brake fluid level is low. Check fluid immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) Warning",
+      "colour": "yellow",
+      "steady": "ABS system malfunction. Normal braking remains functional without anti-lock assistance. See dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electric Power Steering (EPS) Warning",
+      "colour": "yellow",
+      "steady": "Malfunction with the Electric Power Steering system. See an authorized dealer.",
+      "flashing": "Indicates a malfunction with the Vehicle Stability Management system."
+    },
+    {
+      "lamp": "Malfunction Indicator Lamp (MIL)",
+      "colour": "yellow",
+      "steady": "Malfunction in emission control system or engine protection system. See dealer to avoid damage.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charging System Warning",
+      "colour": "red",
+      "steady": "Alternator or electrical charging system malfunction. Stop safely and check the drive belt.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Pressure Warning",
+      "colour": "red",
+      "steady": "Engine oil pressure is low. Stop safely and check oil level immediately to prevent damage.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel Level Warning",
+      "colour": "yellow",
+      "steady": "Fuel tank is nearly empty. Add fuel as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Overspeed Warning",
+      "colour": "yellow",
+      "steady": null,
+      "flashing": "Vehicle speed exceeds 120 km/h. Slow down to stop the warning."
+    },
+    {
+      "lamp": "Exhaust system (GPF) Warning",
+      "colour": "yellow",
+      "steady": "Soot accumulated in exhaust. Drive over 80 km/h for 30 minutes to clear.",
+      "flashing": "GPF system requires dealer inspection despite driving procedure."
+    },
+    {
+      "lamp": "Electronic Stability Control (ESC) Indicator",
+      "colour": "yellow",
+      "steady": "Indicates a malfunction in the ESC system. Contact a dealer.",
+      "flashing": "The ESC system is actively operating."
+    },
+    {
+      "lamp": "Electronic Stability Control (ESC) OFF",
+      "colour": "yellow",
+      "steady": "The ESC system has been deactivated by the driver.",
+      "flashing": null
+    },
+    {
+      "lamp": "Door Ajar Warning",
+      "colour": "red",
+      "steady": "A vehicle door is not closed securely.",
+      "flashing": null
+    },
+    {
+      "lamp": "Tailgate Open Warning",
+      "colour": "red",
+      "steady": "The tailgate is not closed securely.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer Indicator",
+      "colour": "yellow",
+      "steady": "Key or smart key detected; engine can be started. Also indicates smart key detection failure.",
+      "flashing": "Malfunction in immobilizer system, or smart key is missing or has a weak battery."
+    },
+    {
+      "lamp": "Turn Signal Indicator",
+      "colour": "green",
+      "steady": "Indicates a malfunction if the light stays on without blinking.",
+      "flashing": "Turn signal is operating. Rapid flashing indicates a system malfunction."
+    },
+    {
+      "lamp": "Low Beam Indicator",
+      "colour": "green",
+      "steady": "Headlamps are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Beam Indicator",
+      "colour": "blue",
+      "steady": "Headlights are in high beam or flash-to-pass position.",
+      "flashing": null
+    },
+    {
+      "lamp": "Light ON Indicator",
+      "colour": "green",
+      "steady": "Parking lights or headlights are switched on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Fog Indicator",
+      "colour": "green",
+      "steady": "Front fog lights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear Fog Indicator",
+      "colour": "yellow",
+      "steady": "Rear fog lights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Master Warning",
+      "colour": "yellow",
+      "steady": "Indicates service is due or a monitored system like TPMS has a malfunction.",
+      "flashing": null
+    },
+    {
+      "lamp": "KEY OUT Indicator",
+      "colour": "yellow",
+      "steady": null,
+      "flashing": "Smart key is not in vehicle while ignition is in ACC or ON."
+    },
+    {
+      "lamp": "Low Tire Pressure Warning / TPMS Malfunction",
+      "colour": "yellow",
+      "steady": "One or more tires are significantly underinflated. Check and inflate tires immediately.",
+      "flashing": "Malfunction with the Tire Pressure Monitoring System. See dealer."
+    }
+  ]
+}

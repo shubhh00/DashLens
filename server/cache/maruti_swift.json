@@ -1,0 +1,170 @@
+{
+  "source": "manual",
+  "car": "Maruti Suzuki Swift",
+  "manual_url": "https://www.marutisuzuki.com/content/dam/msil/arena/in/en/assets/cars/swift/manuals/Swift_99011M75T08-74W.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Driver/front passenger seat belt reminder",
+      "colour": "red",
+      "steady": "Driver or front passenger seat belt is unbuckled. Fasten the seat belt.",
+      "flashing": "Driver or front passenger seat belt is unbuckled while driving. Fasten the seat belt."
+    },
+    {
+      "lamp": "Unreleased steering lock warning",
+      "colour": "amber",
+      "steady": "Steering lock is not disengaged. Turn the wheel slightly and press engine switch.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer/keyless push start system warning",
+      "colour": "amber",
+      "steady": "System malfunction. Ask a Maruti Suzuki workshop to inspect it.",
+      "flashing": "Key fob not detected or system error. Engine will not start."
+    },
+    {
+      "lamp": "Malfunction indicator",
+      "colour": "amber",
+      "steady": "Emission control system requires service. Consult an authorized workshop.",
+      "flashing": "Emission control system is damaged. Have the vehicle inspected immediately."
+    },
+    {
+      "lamp": "Charge warning",
+      "colour": "red",
+      "steady": "Battery charging system malfunction. Pull over safely, stop engine, and get inspected.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine oil pressure warning",
+      "colour": "red",
+      "steady": "Low engine oil pressure. Pull over safely, stop engine, and check oil level.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electric power steering warning",
+      "colour": "amber",
+      "steady": "Power steering system malfunction. Consult an authorized Maruti Suzuki workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Airbag warning",
+      "colour": "red",
+      "steady": "Problem with airbag or seat belt pretensioner system. Have it inspected.",
+      "flashing": "Blinks briefly at start to check system function."
+    },
+    {
+      "lamp": "Low fuel warning",
+      "colour": "amber",
+      "steady": "Low fuel level. Refuel the vehicle as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) warning",
+      "colour": "amber",
+      "steady": "ABS malfunction. Pull over, restart engine, and have system inspected.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brake system warning",
+      "colour": "red",
+      "steady": "Parking brake is engaged, brake fluid is low, or brake system has failed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear passenger seat belt reminder",
+      "colour": "red",
+      "steady": "Reminder for rear passengers to fasten their seat belts.",
+      "flashing": null
+    },
+    {
+      "lamp": "Transmission warning",
+      "colour": "amber",
+      "steady": "Auto Gear Shift system malfunction. Stop safely and contact an authorized workshop.",
+      "flashing": "Auto Gear Shift clutch temperature is too high. Stop safely to cool."
+    },
+    {
+      "lamp": "Depress brake pedal indicator",
+      "colour": "amber",
+      "steady": "Depress the brake pedal to operate Auto Gear Shift.",
+      "flashing": null
+    },
+    {
+      "lamp": "Open door warning",
+      "colour": "red",
+      "steady": "One or more doors are open. Close all doors before driving.",
+      "flashing": null
+    },
+    {
+      "lamp": "High engine coolant temperature warning",
+      "colour": "red",
+      "steady": "Engine is overheating. Stop driving immediately to prevent severe damage.",
+      "flashing": "Engine is running hot. Stop to avoid overheating."
+    },
+    {
+      "lamp": "Master warning indicator",
+      "colour": "amber",
+      "steady": "Problem with vehicle systems. Consult an authorized Maruti Suzuki workshop.",
+      "flashing": "Key fob is outside the vehicle or not detected."
+    },
+    {
+      "lamp": "Suzuki Connect indicator",
+      "colour": "amber",
+      "steady": "Suzuki Connect system is equipped and active.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP indicator",
+      "colour": "amber",
+      "steady": "Problem with Electronic Stability Program systems. Have it inspected.",
+      "flashing": "Stability or traction control system is actively operating. Drive carefully."
+    },
+    {
+      "lamp": "ESP OFF indicator",
+      "colour": "amber",
+      "steady": "Electronic Stability Program systems are deactivated.",
+      "flashing": null
+    },
+    {
+      "lamp": "ACC indicator",
+      "colour": "amber",
+      "steady": "Ignition switch is in Accessory (ACC) mode.",
+      "flashing": null
+    },
+    {
+      "lamp": "Ignition ON indicator",
+      "colour": "amber",
+      "steady": "Ignition switch is in ON mode.",
+      "flashing": null
+    },
+    {
+      "lamp": "PUSH indicator",
+      "colour": "green",
+      "steady": "Depress brake or clutch pedal to start the engine.",
+      "flashing": "Remote controller battery is discharged or key fob is not detected."
+    },
+    {
+      "lamp": "ENG A-STOP indicator",
+      "colour": "green",
+      "steady": "Engine is stopped automatically by the ENG A-STOP system.",
+      "flashing": "Engine is preparing to restart automatically."
+    },
+    {
+      "lamp": "ENG A-STOP OFF indicator",
+      "colour": "amber",
+      "steady": "ENG A-STOP system is deactivated.",
+      "flashing": "Malfunction with ENG A-STOP system or battery needs replacement."
+    },
+    {
+      "lamp": "Illumination indicator",
+      "colour": "green",
+      "steady": "Position lights, tail lights, and/or headlights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low engine coolant temperature indicator",
+      "colour": "blue",
+      "steady": "Engine is cold. Stays on until the engine warms up.",
+      "flashing": null
+    }
+  ]
+}

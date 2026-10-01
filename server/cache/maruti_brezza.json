@@ -1,0 +1,206 @@
+{
+  "source": "manual",
+  "car": "Maruti Brezza",
+  "manual_url": "https://www.marutisuzuki.com/content/dam/msil/arena/in/en/assets/cars/brezza/manuals/Brezza_Petrol.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Brake System Warning Light",
+      "colour": "red",
+      "steady": "Parking brake is engaged or brake fluid is low. Stop safely and check brakes or consult workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Driver and Front Passenger Seat Belt Reminder Light",
+      "colour": "red",
+      "steady": "Driver or front passenger seat belt is unfastened. Fasten seat belts before driving.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear Seat Passenger Seat Belt Reminder Light",
+      "colour": "red",
+      "steady": "Rear passenger seat belt is unfastened. Ensure all passengers buckle up.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel Warning Light",
+      "colour": "yellow",
+      "steady": "Fuel level is low. Refuel as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) Warning Light",
+      "colour": "yellow",
+      "steady": "ABS system malfunction detected. Have the vehicle inspected by an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Engine Coolant Temperature Warning Light",
+      "colour": "red",
+      "steady": "Engine is overheating. Stop safely immediately and follow emergency overheating procedures.",
+      "flashing": "Engine is running hot. Drive carefully and prepare to stop safely."
+    },
+    {
+      "lamp": "Low Engine Coolant Temperature Light",
+      "colour": "blue",
+      "steady": "Coolant temperature is low. Drive gently until engine reaches normal temperature.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indicator Light",
+      "colour": "yellow",
+      "steady": "Fault in emission control or automatic transmission system. Have vehicle inspected at an authorized workshop.",
+      "flashing": "Engine misfire detected. Stop immediately in a safe place to prevent catalytic converter damage."
+    },
+    {
+      "lamp": "Electric Power Steering Light",
+      "colour": "yellow",
+      "steady": "Electric power steering fault detected. Have vehicle inspected by an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Pressure Warning Light",
+      "colour": "red",
+      "steady": "Low engine oil pressure. Stop safely immediately and check oil level or consult workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charge Warning Light",
+      "colour": "red",
+      "steady": "Lead-acid battery charging system fault. Have system inspected immediately by an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer / Keyless Push Start System Warning Light",
+      "colour": "yellow",
+      "steady": "Remote key is outside vehicle or key battery is discharged.",
+      "flashing": "Immobilizer fault or remote key not detected. Re-position key or inspect system."
+    },
+    {
+      "lamp": "Open Door Warning Light",
+      "colour": "red",
+      "steady": "One or more doors are open. Close all doors securely before driving.",
+      "flashing": null
+    },
+    {
+      "lamp": "Transmission Warning Light",
+      "colour": "yellow",
+      "steady": "Automatic transmission malfunction. Have system inspected by an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn Signal Indicators",
+      "colour": "green",
+      "steady": "Turn signals or hazard lights are turned on.",
+      "flashing": "Flashing indicates active turn signal or hazard lights operation."
+    },
+    {
+      "lamp": "Main Beam (High Beam) Indicator Light",
+      "colour": "blue",
+      "steady": "Headlight high beams are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Illumination Indicator Light",
+      "colour": "green",
+      "steady": "Position lights or headlights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Fog Light Indicator Light",
+      "colour": "green",
+      "steady": "Front fog lights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP OFF Indicator Light",
+      "colour": "yellow",
+      "steady": "ESP system is manually deactivated.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP Warning Light",
+      "colour": "yellow",
+      "steady": "Fault in ESP system. Have system inspected by an authorized workshop.",
+      "flashing": "ESP system is actively intervening to stabilize the vehicle. Drive carefully."
+    },
+    {
+      "lamp": "ENG A-STOP Indicator Light",
+      "colour": "green",
+      "steady": "Engine is automatically stopped by ENG A-STOP system.",
+      "flashing": "Engine is automatically restarting due to system request or vehicle condition."
+    },
+    {
+      "lamp": "ENG A-STOP OFF Indicator Light",
+      "colour": "yellow",
+      "steady": "ENG A-STOP system is manually deactivated.",
+      "flashing": "Fault in ENG A-STOP system, lithium battery, or lead-acid battery replacement needed."
+    },
+    {
+      "lamp": "Security System Indicator",
+      "colour": "red",
+      "steady": "Vehicle security system is armed.",
+      "flashing": "Security system triggered or arming process active."
+    },
+    {
+      "lamp": "Lithium Battery Warning Light",
+      "colour": "yellow",
+      "steady": "Fault in lithium-ion battery system. Have vehicle inspected at an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Gasoline Particulate Filter (GPF) Warning Light",
+      "colour": "yellow",
+      "steady": "GPF is nearly clogged. Keep driving above 50 km/h and 2000 rpm for 25 minutes.",
+      "flashing": null
+    },
+    {
+      "lamp": "Deceleration Energy Regenerating Indicator Light",
+      "colour": "white",
+      "steady": "Deceleration energy regeneration is active during braking or coasting.",
+      "flashing": null
+    },
+    {
+      "lamp": "Parking Sensor Indicator Light",
+      "colour": "yellow",
+      "steady": "Parking sensors stopped temporarily or failed. Clean sensors or consult workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Blind Spot Monitor (BSM) OFF Indicator Light",
+      "colour": "yellow",
+      "steady": "Blind Spot Monitor system is manually turned off or suspended.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear Cross Traffic Alert (RCTA) OFF Indicator Light",
+      "colour": "yellow",
+      "steady": "Rear Cross Traffic Alert system is manually turned off or suspended.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Tyre Pressure Warning Light",
+      "colour": "yellow",
+      "steady": "One or more tyres significantly under-inflated. Stop safely, check tyres, and inflate to recommended pressure.",
+      "flashing": "TPMS malfunction detected. Have system inspected by an authorized workshop."
+    },
+    {
+      "lamp": "Master Warning Indicator Light",
+      "colour": "yellow",
+      "steady": "Warning message displayed on instrument cluster display. Follow displayed instructions.",
+      "flashing": "Keyless start issue, system error, or sensor failure detected. Follow display instructions."
+    },
+    {
+      "lamp": "Wireless Charger Indicator Light",
+      "colour": "amber",
+      "steady": "Amber means ready, blue charging, green complete, red non-recoverable failure.",
+      "flashing": "Red flashing means metallic object detected or phone overheating. Remove object and let cool."
+    },
+    {
+      "lamp": "eCall SOS Button Indicator Light",
+      "colour": "green",
+      "steady": "eCall emergency system is operating normally.",
+      "flashing": "eCall emergency operation active or communication established."
+    }
+  ]
+}

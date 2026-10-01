@@ -1,0 +1,164 @@
+{
+  "source": "manual",
+  "car": "Hyundai Exter",
+  "manual_url": "https://www.hyundai.com/content/dam/hyundai/in/en/data/connect-to-service/owners-manual/2026/exter-may26-present.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Seat Belt Warning Light",
+      "colour": "red",
+      "steady": "Seat belt is not fastened. Fasten the belt to turn off the light.",
+      "flashing": "Driving 20 km/h or faster with belt unfastened. Fasten belt immediately."
+    },
+    {
+      "lamp": "Airbag Warning Light",
+      "colour": "red",
+      "steady": "SRS or seat belt pre-tensioner malfunction. Have the vehicle inspected by a dealer immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Parking Brake & Brake Fluid Warning Light",
+      "colour": "red",
+      "steady": "Parking brake is applied or brake fluid is low. Check fluid level immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) Warning Light",
+      "colour": "amber",
+      "steady": "ABS system malfunction. Normal braking still works, but seek dealer inspection.",
+      "flashing": null
+    },
+    {
+      "lamp": "Motor Driven Power Steering (MDPS) Warning Light",
+      "colour": "red",
+      "steady": "Power steering system malfunction. Have the vehicle inspected by an authorized dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indicator Lamp (MIL)",
+      "colour": "amber",
+      "steady": "Emission control system malfunction. Seek dealer inspection to avoid potential catalytic converter damage.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charging System Warning Light",
+      "colour": "red",
+      "steady": "Alternator or electrical charging system failure. Stop safely and check the drive belt.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Pressure Warning Light",
+      "colour": "red",
+      "steady": "Low engine oil pressure. Stop safely, check oil level, and add oil if necessary.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine has Overheated Warning Light",
+      "colour": "red",
+      "steady": "Coolant temperature is above 120\u00b0C. Stop safely and allow engine to cool down.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel Level Warning Light",
+      "colour": "amber",
+      "steady": "Fuel tank is nearly empty. Add fuel as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Stability Control (ESC) Indicator Light",
+      "colour": "amber",
+      "steady": "ESC system malfunction. Have the vehicle inspected by an authorized dealer.",
+      "flashing": "The ESC system is currently operating to stabilize the vehicle."
+    },
+    {
+      "lamp": "Electronic Stability Control (ESC) OFF Indicator Light",
+      "colour": "amber",
+      "steady": "The ESC system has been deactivated by the driver.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer Indicator Light (without smart key)",
+      "colour": "amber",
+      "steady": "System detected the key properly; the engine can now be started.",
+      "flashing": "Immobilizer system malfunction. Have the vehicle inspected by an authorized dealer."
+    },
+    {
+      "lamp": "Immobilizer Indicator Light (with smart key)",
+      "colour": "amber",
+      "steady": "Smart key detected or not detected. If it fails to detect, see dealer.",
+      "flashing": "Smart key battery is weak or key is missing. Start engine by pressing button with key."
+    },
+    {
+      "lamp": "Turn Signal Indicator Light",
+      "colour": "green",
+      "steady": "System malfunction if light stays on without blinking. See a dealer.",
+      "flashing": "Blinks when signaling a turn. Rapid blinking indicates a burned-out bulb."
+    },
+    {
+      "lamp": "High Beam Indicator Light",
+      "colour": "blue",
+      "steady": "Headlights are in high beam or flash-to-pass position.",
+      "flashing": null
+    },
+    {
+      "lamp": "Light ON Indicator Light",
+      "colour": "green",
+      "steady": "Parking lights or headlights are currently turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise Indicator Light",
+      "colour": "green",
+      "steady": "The Cruise Control system is enabled.",
+      "flashing": null
+    },
+    {
+      "lamp": "Master Warning Light",
+      "colour": "amber",
+      "steady": "Malfunction in TPMS or lighting systems. Check cluster display for specific details.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise SET Indicator Light",
+      "colour": "green",
+      "steady": "The cruise control target speed has been set.",
+      "flashing": null
+    },
+    {
+      "lamp": "KEY OUT Indicator Light",
+      "colour": "amber",
+      "steady": null,
+      "flashing": "Smart key is not in the vehicle while the ignition is on."
+    },
+    {
+      "lamp": "Clutch Over Heated (AMT)",
+      "colour": "amber",
+      "steady": "Clutch temperature is too high. Stop safely and allow the clutch to cool.",
+      "flashing": "Clutch temperature is rising continuously. Stop and let the transmission cool."
+    },
+    {
+      "lamp": "Low Tyre Pressure Warning Light",
+      "colour": "amber",
+      "steady": "One or more tyres are significantly underinflated. Check and adjust tyre pressure.",
+      "flashing": "TPMS malfunction. Blinks for 60 seconds then stays on. See dealer."
+    },
+    {
+      "lamp": "Exhaust System (GPF) Warning Light",
+      "colour": "amber",
+      "steady": "Soot accumulation is high. Drive over 80 km/h for 30 minutes to clear.",
+      "flashing": "GPF system error. Have the system checked by an authorized dealer."
+    },
+    {
+      "lamp": "CNG Warning Light",
+      "colour": "amber",
+      "steady": null,
+      "flashing": "CNG system error, sensor error, or fuel lid is open. See dealer."
+    },
+    {
+      "lamp": "Low Fuel level warning light - CNG",
+      "colour": "amber",
+      "steady": "CNG fuel tank is nearly empty. Refill the tank.",
+      "flashing": null
+    }
+  ]
+}

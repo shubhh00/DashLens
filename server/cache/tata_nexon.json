@@ -1,0 +1,206 @@
+{
+  "source": "manual",
+  "car": "Tata Nexon",
+  "manual_url": "https://www.riyatata.com/assets/images/Nexon-BS-VI_543858409905_Rev_00_10.01.20.pdf",
+  "roadside_number": "1800 209 8282",
+  "lamps": [
+    {
+      "lamp": "Malfunction Indication Lamp (MIL)",
+      "colour": "amber",
+      "steady": "Stays on for engine faults that increase emissions. Contact TATA MOTORS authorized service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "Check Engine Lamp",
+      "colour": "amber",
+      "steady": "Stays on if there is a fault in the Engine Management System. Contact TATA MOTORS authorized service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer",
+      "colour": "red",
+      "steady": "Indicates a problem with the key or system. Contact TATA MOTORS authorized service center.",
+      "flashing": "Blinks when the vehicle is immobilized because the key is not inserted."
+    },
+    {
+      "lamp": "Pre-Heat indicator / Glow Plug indicator (Diesel)",
+      "colour": "amber",
+      "steady": "Indicates diesel pre-heating. Start the engine only after this light goes off.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn Signal",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Blinks with a buzzer to show the direction indicated by the turn signal."
+    },
+    {
+      "lamp": "High Beam",
+      "colour": "blue",
+      "steady": "On when high beam headlights are switched on or flashed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Oil Pressure indicator",
+      "colour": "red",
+      "steady": "Indicates low engine oil pressure or electrical fault. Contact TATA MOTORS authorized service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "Battery charging",
+      "colour": "red",
+      "steady": "Battery is not charging. Switch off electrical equipment and contact TATA MOTORS authorized service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "Airbag status",
+      "colour": "red",
+      "steady": "Stays on to indicate an SRS malfunction. Contact TATA MOTORS authorized service center immediately.",
+      "flashing": "Blinks when the SRS is malfunctioning. Contact TATA MOTORS authorized service center immediately."
+    },
+    {
+      "lamp": "Park Brake / Brake Fluid Low / EBD malfunction",
+      "colour": "red",
+      "steady": "Indicates low brake fluid, active park brake, or ABS/EBD fault. Release park brake or check system.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise Control lamp",
+      "colour": "green",
+      "steady": "Indicates that the cruise control system is activated.",
+      "flashing": null
+    },
+    {
+      "lamp": "EPAS",
+      "colour": "amber",
+      "steady": "Indicates a fault in the electric power steering. Contact TATA MOTORS authorized service center immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Coolant Temperature",
+      "colour": "red",
+      "steady": "Indicates engine overheating. Stop vehicle, turn off engine, let cool, and contact TATA MOTORS.",
+      "flashing": "Blinks with a buzzer when engine overheats. Stop vehicle, turn off engine, and contact TATA MOTORS."
+    },
+    {
+      "lamp": "DPF (Diesel)",
+      "colour": "amber",
+      "steady": "DPF needs to clear pollutants. Drive at 50-80 kmph in 3rd gear above 2000 rpm for 20 minutes.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel indicator",
+      "colour": "amber",
+      "steady": "Fuel level is low. Refuel immediately to prevent engine stalling.",
+      "flashing": "Blinks if there is a fault in the fuel system. Contact TATA MOTORS authorized service center."
+    },
+    {
+      "lamp": "ABS",
+      "colour": "amber",
+      "steady": "Indicates an ABS malfunction. Normal brakes work without ABS. Contact TATA MOTORS authorized service center immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Driver Seat belt indicator",
+      "colour": "red",
+      "steady": "Driver seatbelt is unbuckled. Fasten seatbelt to turn off the light.",
+      "flashing": "Blinks with a buzzer when driver seatbelt is not buckled. Fasten seatbelt."
+    },
+    {
+      "lamp": "Key Not Detected",
+      "colour": "amber",
+      "steady": "Valid smart key is not detected inside the vehicle.",
+      "flashing": null
+    },
+    {
+      "lamp": "Press Clutch / Brake Pedal to Start Engine",
+      "colour": "amber",
+      "steady": "Press the clutch (or brake) pedal to start the engine.",
+      "flashing": null
+    },
+    {
+      "lamp": "Water in fuel indicator (Diesel)",
+      "colour": "amber",
+      "steady": "Water in fuel filter or filter is clogged. Drain water immediately to avoid engine damage.",
+      "flashing": null
+    },
+    {
+      "lamp": "Daytime running lamps DRL",
+      "colour": "green",
+      "steady": "Daytime Running Lamps are on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Door Ajar lamp",
+      "colour": "red",
+      "steady": "Indicates that a door or the tailgate is open. Close all doors.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Passenger Seat belt indicator",
+      "colour": "red",
+      "steady": "Front passenger seatbelt is unbuckled. Fasten seatbelt to turn off.",
+      "flashing": "Blinks with a buzzer when passenger seatbelt is not buckled. Fasten seatbelt."
+    },
+    {
+      "lamp": "ECO",
+      "colour": "green",
+      "steady": "Economy drive mode is active for better fuel economy.",
+      "flashing": null
+    },
+    {
+      "lamp": "CITY",
+      "colour": "blue",
+      "steady": "City drive mode is active for optimum torque and fuel economy.",
+      "flashing": null
+    },
+    {
+      "lamp": "SPORT",
+      "colour": "amber",
+      "steady": "Sport driving mode is active for increased engine torque.",
+      "flashing": null
+    },
+    {
+      "lamp": "Speed limit warning indicator",
+      "colour": "amber",
+      "steady": "Speed is above 80 kmph. Reduce speed below 75 kmph.",
+      "flashing": "Flashes with beeps when speed exceeds 120 kmph. Reduce speed immediately."
+    },
+    {
+      "lamp": "AMT Fault",
+      "colour": "amber",
+      "steady": "Fault in the Automated Manual Transmission. Contact TATA MOTORS authorized service center immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "TPMS",
+      "colour": "amber",
+      "steady": "Tire pressure is too high or low, temperature is high, or sensor is missing.",
+      "flashing": "Blinks to warn of tire pressure/temp issues or system/sensor fault."
+    },
+    {
+      "lamp": "HDC Warning lamp",
+      "colour": "amber",
+      "steady": "Hill Descent Control system has a fault. Contact TATA MOTORS authorized service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "HDC ON",
+      "colour": "green",
+      "steady": "Hill Descent Control system is activated.",
+      "flashing": null
+    },
+    {
+      "lamp": "HHC warning lamp",
+      "colour": "amber",
+      "steady": "Hill Hold Control system has a fault. Contact TATA MOTORS authorized service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Stability Program (ESP)",
+      "colour": "amber",
+      "steady": "ESP system has a fault. Contact TATA MOTORS authorized service center immediately.",
+      "flashing": null
+    }
+  ]
+}

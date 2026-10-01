@@ -1,0 +1,188 @@
+{
+  "source": "manual",
+  "car": "BMW 3 Series",
+  "manual_url": "https://www.carmanualdb.com/files/BMW%203%20Series%202025%20%28G20%29%20Owners%20Manual.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Seat belt reminder",
+      "colour": "red",
+      "steady": "Seat belt on the driver's seat is not buckled.",
+      "flashing": null
+    },
+    {
+      "lamp": "Airbag system",
+      "colour": "red",
+      "steady": "The airbag system or the seat belt tensioners may not be operational. Have the vehicle checked immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Parking brake",
+      "colour": "red",
+      "steady": "The parking brake is set.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brake system",
+      "colour": "red",
+      "steady": "The brake pads are worn or there is another issue with the brake system. Braking assistance may not be operational.",
+      "flashing": null
+    },
+    {
+      "lamp": "Emergency Stop Assistant",
+      "colour": "red",
+      "steady": "The Emergency Stop Assistant is triggered.",
+      "flashing": null
+    },
+    {
+      "lamp": "Pedestrian Warning",
+      "colour": "red",
+      "steady": "Risk of collision with a person detected. Increased awareness is required.",
+      "flashing": "Risk of imminent collision with a person. Immediately initiate braking or an evasive maneuver."
+    },
+    {
+      "lamp": "Forward Collision Warning",
+      "colour": "red",
+      "steady": "Risk of collision with a vehicle is detected. Increased awareness is required.",
+      "flashing": "Risk of imminent collision with a vehicle detected. Immediately initiate braking or an evasive maneuver."
+    },
+    {
+      "lamp": "Intersection Collision Warning (Right)",
+      "colour": "red",
+      "steady": "Risk of collision with vehicle crossing from the right detected. Increased awareness is required.",
+      "flashing": "Risk of imminent collision with a crossing vehicle detected. Immediately initiate braking or an evasive maneuver."
+    },
+    {
+      "lamp": "Intersection Collision Warning (Left)",
+      "colour": "red",
+      "steady": "Risk of collision with vehicle crossing from the left detected. Increased awareness is required.",
+      "flashing": "Risk of imminent collision with a crossing vehicle detected. Immediately initiate braking or an evasive maneuver."
+    },
+    {
+      "lamp": "Intersection Collision Warning (Undetectable direction)",
+      "colour": "red",
+      "steady": "Risk of collision with vehicle from unrecognizable direction detected. Increased awareness is required.",
+      "flashing": "Risk of imminent collision with a vehicle detected. Immediately initiate braking or an evasive maneuver."
+    },
+    {
+      "lamp": "Active Cruise Control with Distance Control",
+      "colour": "red",
+      "steady": null,
+      "flashing": "Brake and evade as necessary."
+    },
+    {
+      "lamp": "Steering Assistant",
+      "colour": "red",
+      "steady": "The system is switched off.",
+      "flashing": "The system is switched off."
+    },
+    {
+      "lamp": "Steering and Lane Control Assistant: hands not on steering wheel",
+      "colour": "red",
+      "steady": "Hands are not grasping the steering wheel. System interruption is imminent. Grab the steering wheel.",
+      "flashing": null
+    },
+    {
+      "lamp": "Antilock Braking System",
+      "colour": "yellow",
+      "steady": "The system may not be operational and is not available. Steering ability may be restricted during full braking.",
+      "flashing": null
+    },
+    {
+      "lamp": "Steering Assistant",
+      "colour": "yellow",
+      "steady": "A system interruption is imminent.",
+      "flashing": "Lane boundary has been crossed."
+    },
+    {
+      "lamp": "Steering and Lane Control Assistant: hands not on steering wheel",
+      "colour": "yellow",
+      "steady": "Hands are not grasping the steering wheel. The system is still active. Grab the steering wheel.",
+      "flashing": null
+    },
+    {
+      "lamp": "Dynamic Stability Control",
+      "colour": "yellow",
+      "steady": "Dynamic Stability Control has malfunctioned or is initializing. Driving stabilization is restricted or has failed.",
+      "flashing": "Dynamic Stability Control is regulating driving and brake power. The vehicle is stabilized."
+    },
+    {
+      "lamp": "Dynamic Stability Control deactivated / Dynamic Traction Control activated",
+      "colour": "yellow",
+      "steady": "Dynamic Stability Control is deactivated or Dynamic Traction Control is activated.",
+      "flashing": null
+    },
+    {
+      "lamp": "Flat tire monitor",
+      "colour": "yellow",
+      "steady": "Flat tire or tire pressure loss has been detected. Reduce speed and stop cautiously.",
+      "flashing": null
+    },
+    {
+      "lamp": "Tire pressure monitor",
+      "colour": "yellow",
+      "steady": "Flat tire or tire pressure loss has been detected. Follow Check Control message.",
+      "flashing": "Flat tires or tire pressure losses cannot be detected due to a system fault or missing wheel electronics."
+    },
+    {
+      "lamp": "Steering system",
+      "colour": "yellow",
+      "steady": "The steering system may not be operational. Have the vehicle checked by a service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "Exhaust emissions",
+      "colour": "yellow",
+      "steady": "Exhaust gas quality is declining, e.g., incorrect fuel filler cap. Have the vehicle checked.",
+      "flashing": "Excessive misfiring in the engine. Reduce speed and have the vehicle checked immediately to avoid catalytic converter damage."
+    },
+    {
+      "lamp": "Automatic Hold",
+      "colour": "green",
+      "steady": "Automatic Hold secures the stopped vehicle to prevent it from rolling away.",
+      "flashing": null
+    },
+    {
+      "lamp": "Manual Speed Limiter",
+      "colour": "green",
+      "steady": "The system is switched on.",
+      "flashing": "The set speed limit has been exceeded."
+    },
+    {
+      "lamp": "Cruise Control",
+      "colour": "green",
+      "steady": "The system is active.",
+      "flashing": null
+    },
+    {
+      "lamp": "Active Cruise Control with Distance Control",
+      "colour": "green",
+      "steady": "Vehicle has been detected ahead of you.",
+      "flashing": "Preceding vehicle has driven off."
+    },
+    {
+      "lamp": "Speed Limit Assistant activated",
+      "colour": "green",
+      "steady": "Speed Limit Assistant is active and detected speed limits can be applied manually.",
+      "flashing": null
+    },
+    {
+      "lamp": "Speed Limit Assist: Apply speed limit",
+      "colour": "green",
+      "steady": "The detected speed limit can be applied with the SET button.",
+      "flashing": null
+    },
+    {
+      "lamp": "Steering Assistant",
+      "colour": "green",
+      "steady": "The system is activated and helps to keep the vehicle in the lane.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lane Change Assistant: lane change in progress",
+      "colour": "green",
+      "steady": "The system carries out a lane change.",
+      "flashing": null
+    }
+  ]
+}

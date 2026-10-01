@@ -1,0 +1,188 @@
+{
+  "source": "manual",
+  "car": "Maruti Celerio",
+  "manual_url": "https://www.marutisuzuki.com/content/dam/msil/arena/in/en/assets/cars/celerio/manuals/CELERIO_99011M81R09-74W.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Immobilizer/keyless push start system warning light",
+      "colour": "amber",
+      "steady": "There is a problem with the immobilizer or keyless push start system; have it inspected by an authorized workshop.",
+      "flashing": "The engine will not start; turn ignition to LOCK then back to ON, or check key/system."
+    },
+    {
+      "lamp": "Low fuel warning light",
+      "colour": "amber",
+      "steady": "The fuel is low; fill the fuel tank immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brake system warning light",
+      "colour": "red",
+      "steady": "Brake fluid is low or parking brake is engaged. Pull over carefully and check brakes, or release parking brake.",
+      "flashing": null
+    },
+    {
+      "lamp": "ABS warning light",
+      "colour": "amber",
+      "steady": "There is a problem with the ABS. Pull over, restart the engine, and if it stays on, have it inspected.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Pressure Warning Light",
+      "colour": "red",
+      "steady": "Insufficient oil pressure. Pull off the road immediately, stop the engine, check oil level, and add oil.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charge warning light",
+      "colour": "red",
+      "steady": "There is a problem with the battery charging system; have it inspected immediately by an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Seat Belt Reminder Light",
+      "colour": "red",
+      "steady": "Driver or front passenger has not buckled their seat belt.",
+      "flashing": "Driver or front passenger has not buckled their seat belt."
+    },
+    {
+      "lamp": "Rear Passenger's Seat Belt Reminder Light",
+      "colour": "red",
+      "steady": "Rear passengers have not fastened their seat belts.",
+      "flashing": null
+    },
+    {
+      "lamp": "AIRBAG warning light",
+      "colour": "red",
+      "steady": "There is a problem in the airbag or seat belt pretensioner system; have it inspected immediately.",
+      "flashing": "Working normally during check, or indicates system problem if it continues."
+    },
+    {
+      "lamp": "Malfunction indicator light",
+      "colour": "amber",
+      "steady": "There is damage in the emission control system or a problem with the Auto Gear Shift system; have it serviced.",
+      "flashing": "Misfire detected in the engine; stop vehicle immediately in a safe place to avoid catalyst damage."
+    },
+    {
+      "lamp": "Transmission warning light",
+      "colour": "amber",
+      "steady": "There is a problem with the Auto Gear Shift system; have it inspected.",
+      "flashing": "Auto Gear Shift clutch temperature is too high; stop the vehicle in a safe place and let it cool down."
+    },
+    {
+      "lamp": "Open door warning light",
+      "colour": "red",
+      "steady": "A door or the tailgate is completely open.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low engine coolant temperature light",
+      "colour": "blue",
+      "steady": "The engine is still cold.",
+      "flashing": "There is a problem with the system; have your vehicle inspected."
+    },
+    {
+      "lamp": "High engine coolant temperature warning light",
+      "colour": "red",
+      "steady": "The engine is overheating; follow overheating emergency instructions.",
+      "flashing": "The engine is running hot; avoid driving conditions leading to overheating."
+    },
+    {
+      "lamp": "Front fog light indicator light",
+      "colour": "green",
+      "steady": "Front fog lights are operating.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn signal indicators",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Left or right turn signals or hazard warning lights are active (fast blinking indicates a turn signal malfunction)."
+    },
+    {
+      "lamp": "Main beam indicator light",
+      "colour": "blue",
+      "steady": "Headlight main beams (high beams) are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Security System indicator",
+      "colour": "amber",
+      "steady": null,
+      "flashing": "There may be a problem with the security system; have it inspected."
+    },
+    {
+      "lamp": "Depress brake pedal indicator",
+      "colour": "green",
+      "steady": "Depress the brake pedal for Auto Gear Shift operation.",
+      "flashing": null
+    },
+    {
+      "lamp": "PUSH Indicator Light",
+      "colour": "green",
+      "steady": "You can start the engine by depressing the brake or clutch pedal.",
+      "flashing": "Remote controller not sensed or ignition modes cannot be selected."
+    },
+    {
+      "lamp": "ACC Indicator Light",
+      "colour": "green",
+      "steady": "Ignition mode is set to ACC.",
+      "flashing": null
+    },
+    {
+      "lamp": "Ignition ON Indicator Light",
+      "colour": "green",
+      "steady": "Ignition mode is set to ON with the engine off.",
+      "flashing": null
+    },
+    {
+      "lamp": "Keyless Push Start System Remote Controller Battery Consumption Warning Light",
+      "colour": "amber",
+      "steady": "The remote controller battery is low or unreliable.",
+      "flashing": null
+    },
+    {
+      "lamp": "ENG A-STOP Indicator Light",
+      "colour": "green",
+      "steady": "The engine has been stopped automatically by the ENG A-STOP system.",
+      "flashing": "There is a malfunction in the ENG A-STOP system, or the battery has discharged/pressure dropped."
+    },
+    {
+      "lamp": "ENG A-STOP OFF Light",
+      "colour": "amber",
+      "steady": "The ENG A-STOP system has been deactivated using the switch.",
+      "flashing": "There is something wrong with the ENG A-STOP system; have it inspected."
+    },
+    {
+      "lamp": "CNG Low Fuel Warning Light",
+      "colour": "amber",
+      "steady": "CNG fuel is low; fill the CNG tank immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brake System Warning Light (amber)",
+      "colour": "amber",
+      "steady": "There may be a problem with the hill hold control system; have it inspected.",
+      "flashing": null
+    },
+    {
+      "lamp": "Steering lock indicator light",
+      "colour": "amber",
+      "steady": "Steering lock is not disengaged; gently turn the steering wheel and press the engine switch.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP Warning Light",
+      "colour": "amber",
+      "steady": "There is something wrong with the ESP system; have it inspected.",
+      "flashing": "Stability control or traction control system is currently activated; drive carefully."
+    },
+    {
+      "lamp": "ESP OFF Indicator Light",
+      "colour": "amber",
+      "steady": "ESP systems (other than ABS) have been turned off using the ESP OFF switch.",
+      "flashing": null
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "source": "manual",
+  "car": "Hyundai Verna",
+  "manual_url": "https://www.hyundai.com/content/dam/hyundai/in/en/data/connect-to-service/owners-manual/2025/vernafeb2019-mar2023.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "SRS air bag warning light",
+      "colour": "red",
+      "steady": "Malfunction with the SRS or pre-tensioner system. Have it inspected by an authorized dealer as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Gear shift indicator",
+      "colour": "white",
+      "steady": "Indicates that shifting up or down to the shown gear is desired.",
+      "flashing": null
+    },
+    {
+      "lamp": "Seat Belt Warning Light",
+      "colour": "red",
+      "steady": "Informs the driver that the seat belt is not fastened.",
+      "flashing": null
+    },
+    {
+      "lamp": "Parking Brake & Brake Fluid Warning Light",
+      "colour": "red",
+      "steady": "Parking brake is applied or brake fluid is low. If fluid is low, stop driving and check for leaks.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) Warning Light",
+      "colour": "amber",
+      "steady": "There is a malfunction with the ABS. Normal braking still works, but seek dealer inspection.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Brake force Distribution (EBD) System Warning Light",
+      "colour": "red",
+      "steady": "ABS and regular brakes may not work normally. Avoid high speeds and seek dealer inspection immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electric Power Steering (EPS) Warning Light",
+      "colour": "amber",
+      "steady": "There is a malfunction with the EPS. Steering effort may change; see a dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indicator Lamp (MIL)",
+      "colour": "amber",
+      "steady": "Malfunction with the emission control system. Drive to a dealer for inspection to avoid engine damage.",
+      "flashing": "Diesel only: injection quantity adjustment error. May cause power loss or combustion noise."
+    },
+    {
+      "lamp": "Charging System Warning Light",
+      "colour": "red",
+      "steady": "Malfunction with the alternator or charging system. Stop safely and check the drive belt.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Pressure Warning Light",
+      "colour": "red",
+      "steady": "Engine oil pressure is low. Stop the vehicle, turn off the engine, and check the oil level.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel Level Warning Light",
+      "colour": "amber",
+      "steady": "The fuel tank is nearly empty. Add fuel as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Washer Fluid Warning Light",
+      "colour": "yellow",
+      "steady": "The washer fluid reservoir is nearly empty. Refill the washer fluid.",
+      "flashing": null
+    },
+    {
+      "lamp": "LED Headlamp Warning Light",
+      "colour": "amber",
+      "steady": "Malfunction with the LED headlamp. Seek dealer inspection.",
+      "flashing": "Malfunction with a LED headlamp related part. Inspect via authorized Genesis retailer."
+    },
+    {
+      "lamp": "Master Warning Light",
+      "colour": "amber",
+      "steady": "Malfunction in low engine oil or tire pressure systems. Check the LCD display for details.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Tire Pressure Warning Light",
+      "colour": "yellow",
+      "steady": "One or more tires are significantly underinflated. Check and inflate tires.",
+      "flashing": "TPMS malfunction if it flashes for 60 seconds then stays on. See a dealer."
+    },
+    {
+      "lamp": "Fuel Filter Warning Light",
+      "colour": "amber",
+      "steady": "Diesel only: water has accumulated in the fuel filter. Drain the water immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Exhaust System (DPF or LNT) Warning Light",
+      "colour": "amber",
+      "steady": "Malfunction with DPF/LNT. Drive over 60 km/h or at specific RPM for 25 minutes to clear.",
+      "flashing": "Diesel only: long-term blinking indicates DPF damage or degraded LNT performance."
+    },
+    {
+      "lamp": "Glow Indicator Light",
+      "colour": "yellow",
+      "steady": "Diesel engine is preheating. Wait for the light to go out before starting.",
+      "flashing": "Malfunction with the engine preheating system."
+    },
+    {
+      "lamp": "Door Ajar Warning Light",
+      "colour": "red",
+      "steady": "A door is not closed securely.",
+      "flashing": null
+    },
+    {
+      "lamp": "Trunk Open Warning Light",
+      "colour": "red",
+      "steady": "The trunk is not closed securely.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Stability Control (ESC) Indicator Light",
+      "colour": "amber",
+      "steady": "Malfunction within the ESC system.",
+      "flashing": "The ESC system is currently operating."
+    },
+    {
+      "lamp": "Electronic Stability Control (ESC) OFF Indicator Light",
+      "colour": "amber",
+      "steady": "The ESC system has been deactivated.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer Indicator Light",
+      "colour": "amber",
+      "steady": "Valid key detected; engine can be started.",
+      "flashing": "Key not in vehicle, battery low, or system malfunction."
+    },
+    {
+      "lamp": "Turn Signal Indicator Light",
+      "colour": "green",
+      "steady": "Steady light indicates a malfunction in the system.",
+      "flashing": "Normal operation of the turn signal."
+    },
+    {
+      "lamp": "Low Beam Indicator Light",
+      "colour": "green",
+      "steady": "The headlamps are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Beam Indicator Light",
+      "colour": "blue",
+      "steady": "Headlights are in high beam position or being flashed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Light ON Indicator Light",
+      "colour": "green",
+      "steady": "The tail lights or headlights are on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Fog Indicator Light",
+      "colour": "green",
+      "steady": "The front fog lights are on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise Indicator Light",
+      "colour": "green",
+      "steady": "The cruise control system is enabled.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise SET Indicator Light",
+      "colour": "green",
+      "steady": "A cruise control speed has been set.",
+      "flashing": null
+    }
+  ]
+}

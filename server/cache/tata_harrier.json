@@ -1,0 +1,218 @@
+{
+  "source": "manual",
+  "car": "Tata Harrier",
+  "manual_url": "https://riyatata.com/assets/images/Harrier_Owners_Manual.pdf",
+  "roadside_number": "1800 209 7979",
+  "lamps": [
+    {
+      "lamp": "Seat Belt Warning Lamp",
+      "colour": "red",
+      "steady": "Reminds you to fasten seat belt. Blinks and buzzer sounds until buckled.",
+      "flashing": "Blinks along with an audio buzzer if unfastened while driving."
+    },
+    {
+      "lamp": "SRS Warning Indicator",
+      "colour": "red",
+      "steady": "Malfunction in the airbag system. Remove CRS and contact Tata Motors authorised service center.",
+      "flashing": "SRS is malfunctioning. Visit Tata Motors authorised service centre immediately."
+    },
+    {
+      "lamp": "Low Fuel Warning Lamp",
+      "colour": "amber",
+      "steady": "Fuel level in the tank is low; fuel needs to be filled immediately.",
+      "flashing": "Fault in the fuel system. Take your vehicle to the nearest Tata Motors Authorized service centre."
+    },
+    {
+      "lamp": "Engine Coolant Temperature Telltale",
+      "colour": "red",
+      "steady": "Coolant temperature is high/overheating. Stop vehicle, switch off engine, allow to cool, and contact Tata Motors authorized service centre.",
+      "flashing": "Coolant temperature is very high or at hazardous level. Stop vehicle, switch off engine, allow to cool, and contact Tata Motors authorized service centre."
+    },
+    {
+      "lamp": "DEF Telltale",
+      "colour": "amber",
+      "steady": "DEF level is low in tank, or warns of emission issues.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indication Lamp (MIL)",
+      "colour": "amber",
+      "steady": "Engine related fault that may increase emission levels. Contact Tata Motors Authorised Service Centre.",
+      "flashing": null
+    },
+    {
+      "lamp": "Check Engine Lamp",
+      "colour": "amber",
+      "steady": "Fault arises in Engine Management System. Contact Tata Motors authorized service centre.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer",
+      "colour": "red",
+      "steady": "Problem with key/system. Contact a Tata Motors Authorized Service Centre.",
+      "flashing": "Vehicle is in immobilized condition when key is not inserted."
+    },
+    {
+      "lamp": "Pre-Heat indicator / Glow Plug indicator",
+      "colour": "amber",
+      "steady": "Ignition key is in ON position; start engine only after this indicator goes OFF.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn Signal",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Indicates direction of turn signal when operating left/right indicator or hazard switch."
+    },
+    {
+      "lamp": "High Beam",
+      "colour": "blue",
+      "steady": "High beam headlamps are switched ON or flashed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Oil Pressure Indicator",
+      "colour": "red",
+      "steady": "Fault in electrical circuit or lubrication system. Contact Tata Motors Authorized service centre.",
+      "flashing": null
+    },
+    {
+      "lamp": "Battery Charging",
+      "colour": "red",
+      "steady": "Battery is not getting charged. Switch off unnecessary electrical equipment and contact Tata Motors Authorized service centre.",
+      "flashing": null
+    },
+    {
+      "lamp": "Driver Seat Belt Warning",
+      "colour": "red",
+      "steady": "Turned ON for 4 seconds at ignition, or stays ON if seat belt is unfastened and speed is under 15 kmph.",
+      "flashing": "Speed goes above 15 kmph with unfastened belt; flashes with audio chime for 90 seconds."
+    },
+    {
+      "lamp": "HHC Warning Lamp",
+      "colour": "amber",
+      "steady": "HHC malfunction. Take your vehicle to nearest Tata authorized service centre at the earliest.",
+      "flashing": null
+    },
+    {
+      "lamp": "Airbag Status",
+      "colour": "red",
+      "steady": "Continuously remains ON indicating a fault. Contact Tata Motors Authorized service centre immediately.",
+      "flashing": "Blinks indicating a fault. Contact Tata Motors Authorized service centre immediately."
+    },
+    {
+      "lamp": "Park Brake / Brake Fluid Low / EBD Malfunction",
+      "colour": "red",
+      "steady": "Brake fluid is low, parking brake is applied, or EBD is malfunctioning.",
+      "flashing": null
+    },
+    {
+      "lamp": "ABS",
+      "colour": "amber",
+      "steady": "Malfunction in ABS. Normal braking remains operational without ABS. Contact Tata Motors Authorized service centre.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise Control Lamp",
+      "colour": "green",
+      "steady": "Cruise control feature is present and activated.",
+      "flashing": null
+    },
+    {
+      "lamp": "Press Clutch Pedal to Start Engine",
+      "colour": "amber",
+      "steady": "Comes on until user presses the clutch pedal to start the engine.",
+      "flashing": null
+    },
+    {
+      "lamp": "Water in Fuel Indicator",
+      "colour": "amber",
+      "steady": "Excess water accumulated in fuel filter. Contact Tata Motors Authorised service centre to drain immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Daytime Running Lamps (DRL)",
+      "colour": "green",
+      "steady": "Day Time Running lamps are ON to increase vehicle visibility during daytime.",
+      "flashing": null
+    },
+    {
+      "lamp": "Door Ajar Lamp",
+      "colour": "red",
+      "steady": "Indicates respective door or tailgate is open.",
+      "flashing": null
+    },
+    {
+      "lamp": "HDC Warning Lamp",
+      "colour": "amber",
+      "steady": "Hill Descent Control system is at fault condition. Take vehicle to nearest Tata authorized service centre.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear Fog Lamp",
+      "colour": "amber",
+      "steady": "Rear fog lamp is switched ON.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Fog Lamp",
+      "colour": "green",
+      "steady": "Front fog lamp is switched ON.",
+      "flashing": null
+    },
+    {
+      "lamp": "Key Not Detected",
+      "colour": "amber",
+      "steady": "Valid Smart key is not detected inside the vehicle.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Stability Program (ESP)",
+      "colour": "amber",
+      "steady": "ESP system is at fault condition. Take your vehicle to nearest Tata authorized service center.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Passenger Seat Belt Indicator",
+      "colour": "red",
+      "steady": "Co-driver seatbelt is unfastened while occupied by an adult.",
+      "flashing": "Speed goes above 15 kmph with unfastened co-driver seatbelt; final audio warning goes on for 90 seconds."
+    },
+    {
+      "lamp": "Speed Limit Warning Indicator",
+      "colour": "amber",
+      "steady": "Vehicle speed crosses 80 kmph or 120 kmph, staying ON with audio chimes until speed is reduced.",
+      "flashing": null
+    },
+    {
+      "lamp": "DPF Lamp",
+      "colour": "amber",
+      "steady": "DPF needs regeneration because soot regeneration is insufficient. Keep car running at 3rd gear, 60 kmph, over 2000 rpm until complete.",
+      "flashing": "DPF needs to eliminate trapped pollutants through regeneration process."
+    },
+    {
+      "lamp": "ECO",
+      "colour": "green",
+      "steady": "Economy drive mode is active for better fuel economy.",
+      "flashing": null
+    },
+    {
+      "lamp": "SPORT",
+      "colour": "amber",
+      "steady": "Sport drive mode is active when more torque is required.",
+      "flashing": null
+    },
+    {
+      "lamp": "CITY",
+      "colour": "white",
+      "steady": "City drive mode is active for optimum torque with fuel economy.",
+      "flashing": null
+    },
+    {
+      "lamp": "SCR Fault",
+      "colour": "amber",
+      "steady": "Malfunction in the catalyst health / SCR system.",
+      "flashing": null
+    }
+  ]
+}

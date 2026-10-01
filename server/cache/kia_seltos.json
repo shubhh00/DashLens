@@ -1,0 +1,266 @@
+{
+  "source": "manual",
+  "car": "Kia Seltos",
+  "manual_url": "https://www.kia.com/content/dam/kia2/in/en/images/service/service-and-maintenance/owners-manual/2026/KiaNewSeltos_2026.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Air bag warning light",
+      "colour": "red",
+      "steady": "An SRS airbag system malfunction has been detected. Have your vehicle inspected by a professional immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Seat belt warning light",
+      "colour": "red",
+      "steady": "A front or rear seat belt is unfastened. Fasten it to turn the warning light off.",
+      "flashing": "Flashes when driving without fastened seat belts or when unfastened at speeds above 20 km/h."
+    },
+    {
+      "lamp": "Door ajar warning light",
+      "colour": "red",
+      "steady": "One or more doors are not closed securely. Ensure all doors are fully closed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Master warning light",
+      "colour": "yellow",
+      "steady": "Indicates a malfunction in LED headlamps, other lights, or High Beam Assist. Look at LCD display for details.",
+      "flashing": null
+    },
+    {
+      "lamp": "Motor Driven Power Steering (MDPS) warning light",
+      "colour": "red",
+      "steady": "Power steering malfunction detected. Have the vehicle checked immediately by an authorised Kia dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Tailgate open warning light",
+      "colour": "red",
+      "steady": "The tailgate is not closed securely. Check and close it.",
+      "flashing": null
+    },
+    {
+      "lamp": "LED headlamp warning light",
+      "colour": "yellow",
+      "steady": "There is a malfunction with the LED headlamp. Have it checked by a professional.",
+      "flashing": "An LED headlamp related part is malfunctioning. Have it inspected by a professional."
+    },
+    {
+      "lamp": "Low fuel level warning light",
+      "colour": "yellow",
+      "steady": "The fuel tank is nearly empty. Add fuel as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indicator Lamp (MIL)",
+      "colour": "yellow",
+      "steady": "An emission control, engine, or powertrain malfunction has occurred. Have the vehicle checked by a professional.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Level Warning Light",
+      "colour": "yellow",
+      "steady": "Engine oil pressure is low. Check oil level immediately and add oil as required.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine oil pressure warning light",
+      "colour": "red",
+      "steady": "Engine oil pressure is dangerously low. Stop safely, turn off engine, check oil level, and add oil.",
+      "flashing": null
+    },
+    {
+      "lamp": "Fuel filter warning light (Diesel Engine)",
+      "colour": "yellow",
+      "steady": "Water has accumulated inside the fuel filter. Remove water from the filter immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Exhaust system (PPF) warning light (Petrol Engine)",
+      "colour": "yellow",
+      "steady": "PPF malfunction. Drive over 80 km/h at 1500-4000 rpm for 30+ minutes to clear soot.",
+      "flashing": "PPF malfunction persists. Have the system checked by a professional workshop."
+    },
+    {
+      "lamp": "Exhaust system (DPF or LNT) warning light (Diesel Engine)",
+      "colour": "yellow",
+      "steady": "DPF or LNT malfunction. Drive over 60 km/h at 1500-2500 rpm for 25 minutes to clear.",
+      "flashing": "Exhaust system issue continues. Have the vehicle checked by a professional workshop."
+    },
+    {
+      "lamp": "SCR warning light (Diesel Engine)",
+      "colour": "yellow",
+      "steady": "Urea solution tank is nearly empty. Refill the urea solution as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charging system warning light",
+      "colour": "red",
+      "steady": "Alternator or charging system malfunction. Stop safely and check the alternator drive belt.",
+      "flashing": null
+    },
+    {
+      "lamp": "Icy road warning light",
+      "colour": "yellow",
+      "steady": "Outside temperature is below 4\u00b0C (40\u00b0F). Roads may be icy, drive carefully.",
+      "flashing": null
+    },
+    {
+      "lamp": "Parking brake and brake fluid warning light",
+      "colour": "red",
+      "steady": "Parking brake is applied, or brake fluid level is critically low. Seek service if fluid is low.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Parking Brake (EPB) warning light",
+      "colour": "yellow",
+      "steady": "The EPB is malfunctioning. Have the vehicle checked by a professional workshop.",
+      "flashing": "The EPB has not been applied properly. Cycle the EPB switch."
+    },
+    {
+      "lamp": "Anti-lock brake system (ABS) warning light",
+      "colour": "yellow",
+      "steady": "ABS is malfunctioning. Regular braking works, but seek professional assistance.",
+      "flashing": null
+    },
+    {
+      "lamp": "EBD system warning light",
+      "colour": "red",
+      "steady": "Both ABS and regular braking systems are failing. Drive carefully, avoid high speeds, and stop safely.",
+      "flashing": null
+    },
+    {
+      "lamp": "Forward Safety warning light",
+      "colour": "yellow",
+      "steady": "Forward Collision-Avoidance Assist is disabled, deselected, or malfunctioning.",
+      "flashing": "Blinks red when Forward Safety or Forward Cross-Traffic Safety is operating."
+    },
+    {
+      "lamp": "Emergency steering warning light",
+      "colour": "yellow",
+      "steady": "Forward/Side Safety function is disabled, deselected, or malfunctioning.",
+      "flashing": "Blinks red when Forward/Side Safety function is operating."
+    },
+    {
+      "lamp": "Low tyre pressure warning light",
+      "colour": "yellow",
+      "steady": "One or more tyres are significantly underinflated. Check and inflate tyres immediately.",
+      "flashing": "Flashes for 60 seconds then stays steady to indicate a TPMS malfunction."
+    },
+    {
+      "lamp": "High beam indicator light",
+      "colour": "blue",
+      "steady": "High beams are turned on or turn signal is set to flash-to-pass.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn signal indicator light",
+      "colour": "green",
+      "steady": "Indicates a turn signal malfunction if it stays steady, does not light, or blinks rapidly.",
+      "flashing": "Blinks normally when turn signals are active."
+    },
+    {
+      "lamp": "Immobiliser indicator light (without smart key)",
+      "colour": "yellow",
+      "steady": "Vehicle successfully detected the key's immobiliser. Turns off after starting.",
+      "flashing": "Immobiliser system is malfunctioning. Have the vehicle checked."
+    },
+    {
+      "lamp": "Immobiliser indicator light (with smart key)",
+      "colour": "yellow",
+      "steady": "Smart key detected inside vehicle. Disappears after engine starts.",
+      "flashing": "Smart key battery is weak, key is missing, or system is malfunctioning."
+    },
+    {
+      "lamp": "Front fog indicator light",
+      "colour": "green",
+      "steady": "The front fog lights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Glow Indicator Light (for diesel engine)",
+      "colour": "yellow",
+      "steady": "Engine is preheating. Start the engine once the light goes out.",
+      "flashing": "Preheating system malfunction if it blinks after driving or warming up."
+    },
+    {
+      "lamp": "Light ON indicator light",
+      "colour": "green",
+      "steady": "The taillights or headlights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Drive mode indicator light",
+      "colour": "white",
+      "steady": "Displays current drive mode (NORMAL, ECO, or SPORT).",
+      "flashing": null
+    },
+    {
+      "lamp": "Downhill Brake Control (DBC) indicator light",
+      "colour": "green",
+      "steady": "DBC is turned on, or yellow if the system is malfunctioning.",
+      "flashing": "Blinks green when DBC is actively operating."
+    },
+    {
+      "lamp": "AUTO HOLD indicator light",
+      "colour": "white",
+      "steady": "White when activated, green when holding vehicle still, yellow when malfunctioning.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic stability control (ESC) indicator light",
+      "colour": "yellow",
+      "steady": "ESC system malfunction. Have the vehicle checked by a professional.",
+      "flashing": "Blinks when the ESC system is actively operating."
+    },
+    {
+      "lamp": "Electronic stability control (ESC) OFF indicator light",
+      "colour": "yellow",
+      "steady": "The ESC system has been turned off.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise Control indicator light",
+      "colour": "green",
+      "steady": "The Smart Cruise Control system is enabled.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lane Safety indicator light",
+      "colour": "green",
+      "steady": "Gray when conditions unmet, green when met/active, yellow if disabled or malfunctioning.",
+      "flashing": "Blinks green when Lane Keeping Assist is actively operating."
+    },
+    {
+      "lamp": "Lane Following Assist indicator light",
+      "colour": "green",
+      "steady": "Green when function is active, yellow when malfunctioning.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Beam Assist indicator light",
+      "colour": "green",
+      "steady": "Light switch is set to AUTO and high beams are on with HBA active.",
+      "flashing": null
+    },
+    {
+      "lamp": "Inattentive Driving indicator light",
+      "colour": "yellow",
+      "steady": "Driver Attention Warning is disabled or malfunctioning.",
+      "flashing": "Blinks yellow to recommend taking a break from driving."
+    },
+    {
+      "lamp": "Front passenger air bag ON/OFF indicator",
+      "colour": "yellow",
+      "steady": "Shows whether the passenger's front airbag is enabled or disabled.",
+      "flashing": null
+    },
+    {
+      "lamp": "Check side view mirror warning light",
+      "colour": "yellow",
+      "steady": "Outside rearview mirror warning light or Safe Exit Warning is malfunctioning.",
+      "flashing": null
+    }
+  ]
+}

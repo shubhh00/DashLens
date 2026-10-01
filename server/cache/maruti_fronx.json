@@ -1,0 +1,200 @@
+{
+  "source": "manual",
+  "car": "Maruti Fronx",
+  "manual_url": "https://www.team-bhp.com/sites/default/files/pictures/2026-06/Maruti%20Fronx%20Owner%27s%20Manual-2892416.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Brake System Warning Light",
+      "colour": "red",
+      "steady": "Parking brake is engaged, brake fluid is low, or there is a brake system malfunction. Stop safely and check brakes.",
+      "flashing": null
+    },
+    {
+      "lamp": "Driver\u2019s Seat Belt Reminder Light / Front Passenger\u2019s Seat Belt Reminder Light",
+      "colour": "red",
+      "steady": "The driver or front passenger seat belt is not buckled.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear Seat Passenger's Seat Belt Reminder Light",
+      "colour": "white",
+      "steady": "One or more rear seat passenger seat belts are unbuckled.",
+      "flashing": null
+    },
+    {
+      "lamp": "Airbag Warning Light",
+      "colour": "red",
+      "steady": "There is a problem with the airbag system. Have it inspected by an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel Warning Light",
+      "colour": "amber",
+      "steady": "Fuel level is low. Refill the fuel tank immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) Warning Light",
+      "colour": "amber",
+      "steady": "There is a problem with the ABS system. Have it inspected by an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Engine Coolant Temperature Warning Light",
+      "colour": "red",
+      "steady": "The engine is overheating. Stop the vehicle safely and turn off the engine immediately.",
+      "flashing": "The engine is running hot. Stop safely to avoid overheating."
+    },
+    {
+      "lamp": "Malfunction Indicator Light",
+      "colour": "amber",
+      "steady": "There is a malfunction in the emission control or automatic transmission system. Have it inspected.",
+      "flashing": "Engine misfire detected. Stop immediately in a safe place to avoid catalyst damage."
+    },
+    {
+      "lamp": "Electric Power Steering Light",
+      "colour": "amber",
+      "steady": "There is a problem with the electric power steering system. Have it inspected.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Pressure Warning Light",
+      "colour": "red",
+      "steady": "Engine oil pressure is too low. Stop the engine immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charge Warning Light",
+      "colour": "red",
+      "steady": "There is a problem with the battery charging system. Have it inspected immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer/Keyless Push Start System Warning Light",
+      "colour": "amber",
+      "steady": "There is a system problem or the remote controller is not inside the vehicle.",
+      "flashing": "There is a system problem, or the remote controller is missing. The engine will not start."
+    },
+    {
+      "lamp": "Open Door Warning Light",
+      "colour": "red",
+      "steady": "One or more doors, including the tailgate, are open.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn Signal Indicators",
+      "colour": "green",
+      "steady": "Null",
+      "flashing": "Indicates the corresponding turn signal is operating."
+    },
+    {
+      "lamp": "Main Beam (High Beam) Indicator Light",
+      "colour": "blue",
+      "steady": "The headlights are on high beam.",
+      "flashing": null
+    },
+    {
+      "lamp": "Illumination Indicator Light",
+      "colour": "green",
+      "steady": "The vehicle tail lights or headlights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Deceleration Energy Regenerating Indicator Light",
+      "colour": "white",
+      "steady": "Deceleration energy is currently being regenerated to charge the battery.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP\u00ae OFF Indicator Light",
+      "colour": "amber",
+      "steady": "The Electronic Stability Program (ESP) systems are manually deactivated.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP\u00ae Warning Light",
+      "colour": "amber",
+      "steady": "There is a malfunction in the ESP systems. Have it inspected.",
+      "flashing": "The stability control or traction control system is currently activated. Drive carefully."
+    },
+    {
+      "lamp": "Low Engine Coolant Temperature Light",
+      "colour": "blue",
+      "steady": "The engine is cold. If it stays on after the engine warms up, the sensor has a problem.",
+      "flashing": null
+    },
+    {
+      "lamp": "ENG A-STOP Indicator Light",
+      "colour": "green",
+      "steady": "The engine has been stopped automatically by the ENG A-STOP system.",
+      "flashing": "The engine is restarting automatically, or driver door was opened/seat belt unfastened during auto-stop."
+    },
+    {
+      "lamp": "ENG A-STOP OFF Indicator Light",
+      "colour": "amber",
+      "steady": "The ENG A-STOP system is deactivated.",
+      "flashing": "There is a problem with the ENG A-STOP system. Have it inspected."
+    },
+    {
+      "lamp": "Gasoline Particulate Filter (GPF) Warning Light",
+      "colour": "amber",
+      "steady": "The GPF is nearly clogged. Keep vehicle in motion above 50 km/h and 2000 rpm to regenerate.",
+      "flashing": null
+    },
+    {
+      "lamp": "Transmission Warning Light",
+      "colour": "amber",
+      "steady": "There is a problem with the Auto Gear Shift or Automatic Transmission system.",
+      "flashing": "The AGS clutch temperature is too high. Stop safely and let the system cool down."
+    },
+    {
+      "lamp": "Cruise Control Indicator Light",
+      "colour": "green",
+      "steady": "The cruise control system is turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "SET Indicator Light",
+      "colour": "green",
+      "steady": "A cruising speed has been set for the cruise control system.",
+      "flashing": null
+    },
+    {
+      "lamp": "Depress Brake Pedal Indicator Light",
+      "colour": "amber",
+      "steady": "Indicates the brake pedal must be depressed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Master Warning Indicator Light",
+      "colour": "amber",
+      "steady": "Null",
+      "flashing": "Indicates a warning situation like remote controller outside or low remote battery."
+    },
+    {
+      "lamp": "Wireless Charger Indicator Light (Ready)",
+      "colour": "amber",
+      "steady": "Wireless charger is activated and ready to charge.",
+      "flashing": null
+    },
+    {
+      "lamp": "Wireless Charger Indicator Light (Charging)",
+      "colour": "blue",
+      "steady": "Wireless charging is currently in progress.",
+      "flashing": null
+    },
+    {
+      "lamp": "Wireless Charger Indicator Light (Completed)",
+      "colour": "green",
+      "steady": "Wireless charging of the smartphone is complete.",
+      "flashing": null
+    },
+    {
+      "lamp": "Wireless Charger Indicator Light (Error)",
+      "colour": "red",
+      "steady": "A non-compatible device is placed, or a non-recoverable failure occurred.",
+      "flashing": "Foreign object detected, mobile is displaced, or temperature is too high."
+    }
+  ]
+}

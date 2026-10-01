@@ -1,0 +1,164 @@
+{
+  "source": "manual",
+  "car": "Maruti Ertiga",
+  "manual_url": "https://www.marutisuzuki.com/content/dam/msil/arena/in/en/assets/cars/ertiga/manuals/ERTIGA_99011M75UD1-74E.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Immobilizer/Keyless Push Start System Warning Light",
+      "colour": "amber",
+      "steady": "There is a problem with the system. Have it inspected by a Maruti Suzuki workshop.",
+      "flashing": "The engine will not start. This happens if there is a system error or the remote is not in the vehicle."
+    },
+    {
+      "lamp": "Low tyre pressure warning light",
+      "colour": "amber",
+      "steady": "One or more tyres are significantly under-inflated. Stop and check your tyres as soon as possible.",
+      "flashing": "There is a malfunction with the TPMS. Have the system inspected by a Maruti Suzuki workshop."
+    },
+    {
+      "lamp": "Brake System Warning Light",
+      "colour": "red",
+      "steady": "Parking brake is engaged, brake fluid is low, or the system has failed. Stop safely and check the brakes.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-Lock Brake System (ABS) Warning Light",
+      "colour": "amber",
+      "steady": "There is a problem with the ABS. Braking will function normally but without the anti-lock feature.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Pressure Warning Light",
+      "colour": "red",
+      "steady": "Insufficient oil pressure. Pull off the road as soon as possible and stop the engine.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP Warning Light",
+      "colour": "amber",
+      "steady": "There is a malfunction in the ESP systems. Have the system inspected by a Maruti Suzuki workshop.",
+      "flashing": "Stability or traction control is currently activated. Drive carefully."
+    },
+    {
+      "lamp": "ESP OFF Indicator Light",
+      "colour": "amber",
+      "steady": "The ESP systems have been manually turned off.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low engine coolant temperature light",
+      "colour": "blue",
+      "steady": "The engine is still cold. The light goes off when the engine warms up.",
+      "flashing": "There is a problem with the system. Have the vehicle inspected by a Maruti Suzuki workshop."
+    },
+    {
+      "lamp": "High engine coolant temperature warning light",
+      "colour": "red",
+      "steady": "The engine is overheating. Stop and follow overheating instructions immediately.",
+      "flashing": "The engine is running hot. Avoid driving conditions that lead to overheating."
+    },
+    {
+      "lamp": "Charge Warning Light",
+      "colour": "red",
+      "steady": "There is a problem with the battery charging system. Have it inspected immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Seat belt reminder light",
+      "colour": "red",
+      "steady": "The driver or front passenger has not buckled their seat belt.",
+      "flashing": "The seat belt remains unbuckled while driving."
+    },
+    {
+      "lamp": "Rear Passenger Seat Belt Reminder Light",
+      "colour": "red",
+      "steady": "Reminds rear passengers to fasten their seat belts.",
+      "flashing": null
+    },
+    {
+      "lamp": "AIRBAG Warning Light",
+      "colour": "red",
+      "steady": "Problem with the airbag or seat belt pretensioner. Systems may not work properly during a collision.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indicator Light",
+      "colour": "amber",
+      "steady": "There is a problem with the emission control system or automatic transmission. Have the vehicle serviced.",
+      "flashing": "Engine misfire detected. Stop immediately in a safe place to prevent damage to the catalyst."
+    },
+    {
+      "lamp": "Transmission Warning Light",
+      "colour": "red",
+      "steady": "There is a problem with the automatic transmission system. Have it inspected by a Maruti Suzuki workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Open Door Warning Light",
+      "colour": "red",
+      "steady": "One or more doors or the tailgate are not completely closed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel Warning Light",
+      "colour": "amber",
+      "steady": "The fuel level is low. Refuel the tank as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Illumination Indicator Light",
+      "colour": "green",
+      "steady": "Position lights, tail lights, or headlights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Fog Light Indicator Light",
+      "colour": "green",
+      "steady": "The front fog lights are currently operating.",
+      "flashing": null
+    },
+    {
+      "lamp": "ENG A-STOP Indicator Light",
+      "colour": "green",
+      "steady": "The engine has stopped automatically.",
+      "flashing": "The driver's door was opened or the seat belt unfastened while the engine was auto-stopped."
+    },
+    {
+      "lamp": "ENG A-STOP OFF Light",
+      "colour": "amber",
+      "steady": "The ENG A-STOP system has been manually turned off.",
+      "flashing": "System malfunction, battery replacement needed, or lithium-ion battery issue. Inspect vehicle immediately."
+    },
+    {
+      "lamp": "Turn Signal Indicators",
+      "colour": "green",
+      "steady": null,
+      "flashing": "The turn signals or hazard warning lights are currently operating."
+    },
+    {
+      "lamp": "Master Warning Indicator Light",
+      "colour": "amber",
+      "steady": null,
+      "flashing": "Remote controller not sensed or battery is low. Engine cannot start normally."
+    },
+    {
+      "lamp": "Cruise Indicator",
+      "colour": "green",
+      "steady": "The cruise control system is turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "SET Indicator",
+      "colour": "green",
+      "steady": "The cruising speed is set and maintained.",
+      "flashing": null
+    },
+    {
+      "lamp": "Remote Controller Battery Consumption Warning Light",
+      "colour": "amber",
+      "steady": "The remote controller battery is nearly discharged.",
+      "flashing": null
+    }
+  ]
+}

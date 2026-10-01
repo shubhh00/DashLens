@@ -1,0 +1,182 @@
+{
+  "source": "manual",
+  "car": "Maruti Grand Vitara",
+  "manual_url": "https://www.nexaexperience.com/content/dam/msil/nexa/in/en/assets/cars/grand-vitara/sigma/documents/Grand Vitara New Manual.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Brake System Warning Light",
+      "colour": "red",
+      "steady": "Parking brake applied, low brake fluid level, or brake malfunction. Stop safely and contact workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Driver and Front Passenger Seat Belt Reminder Light",
+      "colour": "red",
+      "steady": "Driver or front passenger seat belt is unfastened. Fasten seat belt.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear Seat Passenger Seat Belt Reminder Light",
+      "colour": "red",
+      "steady": "Rear seat passenger seat belt is unfastened. Fasten seat belt.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel Warning Light",
+      "colour": "yellow",
+      "steady": "Fuel level is around 5.0L or less. Fill fuel tank immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) Warning Light",
+      "colour": "yellow",
+      "steady": "ABS malfunction. Pull off road, restart engine; if light stays on, consult authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indicator Light",
+      "colour": "yellow",
+      "steady": "Emission control system needs servicing. Have vehicle checked by authorized workshop.",
+      "flashing": "Damage detected in emission control system. Have vehicle repaired at authorized workshop."
+    },
+    {
+      "lamp": "Electric Power Steering Light",
+      "colour": "yellow",
+      "steady": "Electric power steering malfunction or system check. Consult an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Pressure Warning Light",
+      "colour": "red",
+      "steady": "Insufficient engine oil pressure. Pull off road, stop engine, check oil, and consult workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charge Warning Light",
+      "colour": "red",
+      "steady": "Battery charging system malfunction. Inspect immediately at an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Transmission Warning Light",
+      "colour": "yellow",
+      "steady": "Automatic transmission system malfunction. Stop safely and contact authorized workshop.",
+      "flashing": "Automatic transmission system malfunction. Stop in a safe place and contact workshop."
+    },
+    {
+      "lamp": "Immobilizer / Keyless Push Start System Warning Light",
+      "colour": "yellow",
+      "steady": "System malfunction or key outside vehicle range. Check remote location or consult workshop.",
+      "flashing": "System problem or key controller outside vehicle. Place controller inside or inspect at workshop."
+    },
+    {
+      "lamp": "Open Door Warning Light",
+      "colour": "red",
+      "steady": "One or more doors or tailgate are open. Close all doors completely.",
+      "flashing": null
+    },
+    {
+      "lamp": "Master Warning Indicator Light",
+      "colour": "yellow",
+      "steady": "Warning message on information display. Read message and follow instructions.",
+      "flashing": "Warning message displayed, key error, or electric parking brake issue. Check display."
+    },
+    {
+      "lamp": "Low Tyre Pressure Warning Light",
+      "colour": "yellow",
+      "steady": "One or more tyres significantly under-inflated. Stop and inflate tyres to correct pressure.",
+      "flashing": "TPMS malfunction. Have vehicle inspected by an authorized workshop."
+    },
+    {
+      "lamp": "Hybrid System Warning Light",
+      "colour": "red",
+      "steady": "Hybrid system malfunction. Consult Maruti Suzuki authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Engine Coolant Temperature Warning Light",
+      "colour": "red",
+      "steady": "Engine overheating. Stop driving immediately and follow emergency instructions.",
+      "flashing": "Engine running hot. Follow overheating emergency instructions."
+    },
+    {
+      "lamp": "Airbag Warning Light",
+      "colour": "red",
+      "steady": "Malfunction in airbag or seat belt pretensioner system. Have inspected at workshop.",
+      "flashing": "Malfunction in airbag or seat belt pretensioner system. Inspect at workshop."
+    },
+    {
+      "lamp": "Main Beam Indicator Light",
+      "colour": "blue",
+      "steady": "High beam headlights are switched on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Illumination Indicator Light",
+      "colour": "green",
+      "steady": "Position lights or instrument panel illumination is turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP OFF Indicator Light",
+      "colour": "amber",
+      "steady": "ESP system (except ABS) is turned off using ESP OFF switch.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP Warning Light",
+      "colour": "amber",
+      "steady": "ESP system malfunction. Have system inspected by an authorized workshop.",
+      "flashing": "ESP system is actively operating. Drive carefully."
+    },
+    {
+      "lamp": "Electric Parking Brake Operation Indicator Light",
+      "colour": "red",
+      "steady": "Electric parking brake is currently engaged.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brake Hold Operation Indicator Light",
+      "colour": "green",
+      "steady": "Brake hold system is actively applying brakes.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brake Hold Standby Indicator Light",
+      "colour": "white",
+      "steady": "Brake hold system is switched on and in standby.",
+      "flashing": null
+    },
+    {
+      "lamp": "ENG A-STOP Indicator Light",
+      "colour": "green",
+      "steady": "Engine has automatically stopped via ENG A-STOP.",
+      "flashing": "Driver door opened or seat belt unfastened during auto stop. Close door and fasten belt."
+    },
+    {
+      "lamp": "ENG A-STOP OFF Indicator Light",
+      "colour": "amber",
+      "steady": "ENG A-STOP system is deactivated.",
+      "flashing": "System problem, battery issue, or lead-acid battery replacement required. Inspect at workshop."
+    },
+    {
+      "lamp": "4WD Warning Light",
+      "colour": "amber",
+      "steady": "4WD system malfunction. System deactivated automatically. Have inspected at workshop.",
+      "flashing": "Drive train component overheating or uneven wheel sizes. Move to safe place and run engine idle."
+    },
+    {
+      "lamp": "Hill Descent Control Indicator Light",
+      "colour": "green",
+      "steady": "Hill descent control switch turned on and operating conditions met.",
+      "flashing": "Operating conditions not met or system malfunction. Check conditions or consult workshop."
+    },
+    {
+      "lamp": "EV Indicator",
+      "colour": "green",
+      "steady": "Vehicle driven using electric motor or engine is stopped.",
+      "flashing": null
+    }
+  ]
+}

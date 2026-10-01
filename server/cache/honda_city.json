@@ -1,0 +1,170 @@
+{
+  "source": "manual",
+  "car": "Honda City",
+  "manual_url": "https://www.hondacarindia.com/ownersmanual/webom/eng/cityehev/new-city-ehev-2022.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Parking Brake and Brake System Indicator",
+      "colour": "red",
+      "steady": "Comes on if there is a problem with the brake system. Stop in a safe place and contact a dealer for repair.",
+      "flashing": "Blinks when there is a problem with the electric parking brake system. Avoid using the parking brake and have your vehicle checked by a dealer immediately."
+    },
+    {
+      "lamp": "Parking Brake and Brake System Indicator",
+      "colour": "amber",
+      "steady": "Comes on if there is a problem with a braking-related system. Avoid high speeds and sudden braking, and take the vehicle to a dealer immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Automatic Brake Hold System Indicator",
+      "colour": "green",
+      "steady": "Comes on when the automatic brake hold system is on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Automatic Brake Hold Indicator",
+      "colour": "green",
+      "steady": "Comes on when the automatic brake hold is activated.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indicator Lamp",
+      "colour": "amber",
+      "steady": "Comes on if there is a problem with the emissions control systems. Avoid high speeds and get inspected at a dealer.",
+      "flashing": "Blinks when a misfire in the engine's cylinders is detected. Park in a safe place and wait for the engine to cool."
+    },
+    {
+      "lamp": "12-Volt Battery Charging System Indicator",
+      "colour": "red",
+      "steady": "Comes on when there is a problem with the charging system. Stop in a safe place and contact a dealer immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Transmission System Indicator",
+      "colour": "amber",
+      "steady": null,
+      "flashing": "Blinks if the transmission system has a problem. Avoid sudden starts and acceleration and have your vehicle checked by a dealer immediately."
+    },
+    {
+      "lamp": "Shift Position Indicator",
+      "colour": "white",
+      "steady": "Indicates the current shift position.",
+      "flashing": null
+    },
+    {
+      "lamp": "Deceleration Paddle Selector Indicator",
+      "colour": "white",
+      "steady": "Comes on when the paddle selector is pulled, or comes on with M when the shift lever is in M and pulling the paddle.",
+      "flashing": "Blinks when deceleration does not occur while pulling the paddle selector."
+    },
+    {
+      "lamp": "Power System Indicator",
+      "colour": "amber",
+      "steady": "Comes on if there is a problem with the electric vehicle system. Have your vehicle checked by a dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "READY Indicator",
+      "colour": "green",
+      "steady": "Comes on when the vehicle is ready to drive.",
+      "flashing": null
+    },
+    {
+      "lamp": "EV Indicator",
+      "colour": "green",
+      "steady": "Comes on when the vehicle is moved by the motor, and the engine is not operating.",
+      "flashing": null
+    },
+    {
+      "lamp": "Seat Belt Reminder Indicator",
+      "colour": "red",
+      "steady": "Comes on if you or passengers are not wearing a seat belt when power mode is ON.",
+      "flashing": "Blinks while driving if seat belts are unfastened. Beeper sounds."
+    },
+    {
+      "lamp": "Low Fuel Indicator",
+      "colour": "amber",
+      "steady": "Comes on when the fuel reserve is running low. Refuel your vehicle as soon as possible.",
+      "flashing": "Blinks if there is a problem with the fuel gauge. Have your vehicle checked by a dealer."
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) Indicator",
+      "colour": "amber",
+      "steady": "Comes on if there is a problem with the ABS. Vehicle still has normal braking ability but no anti-lock function.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electric Power Steering (EPS) System Indicator",
+      "colour": "amber",
+      "steady": "Comes on if there is a problem with the EPS system. Have your vehicle checked by a dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn Signal and Hazard Warning Indicators",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Blinks when you operate the turn signal lever or press the hazard warning button, or during hard braking."
+    },
+    {
+      "lamp": "High-Beam Indicator",
+      "colour": "blue",
+      "steady": "Comes on when the high beam headlights are on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lights On Indicator",
+      "colour": "green",
+      "steady": "Comes on when the position, tail, and other external lights are on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Fog Light Indicator",
+      "colour": "green",
+      "steady": "Comes on when the fog lights are on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Auto High-Beam Indicator",
+      "colour": "green",
+      "steady": "Comes on when all the operating conditions of the auto high-beam are met.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer System Indicator",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Blinks if the immobilizer system cannot recognise the key information or if the system is malfunctioning."
+    },
+    {
+      "lamp": "Security System Alarm Indicator",
+      "colour": "red",
+      "steady": null,
+      "flashing": "Blinks when the security system alarm has been set."
+    },
+    {
+      "lamp": "ECON Mode Indicator",
+      "colour": "green",
+      "steady": "Comes on when the ECON mode is on.",
+      "flashing": null
+    },
+    {
+      "lamp": "CRUISE MAIN Indicator",
+      "colour": "amber",
+      "steady": "Comes on when you press the CRUISE button.",
+      "flashing": null
+    },
+    {
+      "lamp": "CRUISE CONTROL Indicator",
+      "colour": "green",
+      "steady": "Comes on if you have set a speed for cruise control.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Tyre Pressure/Deflation Warning System Indicator",
+      "colour": "amber",
+      "steady": "Comes on when one or more tyres' pressures are significantly low, the system is not initialised, or after inflation if initialisation is needed.",
+      "flashing": "Blinks for about one minute and stays on if there is a system problem, compact spare is installed, or after 12-volt battery disconnection until driven."
+    }
+  ]
+}

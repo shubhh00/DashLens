@@ -1,0 +1,212 @@
+{
+  "source": "manual",
+  "car": "Maruti Baleno",
+  "manual_url": "https://www.nexaexperience.com/content/dam/msil/nexa/in/en/assets/cars/newbaleno/car-manuals/Baleno_99011M55T12-74W.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Brake System Warning Light",
+      "colour": "red",
+      "steady": "Brake fluid low or parking brake engaged. Have inspected if it stays lit.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Engine Coolant Temperature Warning Light",
+      "colour": "red",
+      "steady": "Engine is overheating. Stop in a safe place and shut off engine immediately.",
+      "flashing": "Engine is running hot. Stop vehicle safely to prevent engine damage."
+    },
+    {
+      "lamp": "Airbag Warning Light",
+      "colour": "red",
+      "steady": "Problem in airbag or seat belt pretensioner system. Have inspected by authorized workshop.",
+      "flashing": "Blinks briefly on startup for self-check. Have inspected if blinking behavior is abnormal."
+    },
+    {
+      "lamp": "Low Fuel Warning Light",
+      "colour": "yellow",
+      "steady": "Fuel level is low. Refuel as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) Warning Light",
+      "colour": "yellow",
+      "steady": "Problem with ABS. Stop safely, restart engine, and consult workshop if light stays on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Master Warning Indicator Light",
+      "colour": "yellow",
+      "steady": "System warning or message shown on display. Refer to information display.",
+      "flashing": "Key fob not detected or warning condition active. Place key fob inside vehicle."
+    },
+    {
+      "lamp": "Malfunction Indicator Light",
+      "colour": "yellow",
+      "steady": "Problem with emission control system. Have vehicle serviced at an authorized workshop.",
+      "flashing": "Damage in emission control system. Have vehicle serviced at an authorized workshop."
+    },
+    {
+      "lamp": "Electric Power Steering Light",
+      "colour": "yellow",
+      "steady": "Problem with electric power steering system. Consult an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Pressure Warning Light",
+      "colour": "red",
+      "steady": "Low engine oil pressure. Stop safely and check oil level immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charge Warning Light",
+      "colour": "red",
+      "steady": "Malfunction in battery charging system. Have vehicle inspected by an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer/Keyless Push Start System Warning Light",
+      "colour": "yellow",
+      "steady": "Problem with immobilizer or keyless push start system. Have system inspected.",
+      "flashing": "Key/remote controller not recognized or system issue. Turn ignition off and on again."
+    },
+    {
+      "lamp": "Open Door Warning Light",
+      "colour": "red",
+      "steady": "One or more doors are not completely closed. Close all doors before driving.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brake Request Indicator",
+      "colour": "yellow",
+      "steady": "Depress brake pedal for Auto Gear Shift operation.",
+      "flashing": null
+    },
+    {
+      "lamp": "Transmission Warning Light",
+      "colour": "yellow",
+      "steady": "Problem with Auto Gear Shift system. Stop safely and contact authorized workshop.",
+      "flashing": "Clutch temperature too high or system fault. Stop safely and allow system to cool."
+    },
+    {
+      "lamp": "High Beam Assist Warning Light",
+      "colour": "yellow",
+      "steady": "High beam assist system problem or temporarily stopped. Have system inspected if persistent.",
+      "flashing": null
+    },
+    {
+      "lamp": "Security System Indicator",
+      "colour": "red",
+      "steady": "Security system is operating or armed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn Signal Indicators",
+      "colour": "green",
+      "steady": "Turn signal or hazard lights operating.",
+      "flashing": "Flashes when turn signal or hazard lights are active."
+    },
+    {
+      "lamp": "Main Beam (High Beam) Indicator Light",
+      "colour": "blue",
+      "steady": "Headlight high beams are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Illumination Indicator Light",
+      "colour": "green",
+      "steady": "Side lights, position lights, or headlights are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front Fog Light Indicator Light",
+      "colour": "green",
+      "steady": "Front fog lights are switched on.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP OFF Indicator Light",
+      "colour": "yellow",
+      "steady": "ESP system is turned off or deactivated.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP Indicator Light",
+      "colour": "yellow",
+      "steady": "Malfunction in ESP system (other than ABS). Have inspected at authorized workshop.",
+      "flashing": "Stability or traction control system actively engaged. Drive carefully."
+    },
+    {
+      "lamp": "ENG A-STOP Indicator Light",
+      "colour": "green",
+      "steady": "Engine has automatically stopped via ENG A-STOP system.",
+      "flashing": null
+    },
+    {
+      "lamp": "ENG A-STOP OFF Indicator Light",
+      "colour": "yellow",
+      "steady": "ENG A-STOP system is turned off manually.",
+      "flashing": "System problem, lithium battery fault, or lead-acid battery replacement due. Have inspected immediately."
+    },
+    {
+      "lamp": "Low Engine Coolant Temperature Light",
+      "colour": "blue",
+      "steady": "Engine coolant temperature is low. Warm up engine before driving hard.",
+      "flashing": null
+    },
+    {
+      "lamp": "Dual Sensor Brake Support II OFF Indicator Light",
+      "colour": "yellow",
+      "steady": "DSBS II system turned off or system malfunction. Have inspected by authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Adaptive Cruise Control Indicator Light",
+      "colour": "yellow",
+      "steady": "Adaptive cruise control system status or warning. Refer to information display.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lane Departure Prevention Indicator Light",
+      "colour": "yellow",
+      "steady": "Lane departure prevention system status or warning. Refer to information display.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lane Departure Prevention OFF Indicator Light",
+      "colour": "yellow",
+      "steady": "Lane departure prevention system is turned off.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lane Keep Assist Indicator Light",
+      "colour": "yellow",
+      "steady": "Lane keep assist system status or warning. Refer to information display.",
+      "flashing": null
+    },
+    {
+      "lamp": "Steering Assist Indicator Light",
+      "colour": "green",
+      "steady": "Steering assist system is active or operating.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Tyre Pressure Warning Light",
+      "colour": "yellow",
+      "steady": "One or more tyres significantly under-inflated. Stop safely and inflate tyres to proper pressure.",
+      "flashing": "TPMS malfunction detected. Have vehicle inspected by an authorized workshop."
+    },
+    {
+      "lamp": "Wireless Charger Indicator Light",
+      "colour": "red",
+      "steady": "Non-recoverable failure in wireless charger. Contact an authorized workshop.",
+      "flashing": "Foreign object present, phone misaligned, or temperature too high. Remove object or allow to cool."
+    },
+    {
+      "lamp": "Unreleased Steering Lock Warning Light",
+      "colour": "yellow",
+      "steady": "Steering lock remains engaged. Press engine switch while turning steering wheel left or right.",
+      "flashing": null
+    }
+  ]
+}

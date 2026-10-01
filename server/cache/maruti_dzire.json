@@ -1,0 +1,242 @@
+{
+  "source": "manual",
+  "car": "Maruti Dzire",
+  "manual_url": "https://www.marutisuzuki.com/content/dam/msil/arena/in/en/assets/cars/dzire/manuals/Dzire-99011M55U06-74W.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Driver's seat belt reminder light",
+      "colour": "red",
+      "steady": "Reminds driver to fasten seat belt.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front passenger's seat belt reminder light",
+      "colour": "red",
+      "steady": "Reminds front passenger to fasten seat belt.",
+      "flashing": null
+    },
+    {
+      "lamp": "Unreleased steering lock warning light",
+      "colour": "orange",
+      "steady": "Steering lock is not disengaged. Lightly turn steering wheel in both directions and press engine switch.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer/keyless push start system warning light",
+      "colour": "orange",
+      "steady": "There is a problem with the system. Ask an authorized workshop to inspect.",
+      "flashing": "There is a problem with the system or remote controller is not in the vehicle. For manual, turn ignition switch to LOCK then ON. For push start, change mode to LOCK then ON."
+    },
+    {
+      "lamp": "Malfunction indicator light",
+      "colour": "orange",
+      "steady": "Damage in emission control system. Bring vehicle to authorized workshop to have damage fixed.",
+      "flashing": "Damage in emission control system. Bring vehicle to authorized workshop to have damage fixed."
+    },
+    {
+      "lamp": "Charge warning light",
+      "colour": "red",
+      "steady": "Something wrong with battery charging system. Inspect immediately by authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine oil pressure warning light",
+      "colour": "red",
+      "steady": "Insufficient oil pressure. Pull off road, stop engine, check oil level and add oil if necessary.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electric power steering warning light",
+      "colour": "orange",
+      "steady": "There may be a problem with the vehicle or system. Consult an authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Airbag warning light",
+      "colour": "red",
+      "steady": "Problem in airbag system or seat belt pretensioner system. Have inspected by authorized workshop.",
+      "flashing": "Problem in airbag system or seat belt pretensioner system. Have inspected by authorized workshop."
+    },
+    {
+      "lamp": "Low Fuel Warning Light",
+      "colour": "orange",
+      "steady": "Fuel tank is low, refuel as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) warning light",
+      "colour": "orange",
+      "steady": "Something wrong with ABS. Pull off road, restart engine. If light stays on, have inspected by authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Brake system warning light",
+      "colour": "red",
+      "steady": "There may be a problem with the brake system or rear brake force control function. Have inspected by authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear passenger's seat belt reminder light",
+      "colour": "white",
+      "steady": "Reminds rear passengers to fasten seat belts.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear passenger's seat belt reminder light",
+      "colour": "red",
+      "steady": "Reminds rear passengers to fasten seat belts.",
+      "flashing": null
+    },
+    {
+      "lamp": "Transmission warning light",
+      "colour": "orange",
+      "steady": "Problem with Auto Gear Shift system. Stop in safe place and contact authorized workshop.",
+      "flashing": "Problem with Auto Gear Shift system. Stop in safe place and contact authorized workshop."
+    },
+    {
+      "lamp": "Depress brake pedal indicator light",
+      "colour": "orange",
+      "steady": "Refer to Auto Gear Shift in operating your vehicle section.",
+      "flashing": null
+    },
+    {
+      "lamp": "Open door warning light",
+      "colour": "red",
+      "steady": "A door is open.",
+      "flashing": null
+    },
+    {
+      "lamp": "High engine coolant temperature warning light",
+      "colour": "red",
+      "steady": "Engine is overheating. Refer to emergency service section.",
+      "flashing": "Engine is running hot. Refer to emergency service section."
+    },
+    {
+      "lamp": "Master warning indicator light",
+      "colour": "orange",
+      "steady": "There is a warning condition.",
+      "flashing": "Indicates warning conditions such as remote controller outside vehicle."
+    },
+    {
+      "lamp": "Suzuki Connect indicator light",
+      "colour": "orange",
+      "steady": "Problem with Suzuki Connect system. Have inspected by authorized workshop.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Tyre pressure Warning Light",
+      "colour": "orange",
+      "steady": "One or more tyres significantly under-inflated. Stop, check, and inflate tyres.",
+      "flashing": "TPMS malfunction detected. Flashes for 75 seconds then remains illuminated."
+    },
+    {
+      "lamp": "ESP OFF indicator light",
+      "colour": "orange",
+      "steady": "ESP systems turned off using ESP OFF switch.",
+      "flashing": null
+    },
+    {
+      "lamp": "ACC indicator light",
+      "colour": "orange",
+      "steady": "Ignition mode is ACC.",
+      "flashing": null
+    },
+    {
+      "lamp": "Ignition ON indicator light",
+      "colour": "orange",
+      "steady": "Ignition mode is ON with engine off.",
+      "flashing": null
+    },
+    {
+      "lamp": "PUSH indicator light",
+      "colour": "green",
+      "steady": "Depress brake or clutch pedal to start engine.",
+      "flashing": "Key fob not detected or ignition mode selection issue."
+    },
+    {
+      "lamp": "ENG A-STOP indicator light",
+      "colour": "green",
+      "steady": "ENG A-STOP system is active.",
+      "flashing": null
+    },
+    {
+      "lamp": "ENG A-STOP OFF indicator light",
+      "colour": "orange",
+      "steady": "ENG A-STOP system turned off via switch.",
+      "flashing": "Something wrong with ENG A-STOP system or lead-acid battery due for replacement."
+    },
+    {
+      "lamp": "Illumination indicator light",
+      "colour": "green",
+      "steady": "Position lights, tail light and/or headlights are on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Main beam high beam indicator light",
+      "colour": "blue",
+      "steady": "Headlight main beams are turned on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise control indicator light",
+      "colour": "orange",
+      "steady": "Cruise control is on.",
+      "flashing": null
+    },
+    {
+      "lamp": "SET indicator light",
+      "colour": "orange",
+      "steady": "Cruising speed of cruise control is set.",
+      "flashing": null
+    },
+    {
+      "lamp": "Front fog light indicator light",
+      "colour": "green",
+      "steady": "Front fog light operates.",
+      "flashing": null
+    },
+    {
+      "lamp": "Security system indicator",
+      "colour": "orange",
+      "steady": "Security system operates.",
+      "flashing": null
+    },
+    {
+      "lamp": "Parking sensor indicator light",
+      "colour": "orange",
+      "steady": "Problem with rear parking sensors. Bring vehicle to authorized workshop.",
+      "flashing": "Rear parking sensors activated and detected obstacles."
+    },
+    {
+      "lamp": "ESP indicator light",
+      "colour": "orange",
+      "steady": "Malfunction of ESP systems other than ABS.",
+      "flashing": "Stability control system or traction control system is activated. Drive carefully."
+    },
+    {
+      "lamp": "Wireless charger indicator light",
+      "colour": "amber",
+      "steady": "Wireless charger activated and ready to charge.",
+      "flashing": "Presence of foreign object, displaced mobile, or high temperature. Remove object and align phone."
+    },
+    {
+      "lamp": "Wireless charger indicator light",
+      "colour": "blue",
+      "steady": "Charging in progress.",
+      "flashing": null
+    },
+    {
+      "lamp": "Wireless charger indicator light",
+      "colour": "green",
+      "steady": "Charging completed.",
+      "flashing": null
+    },
+    {
+      "lamp": "Wireless charger indicator light",
+      "colour": "red",
+      "steady": "Non-compatible device, high metallic content object, or non-recoverable failure. Remove object and restart vehicle.",
+      "flashing": "Foreign object present, phone displaced, or smartphone/charger temperature too high. Remove object and cool down."
+    }
+  ]
+}

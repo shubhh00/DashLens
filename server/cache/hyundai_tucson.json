@@ -1,0 +1,254 @@
+{
+  "source": "manual",
+  "car": "Hyundai Tucson",
+  "manual_url": "https://www.hyundai.com/content/dam/hyundai/in/en/data/connect-to-service/owners-manual/pc/Tucson.pdf",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Seat belt warning light",
+      "colour": "red",
+      "steady": "Informs the driver and passengers that seat belts are not fastened when driving under 20 km/h or stopped.",
+      "flashing": "Blinks and chimes for approximately 100 seconds (or 35 seconds for rear) when driving 20 km/h and faster without seat belts."
+    },
+    {
+      "lamp": "Air bag warning light",
+      "colour": null,
+      "steady": "Illuminates when there is a malfunction with the SRS. Have the vehicle inspected by an authorized dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Parking brake & Brake fluid warning light",
+      "colour": null,
+      "steady": "Illuminates when the parking brake is applied or brake fluid level is low. Stop safely, check fluid, and inspect brakes.",
+      "flashing": null
+    },
+    {
+      "lamp": "Anti-lock Brake System (ABS) warning light",
+      "colour": null,
+      "steady": "Illuminates whenever there is a malfunction with the ABS. Have the vehicle inspected by an authorized dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Brake Force Distribution (EBD) system warning light",
+      "colour": null,
+      "steady": "Illuminates simultaneously with ABS and Parking Brake warnings when there is a problem with the EBD system.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electric Power Steering (EPS) warning light",
+      "colour": null,
+      "steady": "Illuminates whenever there is a malfunction with the electric power steering. Have the vehicle inspected by an authorized dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Charging system warning light",
+      "colour": null,
+      "steady": "Illuminates when there is a malfunction with the alternator or electrical charging system. Stop safely and check drive belt.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine oil pressure warning light",
+      "colour": null,
+      "steady": "Illuminates when engine oil pressure is low. Stop vehicle immediately, turn engine off, and check oil level.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Oil Level Warning Light",
+      "colour": null,
+      "steady": "Illuminates when the engine oil level should be checked. Stop safely, turn engine off, and check oil level.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine coolant temperature warning light",
+      "colour": null,
+      "steady": "Illuminates when engine coolant temperature is extremely high. Do not continue driving; refer to overheating procedures.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low fuel level warning light",
+      "colour": null,
+      "steady": "Illuminates when the fuel tank is nearly empty. Add fuel as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Malfunction Indicator Lamp (MIL)",
+      "colour": null,
+      "steady": "Illuminates whenever there is a malfunction with the emission control system, engine, or vehicle powertrain.",
+      "flashing": "Blinks when an engine control system error occurs on diesel engines, which could result in loss of power."
+    },
+    {
+      "lamp": "Fuel filter warning light",
+      "colour": null,
+      "steady": "Illuminates when water has accumulated inside the diesel fuel filter. Have water removed by an authorized dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Exhaust system (GPF) warning light",
+      "colour": null,
+      "steady": "Illuminates when accumulated soot reaches a certain amount. Drive above 80 km/h for 30 minutes to clear.",
+      "flashing": "Blinks if GPF system has a malfunction. Have the GPF system checked by an authorized dealer."
+    },
+    {
+      "lamp": "Exhaust system (DPF) warning light",
+      "colour": null,
+      "steady": "Illuminates when there is a malfunction with the DPF system. Drive above 60 km/h for 30 minutes to clear.",
+      "flashing": "Blinks if DPF system error persists. Have the DPF system checked by an authorized dealer."
+    },
+    {
+      "lamp": "SCR warning light",
+      "colour": null,
+      "steady": "Illuminates when the urea solution tank is nearly empty. Refill urea solution as soon as possible.",
+      "flashing": null
+    },
+    {
+      "lamp": "Electronic Parking Brake (EPB) warning light",
+      "colour": null,
+      "steady": "Illuminates whenever there is a malfunction with the EPB. Have the vehicle inspected by an authorized dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "AUTO HOLD indicator light",
+      "colour": "yellow",
+      "steady": "Illuminates yellow whenever there is a malfunction with the Auto Hold function.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low tire pressure warning light",
+      "colour": null,
+      "steady": "Illuminates when one or more tires are significantly underinflated. Stop and check tires.",
+      "flashing": "Blinks for approximately 60 seconds or in 3-second intervals when there is a malfunction with the TPMS."
+    },
+    {
+      "lamp": "Forward Safety warning light",
+      "colour": "yellow",
+      "steady": "Illuminates continuously yellow when Forward Collision-Avoidance Assist is Off, Disabled, or Malfunctioning.",
+      "flashing": "Blinks red when Forward Collision-Avoidance Assist is operating."
+    },
+    {
+      "lamp": "Lane Safety indicator light",
+      "colour": "yellow",
+      "steady": "Illuminates yellow whenever there is a malfunction with Lane Keeping Assist.",
+      "flashing": null
+    },
+    {
+      "lamp": "Over speed warning light",
+      "colour": null,
+      "steady": null,
+      "flashing": "Blinks when you drive the vehicle more than 120 km/h to prevent over speeding, accompanied by a chime."
+    },
+    {
+      "lamp": "4 Wheel Drive (4WD) warning light",
+      "colour": null,
+      "steady": "Illuminates whenever there is a malfunction with the 4WD system. Have the vehicle inspected by an authorized dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "4 Wheel Drive (4WD) LOCK Indicator Light",
+      "colour": null,
+      "steady": "Illuminates when you select 4WD Lock mode by pressing the 4WD LOCK button to increase drive power.",
+      "flashing": null
+    },
+    {
+      "lamp": "LED headlight warning light",
+      "colour": null,
+      "steady": "Illuminates whenever there is a malfunction with the LED headlight.",
+      "flashing": "Blinks whenever there is a malfunction with a LED headlight related part."
+    },
+    {
+      "lamp": "Electronic Stability Control (ESC) indicator light",
+      "colour": null,
+      "steady": "Illuminates whenever there is a malfunction with the ESC system.",
+      "flashing": "Blinks while ESC is operating."
+    },
+    {
+      "lamp": "Electronic Stability Control (ESC) OFF indicator light",
+      "colour": null,
+      "steady": "Illuminates when you deactivate the ESC system by pressing the ESC OFF button.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobilizer Indicator Light",
+      "colour": null,
+      "steady": "Illuminates when the vehicle detects the key/smart key in the ON/ACC position, allowing the engine to start.",
+      "flashing": "Blinks when there is a malfunction with the immobilizer system or when the smart key is not in the vehicle."
+    },
+    {
+      "lamp": "Glow indicator light",
+      "colour": null,
+      "steady": "Illuminates when the diesel engine is being preheated. Start engine after the light goes off.",
+      "flashing": "Blinks if there may be a malfunction with the engine preheating system while driving or after warming up."
+    },
+    {
+      "lamp": "Downhill Brake Control (DBC) indicator light",
+      "colour": "yellow",
+      "steady": "Illuminates yellow whenever there is a malfunction with the Downhill Brake Control system.",
+      "flashing": "Blinks when the Downhill Brake Control system is operating."
+    },
+    {
+      "lamp": "AUTO STOP indicator light",
+      "colour": "white",
+      "steady": "Illuminates white when the engine enters the Idle Stop mode of the ISG system and automatically starts.",
+      "flashing": null
+    },
+    {
+      "lamp": "Turn signal indicator light",
+      "colour": null,
+      "steady": null,
+      "flashing": "Blinks when you operate the turn signal stalk. Rapid blinking or no blinking indicates a system malfunction."
+    },
+    {
+      "lamp": "High beam indicator light",
+      "colour": null,
+      "steady": "Illuminates when headlamps are on and in high beam position or when pull into Flash-to-Pass position.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low beam indicator light",
+      "colour": null,
+      "steady": "Illuminates when the headlamps are on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Light ON indicator light",
+      "colour": null,
+      "steady": "Illuminates when the position lamps or headlamps are on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear fog indicator light",
+      "colour": null,
+      "steady": "Illuminates when the rear fog lamps are on.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Beam Assist indicator light",
+      "colour": null,
+      "steady": "Illuminates white when High Beam Assist is ready and green when operating with high-beam on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Cruise Indicator Light",
+      "colour": null,
+      "steady": "Illuminates when cruise control is enabled.",
+      "flashing": null
+    },
+    {
+      "lamp": "SPORT Mode Indicator Light",
+      "colour": null,
+      "steady": "Illuminates when you select SPORT mode as your drive mode.",
+      "flashing": null
+    },
+    {
+      "lamp": "ECO Mode Indicator Light",
+      "colour": null,
+      "steady": "Illuminates when you select ECO mode as your drive mode.",
+      "flashing": null
+    },
+    {
+      "lamp": "Master warning light",
+      "colour": null,
+      "steady": "Illuminates when there is a malfunction in operation in systems like Forward Safety, Blind-Spot, LED headlamp, HBA, SCC, or TPMS.",
+      "flashing": null
+    }
+  ]
+}
