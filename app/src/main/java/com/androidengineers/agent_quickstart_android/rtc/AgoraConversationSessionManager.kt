@@ -164,6 +164,7 @@ class AgoraConversationSessionManager(
                 }
             }
             runCatching { client.logout(noopRtmCallback()) }
+            runCatching { client.release() }   // ADDED
         }
         rtmClient = null
 
@@ -236,6 +237,7 @@ class AgoraConversationSessionManager(
         channel: String,
         userId: String,
     ) {
+        Log.d("SESSION", "rtm userId=$userId")   // ADDED (debug, remove later)
         val client = RtmClient.create(
             RtmConfig.Builder(appId, userId)
                 .useStringUserId(true)
@@ -254,6 +256,7 @@ class AgoraConversationSessionManager(
         } catch (error: Throwable) {
             runCatching { client.removeEventListener(rtmEventListener) }
             runCatching { client.logout(noopRtmCallback()) }
+            runCatching { client.release() }   // ADDED
             throw error
         }
     }
