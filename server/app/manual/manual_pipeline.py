@@ -380,8 +380,23 @@ Use only what the pages say. Keep each meaning under 25 words, in plain spoken E
 
 # ---------- 4. the tool ----------
 
+def model_family(make: str, model: str) -> str:
+    """Variant -> the model family its owner's manual is published under.
+
+    BMW names variants by series ("M340i", "330i", "320d", "M3" are all the 3 Series manual).
+    Other makes pass through unchanged.
+    """
+    make_key, model_key = slug(make.split()[0] if make.split() else ""), slug(model)
+    if make_key == "bmw":
+        match = re.fullmatch(r"m?([1-8])(?:\d\d[a-z]*|series)?", model_key)
+        if match:
+            return f"{match.group(1)} Series"
+    return model
+
+
 def find_cached(make: str, model: str) -> dict | None:
     """Cached result for this car, allowing near-miss spellings from speech recognition ("Aster" -> astor)."""
+    model = model_family(make, model)
     make_key, model_key = slug(make.split()[0]), slug(model)
     exact = CACHE_DIR / f"{make_key}_{model_key}.json"
     if exact.exists():
@@ -411,6 +426,10 @@ def lookup_manual(make: str, model: str, year: int | None = None, search: bool =
             "note": "The car's make or model name is missing (a year is not a model). "
                     "Ask the driver which model it is, for example Creta, Swift or Nexon, then call lookupManual again.",
         }
+    family = model_family(make, model)
+    if family != model:
+        log(f"{car} uses the {make} {family} manual")
+        model, car = family, f"{make} {family}"
     # First word only, so "Maruti Suzuki" / "Tata Motors" / "MG Motor" hit the same file as "Maruti" / "Tata" / "MG".
     cache_file = CACHE_DIR / f"{slug(make.split()[0])}_{slug(model)}.json"
     cached = find_cached(make, model)
