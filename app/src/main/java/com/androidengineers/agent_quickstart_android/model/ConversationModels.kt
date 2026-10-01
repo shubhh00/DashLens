@@ -101,6 +101,10 @@ data class SessionSnapshot(
 )
 
 data class ConversationUiState(
+    val cameraPermissionGranted: Boolean = false,
+    /** Whether camera frames are being sent to the agent (published over RTC). */
+    val cameraEnabled: Boolean = true,
+    val cameraZoom: Float = 2f,
     val textDraft: String = "",
     val isSendingText: Boolean = false,
     val textActionStatus: String? = null,

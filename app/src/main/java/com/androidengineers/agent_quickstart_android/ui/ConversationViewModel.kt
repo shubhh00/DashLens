@@ -2,6 +2,7 @@ package com.androidengineers.agent_quickstart_android.ui
 
 import android.app.Application
 import android.os.SystemClock
+import android.view.SurfaceView
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.androidengineers.agent_quickstart_android.config.QuickstartConfig
@@ -36,6 +37,28 @@ class ConversationViewModel(
             }
         }
     }
+
+    fun updateCameraPermission(granted: Boolean) {
+        _uiState.update { it.copy(cameraPermissionGranted = granted) }
+    }
+
+    /** The agent sees the latest frame of the published camera track with every turn. */
+    fun toggleCamera() {
+        val enabled = !_uiState.value.cameraEnabled
+        sessionManager.setCameraEnabled(enabled)
+        _uiState.update { it.copy(cameraEnabled = enabled) }
+    }
+
+    /** Toggles 1x / 2x. 2x makes small cluster lamps legible to the agent. */
+    fun toggleCameraZoom() {
+        val zoom = if (_uiState.value.cameraZoom > 1f) 1f else 2f
+        sessionManager.setCameraZoom(zoom)
+        _uiState.update { it.copy(cameraZoom = zoom) }
+    }
+
+    fun bindCameraPreview(view: SurfaceView) = sessionManager.bindLocalPreview(view)
+
+    fun unbindCameraPreview() = sessionManager.unbindLocalPreview()
 
     fun updateMicrophonePermission(granted: Boolean) {
         _uiState.update { it.copy(microphonePermissionGranted = granted) }
@@ -142,7 +165,7 @@ class ConversationViewModel(
                     permissionGranted = _uiState.value.microphonePermissionGranted,
                     errorMessage = error.message ?: "Unable to start the conversation through the quickstart server.",
                     isDarkTheme = _uiState.value.isDarkTheme,
-                ).copy(lastServerResponse = "Request failed")
+                ).copy(lastServerResponse = "Request failed", cameraPermissionGranted = _uiState.value.cameraPermissionGranted)
             }
         }
     }
@@ -153,28 +176,28 @@ class ConversationViewModel(
             return
         }
 
-        viewModelScope.launch {
-            _uiState.update { it.copy(isStopping = true) }
+        // End locally first so the screen responds instantly; the server stops the cloud agent
+        // (and saves the transcript) in the background.
+        val agentId = activeAgentId
+        val channelName = sessionManager.snapshot.value.channelName
+        activeAgentId = null
+        sessionManager.setActiveAgentId(null)
+        sessionManager.disconnect(resetSnapshot = true)
+        _uiState.value = ConversationUiStateMapper.freshUiState(
+            permissionGranted = currentState.microphonePermissionGranted,
+            isDarkTheme = currentState.isDarkTheme,
+        ).copy(cameraPermissionGranted = currentState.cameraPermissionGranted)
 
-            val warning = activeAgentId?.let { agentId ->
-                val channelName = sessionManager.snapshot.value.channelName
-                runCatching {
-                    if (channelName != null) {
-                        repository.stopConversation(agentId, channelName)
+        if (agentId != null && channelName != null) {
+            viewModelScope.launch {
+                runCatching { repository.stopConversation(agentId, channelName) }
+                    .onFailure { error ->
+                        // The idle timeout still stops the agent; only surface this if nothing new started.
+                        if (activeAgentId == null) {
+                            _uiState.update { it.copy(warningMessage = "The agent may take a moment to stop: ${error.message}") }
+                        }
                     }
-                }.exceptionOrNull()?.message?.let { message ->
-                    "The local session ended, but the server leave request failed: $message"
-                }
             }
-
-            activeAgentId = null
-            sessionManager.setActiveAgentId(null)
-            sessionManager.disconnect(resetSnapshot = true)
-            _uiState.value = ConversationUiStateMapper.freshUiState(
-                permissionGranted = _uiState.value.microphonePermissionGranted,
-                warningMessage = warning,
-                isDarkTheme = _uiState.value.isDarkTheme,
-            )
         }
     }
 

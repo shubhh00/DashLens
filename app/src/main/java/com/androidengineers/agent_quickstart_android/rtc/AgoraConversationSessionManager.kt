@@ -1,6 +1,10 @@
 package com.androidengineers.agent_quickstart_android.rtc
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
+import android.view.SurfaceView
+import androidx.core.content.ContextCompat
 import android.util.Log
 import com.androidengineers.agent_quickstart_android.audio.AudioSessionManager
 import com.androidengineers.agent_quickstart_android.data.ConversationRepository
@@ -14,6 +18,9 @@ import io.agora.rtc2.Constants
 import io.agora.rtc2.IRtcEngineEventHandler
 import io.agora.rtc2.RtcEngine
 import io.agora.rtc2.RtcEngineConfig
+import io.agora.rtc2.video.CameraCapturerConfiguration
+import io.agora.rtc2.video.VideoCanvas
+import io.agora.rtc2.video.VideoEncoderConfiguration
 import io.agora.rtm.ErrorInfo
 import io.agora.rtm.LinkStateEvent
 import io.agora.rtm.MessageEvent
@@ -35,6 +42,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -79,6 +87,9 @@ class AgoraConversationSessionManager(
     private var currentAgentTurnId: Long? = null
     private var interruptRequestedTurnId: Long? = null
     private var lastInterruptRequestAtMs: Long = 0L
+    private var previewView: SurfaceView? = null
+    private var cameraEnabled: Boolean = true
+    private var cameraZoom: Float = DEFAULT_CAMERA_ZOOM
 
     init {
         scope.launch {
@@ -106,6 +117,8 @@ class AgoraConversationSessionManager(
         disconnect(resetSnapshot = true)
         currentChannel = bootstrap.channel
         currentAgentRtcUid = bootstrap.agentRtcUid
+        cameraEnabled = true
+        cameraZoom = DEFAULT_CAMERA_ZOOM
         renewTokensProvider = onRenewTokens
         transcriptAssembler.reset()
         micRequestedEnabled = true
@@ -167,8 +180,8 @@ class AgoraConversationSessionManager(
             runCatching { client.release() }   // ADDED
         }
         rtmClient = null
-
         rtcEngine?.let { engine ->
+            runCatching { engine.stopPreview() }
             runCatching { engine.leaveChannel() }
         }
         rtcEngine = null
@@ -193,6 +206,62 @@ class AgoraConversationSessionManager(
     fun setActiveAgentId(agentId: String?) {
         activeAgentId = agentId
     }
+
+    /**
+     * Shows the local camera in [view]. Frames from the published camera track are what
+     * Agora forwards to the agent's vision-capable LLM (input_modalities text+image).
+     */
+    fun bindLocalPreview(view: SurfaceView) {
+        previewView = view
+        rtcEngine?.let { attachPreview(it, view) }
+    }
+
+    fun unbindLocalPreview() {
+        previewView = null
+        runCatching { rtcEngine?.setupLocalVideo(null) }
+    }
+
+    /** Pauses/resumes sending camera frames to the agent (the preview keeps running). */
+    fun setCameraEnabled(enabled: Boolean) {
+        cameraEnabled = enabled
+        rtcEngine?.muteLocalVideoStream(!enabled)
+    }
+
+    /**
+     * Cluster lamps are ~20 px at 1x; zooming makes them legible to the LLM, which only sees
+     * the published frames. Clamped to what the camera supports.
+     */
+    fun setCameraZoom(factor: Float) {
+        cameraZoom = factor
+        applyCameraZoom()
+    }
+
+    private fun applyCameraZoom() {
+        val engine = rtcEngine ?: return
+        // Some devices report max zoom 1.0 until the camera has fully opened; only clamp to a
+        // real reported range, otherwise ask for the requested factor and let the SDK decide.
+        val reportedMax = engine.cameraMaxZoomFactor
+        val target = if (reportedMax > 1f) cameraZoom.coerceIn(1f, reportedMax) else cameraZoom
+        val result = engine.setCameraZoomFactor(target)
+        Log.i(TAG, "camera_zoom requested=$cameraZoom applied=$target reportedMax=$reportedMax result=$result")
+    }
+
+    /** Zoom again once the camera has settled; the first attempt can land before it is ready. */
+    private fun applyCameraZoomWithRetry() {
+        applyCameraZoom()
+        scope.launch {
+            delay(800L)
+            applyCameraZoom()
+        }
+    }
+
+    private fun attachPreview(engine: RtcEngine, view: SurfaceView) {
+        engine.setupLocalVideo(VideoCanvas(view, VideoCanvas.RENDER_MODE_HIDDEN, 0))
+        engine.startPreview()
+    }
+
+    private fun hasCameraPermission(): Boolean =
+        ContextCompat.checkSelfPermission(appContext, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
 
     private suspend fun ensureRtcEngine(appId: String) = withContext(Dispatchers.Main.immediate) {
         if (rtcEngine != null) {
@@ -228,6 +297,29 @@ class AgoraConversationSessionManager(
             ),
         )
         audioSessionManager.configureRtcEngine(engine)
+        if (hasCameraPermission()) {
+            // Rear camera at 720p/30fps, fixed portrait: the app is portrait-only, and ADAPTIVE sent the raw
+            // landscape sensor image, so the agent saw the cluster rotated 90 degrees.
+            engine.enableVideo()
+            runRtcBestEffort(
+                operation = "setCameraCapturerConfiguration",
+                result = engine.setCameraCapturerConfiguration(
+                    CameraCapturerConfiguration(CameraCapturerConfiguration.CAMERA_DIRECTION.CAMERA_REAR)
+                ),
+            )
+            runRtcBestEffort(
+                operation = "setVideoEncoderConfiguration",
+                result = engine.setVideoEncoderConfiguration(
+                    VideoEncoderConfiguration(
+                        VideoEncoderConfiguration.VD_1280x720,
+                        VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_30,
+                        VideoEncoderConfiguration.STANDARD_BITRATE,
+                        VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT,
+                    )
+                ),
+            )
+            previewView?.let { attachPreview(engine, it) }
+        }
         rtcEngine = engine
     }
 
@@ -276,6 +368,7 @@ class AgoraConversationSessionManager(
                     channelProfile = Constants.CHANNEL_PROFILE_COMMUNICATION
                     clientRoleType = Constants.CLIENT_ROLE_BROADCASTER
                     publishMicrophoneTrack = true
+                    publishCameraTrack = hasCameraPermission()
                     publishCustomAudioTrack = false
                     autoSubscribeAudio = true
                     autoSubscribeVideo = false
@@ -680,6 +773,13 @@ class AgoraConversationSessionManager(
             }
         }
 
+        override fun onLocalVideoStateChanged(source: Constants.VideoSourceType?, state: Int, reason: Int) {
+            // Zoom only takes effect once the camera is actually capturing.
+            if (state == Constants.LOCAL_VIDEO_STREAM_STATE_CAPTURING) {
+                scope.launch { applyCameraZoomWithRetry() }
+            }
+        }
+
         override fun onError(errorCode: Int) {
             addIssue(
                 source = "rtc",
@@ -725,6 +825,7 @@ class AgoraConversationSessionManager(
 
     companion object {
         private const val TAG = "AgoraConversationSession"
+        const val DEFAULT_CAMERA_ZOOM = 2f
         private const val RTC_JOIN_TIMEOUT_MS = 20_000L
     }
 
