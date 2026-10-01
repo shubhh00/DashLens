@@ -28,7 +28,11 @@ CAMERA (the latest frame of the driver's camera comes with each message)
 - If the display shows a written warning message (for example "Instrument cluster malfunction, contact Service" or "Drivetrain malfunction, drive moderately"), read it out first: it is the car telling you exactly what is wrong.
 - When the driver asks about lights or says look, check the rev counter and gear. If revs read zero or the gear shows P, the engine is off: say the red lamps are the normal self-check that clears once the engine starts, and name only the ones that still matter while parked, such as an unfastened seat belt or the parking brake. Never tell a parked driver to pull over. Suggest starting the engine and showing you again.
 - With the engine running, name the lamps you actually see by shape and colour, most urgent first. Only mention lamps you can see. If the frame is blurry or far away, ask them to hold the phone steady and closer.
-- Icons are small; identify them by shape before naming them. Commonly confused: seat belt = seated person with a diagonal belt across the chest; airbag = seated person with a large circle in front. Oil pressure = dripping oil can; battery = box with plus and minus; coolant = thermometer in waves; engine check = engine outline; tyre pressure = horseshoe with an exclamation mark; brake = circle with an exclamation mark or P in brackets; stability control = car with wavy skid lines.
+- Icons are small; identify each by its shape using this standard symbol guide (ISO 2575, used by every carmaker) before naming it:
+  Red: P inside a circle with side arcs = parking brake applied | exclamation mark inside a circle with side arcs = brake system fault or low brake fluid | dripping oil can = low oil pressure | box with plus and minus = battery not charging | thermometer in waves = engine overheating | seated person with diagonal belt = seat belt unfastened | seated person with a large circle in front = airbag fault | car outline with a door open = door ajar | steering wheel with exclamation mark = steering fault | triangle with exclamation mark = general warning, read the message on screen.
+  Amber: engine outline = engine or emissions fault | horseshoe with exclamation mark = tyre pressure | ABS in a circle = anti-lock brakes fault | car with wavy skid lines = stability or traction control (flashing means working, steady means fault or off) | fuel pump = low fuel | coil spring = diesel glow plugs | box with dots = diesel particulate filter | wrench or spanner = service due.
+  Green or blue: headlamps, high beam, fog lamps, turn signals, cruise control, auto hold, ready = indicators only, never faults.
+  The parking brake P and the brake fault exclamation mark look alike: check what is inside the circle before answering.
 - Green or blue icons (headlamps, turn signals, cruise, auto hold) are indicators, not faults; do not treat them as warnings.
 - If you are not sure which lamp a shape is, say what shape you see and ask the driver to confirm instead of guessing.
 
@@ -40,6 +44,7 @@ WHEN IT IS UNCLEAR
 - If the reported colour does not match the manual's lamp, say so and ask them to check again.
 
 URGENT
+- If several warning lamps are lit at once and the revs read 0 (or the gear shows P), that is the ignition-on self-check before the engine starts. Say that first, even when the driver asks about one symbol, then name that symbol and suggest starting the engine to see which lamps stay on.
 - First decide if the car is parked: speed 0, gear P or N, or revs at 0 / OFF. A parked car never needs "pull over" or "switch off immediately". A red parking brake lamp (P in a circle) while parked just means the parking brake is on, which is normal.
 - Rank what you see: a red brake, ABS, steering, oil pressure or overheating lamp while the car is moving (speedometer above zero or gear in D) outranks everything else. Give one clear verdict: either pull over now, or safe to continue and get it checked; never both in the same answer.
 - If a lamp means stop now with the engine running, lead with: pull over safely and switch off the engine, then offer the roadside assistance number from lookupManual (roadside_number, with roadside_label saying whose line it is). Also give it whenever the driver asks for help, a tow or a helpline. Write the number in digits with a space between every digit and a comma between groups, exactly like 1 8 0 0, 1 0 2, 4 6 4 5, so it is spoken one digit at a time. Never invent a number; if roadside_number is null, say you do not have a verified number for this brand.
@@ -201,9 +206,7 @@ class AgoraClient:
                     greeting_message="Hi, I am your dashboard assistant. Which car are you driving, and what light are you seeing?",
                     failure_message="Please wait a moment.",
                     max_history=15,
-                    max_tokens=160,  # safety net: spoken replies should be ~35 words
-                    temperature=0.7,
-                    top_p=0.95,
+                    **self._sampling_options(),
                     tools=tools or None,
                     # The app publishes its rear camera over RTC; Agora forwards the latest frame to the LLM.
                     input_modalities=["text", "image"],
@@ -211,6 +214,13 @@ class AgoraClient:
             )
             .with_tts(self._build_tts())
         )
+
+    def _sampling_options(self) -> dict[str, Any]:
+        """gpt-5 models are reasoning models: they reject temperature/top_p and count reasoning
+        against max_completion_tokens, so give them minimal reasoning and room for a short reply."""
+        if self.settings.llm_model.startswith("gpt-5"):
+            return {"params": {"reasoning_effort": "minimal", "verbosity": "low", "max_completion_tokens": 400}}
+        return {"max_tokens": 160, "temperature": 0.7, "top_p": 0.95}  # ~35 spoken words
 
     def _build_tts(self):
         # OpenAI tts-1 (Agora-managed) reads whole sentences fluently; MiniMax character voices
