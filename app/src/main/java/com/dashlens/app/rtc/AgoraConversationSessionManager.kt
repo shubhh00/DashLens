@@ -90,6 +90,7 @@ class AgoraConversationSessionManager(
     private var previewView: SurfaceView? = null
     private var cameraEnabled: Boolean = true
     private var cameraZoom: Float = DEFAULT_CAMERA_ZOOM
+    private val uprightFrames = UprightFrameRotator(appContext)
 
     init {
         scope.launch {
@@ -181,6 +182,7 @@ class AgoraConversationSessionManager(
         }
         rtmClient = null
         rtcEngine?.let { engine ->
+            uprightFrames.detach(engine)
             runCatching { engine.stopPreview() }
             runCatching { engine.leaveChannel() }
         }
@@ -298,9 +300,11 @@ class AgoraConversationSessionManager(
         )
         audioSessionManager.configureRtcEngine(engine)
         if (hasCameraPermission()) {
-            // Rear camera at 720p/30fps, fixed portrait: the app is portrait-only, and ADAPTIVE sent the raw
-            // landscape sensor image, so the agent saw the cluster rotated 90 degrees.
+            // Rear camera at 720p/30fps. The UI is portrait-only; UprightFrameRotator rotates the
+            // published frames to match how the phone is actually held, so the agent never sees
+            // the cluster sideways (the preview on screen is not affected).
             engine.enableVideo()
+            uprightFrames.attach(engine)
             runRtcBestEffort(
                 operation = "setCameraCapturerConfiguration",
                 result = engine.setCameraCapturerConfiguration(
@@ -314,7 +318,7 @@ class AgoraConversationSessionManager(
                         VideoEncoderConfiguration.VD_1280x720,
                         VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_30,
                         VideoEncoderConfiguration.STANDARD_BITRATE,
-                        VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT,
+                        VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_ADAPTIVE, // UprightFrameRotator decides portrait vs landscape
                     )
                 ),
             )
