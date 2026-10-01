@@ -20,9 +20,13 @@ class Settings:
     agora_app_id: str
     agora_app_certificate: str
     asr_model: str = "nova-3"
-    llm_model: str = "gpt-4o-mini"
+    llm_model: str = "gpt-4.1-mini"  # Agora-managed; sharper vision than gpt-4o-mini
     tts_model: str = "speech_2_6_turbo"
-    tts_voice_id: str = "English_captivating_female1"
+    tts_vendor: str = "openai"  # "openai" (managed tts-1), "minimax", or "elevenlabs" (own key)
+    elevenlabs_api_key: str = ""
+    elevenlabs_model: str = "eleven_flash_v2_5"
+    tts_voice_id: str = "onyx"
+    tts_speed: float = 1.15
     agora_area: str = "NORTH_AMERICA"
     agent_uid: int = 123456
     host: str = "127.0.0.1"
@@ -42,9 +46,13 @@ class Settings:
             agora_app_id=os.getenv("AGORA_APP_ID", "").strip(),
             agora_app_certificate=os.getenv("AGORA_APP_CERTIFICATE", "").strip(),
             asr_model=os.getenv("ASR_MODEL", "nova-3"),
-            llm_model=os.getenv("LLM_MODEL", "gpt-4o-mini"),
+            llm_model=os.getenv("LLM_MODEL", "gpt-4.1-mini"),
             tts_model=os.getenv("TTS_MODEL", "speech_2_6_turbo"),
-            tts_voice_id=os.getenv("TTS_VOICE_ID", "English_captivating_female1"),
+            tts_vendor=os.getenv("TTS_VENDOR", "openai").strip().lower(),
+            elevenlabs_api_key=os.getenv("ELEVENLABS_API_KEY", "").strip(),
+            elevenlabs_model=os.getenv("ELEVENLABS_MODEL", "eleven_flash_v2_5").strip(),
+            tts_voice_id=os.getenv("TTS_VOICE_ID", "onyx"),
+            tts_speed=float(os.getenv("TTS_SPEED", "1.15")),
             agora_area=os.getenv("AGORA_AREA", "NORTH_AMERICA"),
             agent_uid=int(os.getenv("AGORA_AGENT_UID", "123456")),
             host=os.getenv("HOST", "127.0.0.1"),

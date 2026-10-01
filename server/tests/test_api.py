@@ -1,3 +1,4 @@
+import asyncio
 import json
 
 import httpx
@@ -98,13 +99,15 @@ async def test_join_serializes_current_turn_detection_and_required_asr_params():
     config = properties["turn_detection"]["config"]
     assert config["start_of_speech"]["mode"] == "vad"
     assert config["end_of_speech"]["mode"] == "vad"
-    assert properties["interruption"] == {"enable": True, "mode": "start_of_speech"}
+    assert properties["interruption"]["mode"] == "keywords"
+    assert "stop" in properties["interruption"]["keywords_config"]["trigger_keywords"]
     assert properties["asr"]["vendor"] == "deepgram"
     # Managed credentials resolve the model through an SDK-generated preset.
     assert "deepgram_nova_3" in payload["preset"]
     assert properties["asr"]["params"]["language"] == "en"
     filler = properties["filler_words"]
-    assert filler["enable"] is True
+    # Off on purpose: a generated filler blocked Agora from resuming the turn after a tool result.
+    assert filler["enable"] is False
     assert filler["content"]["mode"] == "generated"
     assert filler["content"]["generated_config"]["fallback_strategy"] == "static"
     assert len(filler["content"]["static_config"]["phrases"]) >= 1
@@ -176,14 +179,17 @@ async def test_sdk_client_rejects_an_unknown_area():
 
 
 @pytest.mark.asyncio
-async def test_failed_stop_keeps_session_available_for_retry():
+async def test_leave_returns_immediately_and_background_stop_failure_is_contained():
+    # The app's stop button must not wait on Agora; a failed background stop is logged,
+    # and the agent's idle timeout ends it anyway.
     agora = object.__new__(AgoraClient)
     agora._sessions = {"agent-1": ("room-a", FailingStopSession())}
+    agora._background = set()
 
-    with pytest.raises(AgoraUpstreamError, match="temporary stop failure"):
-        await agora.leave_agent("agent-1", "room-a")
+    await agora.leave_agent("agent-1", "room-a")
 
-    assert "agent-1" in agora._sessions
+    assert "agent-1" not in agora._sessions
+    await asyncio.gather(*agora._background)  # must not raise
 
 
 def test_health_and_bootstrap_are_available_without_client_auth():
