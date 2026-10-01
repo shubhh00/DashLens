@@ -23,3 +23,9 @@ local.properties
 /server/.pytest_cache
 /server/app/__pycache__
 /server/tests/__pycache__
+/server/transcripts
+
+# build output and caches anywhere in the tree
+build/
+__pycache__/
+*.pyc

@@ -1,0 +1,7 @@
+{
+  "projectId": "pkX8zMIFi",
+  "projectName": "Default Project",
+  "region": "global",
+  "template": "android",
+  "envPath": "server/.env.local"
+}
