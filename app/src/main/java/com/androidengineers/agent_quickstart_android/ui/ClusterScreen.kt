@@ -656,8 +656,26 @@ private fun AgentCaption(full: String, speaking: Boolean, live: Boolean) {
 }
 
 /** Agora joins sentences without a space ("engine.You"); split those so pacing counts real words. */
+private val DIGIT_WORDS = mapOf(
+    "zero" to "0", "oh" to "0", "one" to "1", "two" to "2", "three" to "3", "four" to "4",
+    "five" to "5", "six" to "6", "seven" to "7", "eight" to "8", "nine" to "9",
+)
+private val DIGIT_WORD_RUN = Regex(
+    """\b(?:zero|oh|one|two|three|four|five|six|seven|eight|nine)(?:[ -](?:zero|oh|one|two|three|four|five|six|seven|eight|nine))+\b""",
+    RegexOption.IGNORE_CASE,
+)
+
+/** Shows helpline numbers as digits even if the LLM spelled them out ("one eight hundred, one zero zero"). */
+private fun String.withSpokenDigitsAsNumbers(): String =
+    replace(Regex("""\bone[ -]eight[ -]hundred\b""", RegexOption.IGNORE_CASE), "1800")
+        .replace(DIGIT_WORD_RUN) { run -> run.value.split(' ', '-').joinToString("") { DIGIT_WORDS[it.lowercase()] ?: "" } }
+
 private fun String.normalizedWords(): List<String> =
-    replace(Regex("""([.!?,;:])(?=[A-Za-z])"""), "$1 ").split(Regex("""\s+""")).filter { it.isNotBlank() }
+    withSpokenDigitsAsNumbers()
+        .replace(Regex("""(?<=\d) (?=\d)"""), "") // helpline is spoken digit by digit ("1 8 0 0"); show it as "1800"
+        .replace(Regex("""([.!?,;:])(?=[A-Za-z])"""), "$1 ")
+        .split(Regex("""\s+"""))
+        .filter { it.isNotBlank() }
 
 private const val CAPTION_WORD_MS = 340L // ElevenLabs Eric speaks ~175 words per minute
 private const val CAPTION_FADE_MS = 120
