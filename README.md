@@ -1,29 +1,94 @@
-# DashLens
+<p align="center">
+  <img src="docs/banner.svg" alt="DashLens: your car's owner's manual, as a hands-free voice co-driver" width="100%">
+</p>
 
-**A hands-free voice and camera co-driver that explains dashboard warning lights from your car's own owner's manual.**
+<p align="center">
+  <img alt="Android" src="https://img.shields.io/badge/Android-Kotlin%20%C2%B7%20Compose-3DDC84?logo=android&logoColor=white">
+  <img alt="Agora" src="https://img.shields.io/badge/Agora-Conversational%20AI-099DFD">
+  <img alt="LLM" src="https://img.shields.io/badge/LLM-gpt--5--mini%20%2B%20vision-412991?logo=openai&logoColor=white">
+  <img alt="Voice" src="https://img.shields.io/badge/Voice-ElevenLabs-000000?logo=elevenlabs&logoColor=white">
+  <img alt="Server" src="https://img.shields.io/badge/Server-FastAPI-009688?logo=fastapi&logoColor=white">
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-F5A623">
+</p>
 
-Point your phone at the instrument cluster and ask, out loud, "what's this light?". DashLens sees the lamp, looks up that exact car's owner's manual, asks the one question that changes the answer (is the engine running? is the parking brake on?), and tells you what to do in a sentence or two. If you need to stop, it shows the carmaker's verified roadside helpline, one tap from the dialler.
+<p align="center">
+  <b>Point your phone at the dashboard. Ask what the light means. Get the answer from <i>your</i> car's manual.</b><br>
+  Built for the <b>Agora Voice AI Hackathon</b> (AI Mobile Coders).
+</p>
 
-Built for the **Agora Voice AI Hackathon (AI Mobile Coders)** on Agora Conversational AI.
+<p align="center">
+  🎬 <b>Demo video:</b> <i>link coming</i> &nbsp;·&nbsp;
+  <a href="#-how-it-works">How it works</a> &nbsp;·&nbsp;
+  <a href="#-measured-results">Results</a> &nbsp;·&nbsp;
+  <a href="#-setup">Setup</a>
+</p>
 
-> **Demo video:** _link coming_
+<table align="center">
+  <tr>
+    <td align="center"><h3>27</h3>cars with their<br>own manual data</td>
+    <td align="center"><h3>825</h3>warning lamps<br>structured</td>
+    <td align="center"><h3>12</h3>verified roadside<br>helplines</td>
+    <td align="center"><h3>7 ms</h3>cached manual<br>lookup</td>
+    <td align="center"><h3>0 taps</h3>to ask: voice<br>+ live camera</td>
+  </tr>
+</table>
 
 ---
 
-## The problem
+## 🚨 The problem
 
-A warning lamp comes on while you're driving. The answer is in a 450–700 page owner's manual in the glovebox, which you can't read while driving. Google Lens and general chatbots give generic answers: they don't know your car, whether the engine is running, or that on most Indian cars the red brake lamp is also the handbrake lamp. A wrong "pull over now" is stressful; a wrong "it's fine" is dangerous.
+A warning lamp comes on while you're driving. The answer is in a 450–700 page owner's manual in the glovebox, which you can't read while driving. Google Lens and general chatbots give generic answers: they don't know **your** car, whether the **engine is running**, or that on most Indian cars the red brake lamp is also the **handbrake** lamp.
 
-## What DashLens does
+> A wrong "pull over now" is stressful. A wrong "it's fine" is dangerous.
 
-- **Talk, don't type.** Fully voice-driven with barge-in: say "wait" and it stops.
-- **It looks.** The phone's rear camera streams to the agent in real time, and the LLM sees the latest frame with every question. It reads written warning messages on the display, the rev counter, and the lamp symbols.
-- **Your car, not cars in general.** As soon as it hears the make and model it calls a tool that returns that car's lamps from its own owner's manual (27 popular Indian cars cached, more fetched on demand).
-- **It asks before it guesses.** Engine off and many red lamps? That's the start-up self-check. Red brake lamp on a stationary car? It asks you to release the parking brake and watch the lamp. Can't read a small icon? It asks you to bring the phone closer.
-- **It ends in an action.** For a stop-now lamp it shows a red **Stop the car safely** card with the carmaker's verified roadside number; tap it to open the dialler.
-- **Honest about sources.** The screen shows `MG Astor · owner's manual`, `· general guidance` or `· finding manual…`, so you always know where an answer comes from.
+## 💬 What it sounds like
 
-## How it works
+> 🧑 **Driver:** This is my MG Astor, what's this red light?
+>
+> 🔧 **DashLens:** That's the red brake lamp; on this car it also lights while the parking brake is on. Release the parking brake and tell me if it goes off.
+>
+> 🧑 **Driver:** Yes, it's gone.
+>
+> 🔧 **DashLens:** That's all it was, the parking brake. You're fine to drive.
+
+Screen: `MG Astor · owner's manual`, live caption, and (for a stop-now lamp) a red **Stop the car safely** card with the MG helpline one tap from the dialler.
+
+## ✨ What DashLens does
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🎙️ Talk, don't type</h4>
+      Fully voice-driven with barge-in: say "wait" and it stops talking.
+    </td>
+    <td width="50%" valign="top">
+      <h4>📷 It looks</h4>
+      The rear camera streams to the agent in real time. It reads written warning messages, the rev counter and the lamp symbols.
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <h4>📘 Your car, not cars in general</h4>
+      As soon as it hears the make and model it pulls that car's lamps from its own owner's manual. 27 Indian cars are ready; others are fetched on demand.
+    </td>
+    <td valign="top">
+      <h4>🤔 It asks before it guesses</h4>
+      Engine off with many red lamps? Start-up self-check. Red brake lamp on a parked car? Release the handbrake and watch it. Icon too small? "Bring the phone closer."
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <h4>🛑 It ends in an action</h4>
+      Stop-now lamps bring up a red card with the carmaker's verified roadside number. Tap it to open the dialler.
+    </td>
+    <td valign="top">
+      <h4>🔎 Honest about sources</h4>
+      The screen shows <code>· owner's manual</code>, <code>· general guidance</code> or <code>· finding manual…</code>, so you always know where an answer comes from.
+    </td>
+  </tr>
+</table>
+
+## 🧠 How it works
 
 ```mermaid
 flowchart LR
@@ -47,9 +112,15 @@ flowchart LR
     Tools --> Cache
     Tools -. uncached car .-> Pipe --> Cache
     Server -- tokens, start / stop agent --> Agora
+    classDef phone fill:#1B1E23,stroke:#F5A623,color:#F2F3F5
+    classDef agora fill:#0B2A3F,stroke:#099DFD,color:#F2F3F5
+    classDef server fill:#10302B,stroke:#009688,color:#F2F3F5
+    class Mic,Cam,UI phone
+    class ASR,LLM,TTS agora
+    class Tools,Cache,Pipe server
 ```
 
-### Agora integration
+### 🔌 Agora integration
 
 | Piece | How DashLens uses it |
 |---|---|
@@ -62,7 +133,7 @@ flowchart LR
 | **Interruption** | Keyword barge-in ("stop", "wait", "hold on", …) so road noise and the radio don't cut the agent off, while the driver still can. |
 | **Turn analytics** | After each call the server saves Agora's per-turn latency breakdown (ASR, LLM, TTS) with the transcript and the camera frames the LLM saw, which is how the numbers below were measured. |
 
-### The manual pipeline
+### 📚 The manual pipeline
 
 For a car that isn't cached yet, a background job finds and reads its owner's manual so the next question is instant:
 
@@ -76,7 +147,7 @@ While that runs, the agent says the manual is being fetched and gives clearly la
 
 Roadside helplines come from a hand-verified table of 12 brands (each checked on the carmaker's site); the agent never makes up a number.
 
-## Measured results
+## 📊 Measured results
 
 Measured from saved test calls, in a real MG Astor and on photos of Kia and Hyundai clusters.
 
@@ -92,7 +163,7 @@ Measured from saved test calls, in a real MG Astor and on photos of Kia and Hyun
 
 Low reasoning costs about 2 s per reply but reads the rev counter itself, asks instead of guessing, and asks for a closer look when an icon is unclear; for safety advice that trade is worth it. Misses were mostly tiny or blurred icons at night and indicators the manual describes only by name (see limitations).
 
-## Setup
+## 🛠️ Setup
 
 ### Prerequisites
 
@@ -148,7 +219,7 @@ Open the project in Android Studio and run the `app` configuration on your phone
 cd server && python -m pytest -q     # server tests
 ```
 
-## Project structure
+## 🗂️ Project structure
 
 ```
 app/src/main/java/com/dashlens/app/
@@ -164,13 +235,13 @@ server/app/
 server/cache/                         structured lamp data for 27 cars
 ```
 
-## Built on
+## 🧱 Built on
 
 DashLens started from Agora's [agent-quickstart-android](https://github.com/AgoraIO-Conversational-AI/agent-quickstart-android) (MIT): the Kotlin RTC/RTM session layer, the token-minting FastAPI server and its scripts. Everything specific to DashLens was built during the hackathon: the camera pipeline and upright frame rotation, the cluster UI, the agent prompt and tools, the manual pipeline and cache, the helpline table, the screen tags, the server-side model check, and transcript and metrics capture. Camera-to-LLM vision follows the pattern from Agora's vision recipe.
 
 While building it I found and fixed a quickstart bug: the RTM client wasn't released on disconnect, so a second session in the same app run failed with `INVALID_TOKEN` (`client.release()` in `disconnect()` and in the `ensureRtmClient` error path).
 
-## Limitations and what's next
+## 🚧 Limitations and what's next
 
 - **Small icons.** At arm's length at night a lamp can be ~25 px in a 720p frame; the agent then asks for a closer look, but it can still misread. Next: store each lamp's symbol description alongside its meaning, so the agent matches by shape rather than by name, and crop/zoom on the lamp area.
 - **Latency.** ~5 s per reply with low reasoning. Next: a faster vision model as it becomes available on Agora, and streaming a short acknowledgement first.
@@ -178,8 +249,9 @@ While building it I found and fixed a quickstart bug: the RTM client wasn't rele
 - **Production.** Host the server instead of a laptop and tunnel, add app authentication and per-user limits, a privacy policy for camera and voice data, release signing, and a Play Store closed test.
 - **More languages.** Hindi and other Indian languages for both speech and answers.
 
-DashLens is a driving aid, not a mechanic. Use it while parked or let a passenger hold the phone, and always follow your owner's manual and the carmaker's advice.
+> [!WARNING]
+> DashLens is a driving aid, not a mechanic. Use it while parked or let a passenger hold the phone, and always follow your owner's manual and the carmaker's advice.
 
-## License
+## 📄 License
 
 MIT, see [license.md](license.md).
