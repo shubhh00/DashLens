@@ -52,7 +52,11 @@ def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -
     throttled = [Depends(rate_limit)]
 
     @router.get("/v1/tools/manual", dependencies=throttled)
-    def manual(make: str, model: str):
+    async def manual(make: str, model: str, sid: str = ""):
+        if sid and await agora.model_was_said(sid, model) is False:
+            # The agent made the model up; don't fetch a manual for it.
+            return {"source": "none", "car": f"{make} {model}",
+                    "note": f"The driver never said this model. Ask them which {make} model it is; do not guess one."}
         # Never make the driver wait on a search: answer from cache or say it's being fetched,
         # and run the full (minutes-long) lookup in the background so the next ask is instant.
         result = lookup_manual(make, model, search=False)

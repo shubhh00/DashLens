@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import asyncio
 import base64
+import difflib
 import json
+import re
 import secrets
 import time
 from pathlib import Path
@@ -79,6 +81,20 @@ INTERRUPT_KEYWORDS = [
 ]
 
 
+def model_mentioned(model: str, user_text: str) -> bool:
+    """Every word of the model appears in what the driver said, allowing ASR spellings
+    ("Aster" for Astor, "XUV 700" for XUV700). Short words must match exactly."""
+    words = re.findall(r"[a-z0-9]+", user_text.lower())
+    compact = "".join(words)
+    for token in re.findall(r"[a-z0-9]+", model.lower()):
+        if token in words or (len(token) >= 3 and token in compact):
+            continue
+        if len(token) > 3 and any(difflib.SequenceMatcher(None, token, w).ratio() >= 0.75 for w in words):
+            continue
+        return False
+    return True
+
+
 class AgoraUpstreamError(RuntimeError):
     pass
 
@@ -115,6 +131,7 @@ class AgoraClient:
             httpx_client=self._http,
         )
         self._sessions: dict[str, tuple[str, Any]] = {}
+        self._tool_sessions: dict[str, str] = {}  # tool sid -> agent_id, so tools can read the call
         self._background: set[asyncio.Task] = set()
 
     def create_user_tokens(self, channel_name: str, rtc_uid: int) -> tuple[str, str, int]:
@@ -128,7 +145,7 @@ class AgoraClient:
         expires_at = int(time.time()) + self.settings.token_expiry_seconds
         return token, token, expires_at
 
-    def _build_agent(self, system_prompt: str | None = None) -> Agent:
+    def _build_agent(self, system_prompt: str | None = None, tool_sid: str = "") -> Agent:
         tools = []
         if self.settings.public_base_url:
             tools.append({
@@ -149,7 +166,7 @@ class AgoraClient:
                 "execution": {"mode": "sync"},
                 "server": {
                     "method": "GET",
-                    "url": self.settings.public_base_url.rstrip("/") + "/v1/tools/manual?make={{args.make}}&model={{args.model}}",
+                    "url": self.settings.public_base_url.rstrip("/") + "/v1/tools/manual?make={{args.make}}&model={{args.model}}&sid=" + tool_sid,
                     "timeout_ms": 60000,
                 },
             })
@@ -293,7 +310,8 @@ class AgoraClient:
         agent_profile: str | None = None,
         system_prompt: str | None = None,
     ) -> dict[str, Any]:
-        session = self._build_agent(system_prompt).create_async_session(
+        tool_sid = secrets.token_urlsafe(12)
+        session = self._build_agent(system_prompt, tool_sid).create_async_session(
             channel=channel_name,
             agent_uid=str(self.settings.agent_uid),
             remote_uids=[str(requester_rtc_uid)],
@@ -312,6 +330,7 @@ class AgoraClient:
         if not agent_id:
             raise AgoraUpstreamError("Agora response did not include agent_id.")
         self._sessions[agent_id] = (channel_name, session)
+        self._tool_sessions[tool_sid] = agent_id
         return {
             "agent_id": agent_id,
             "create_ts": int(time.time()),
@@ -356,6 +375,8 @@ class AgoraClient:
         run in the background so the app's stop button feels instant."""
         session = self._require_session(agent_id, channel_name)
         self._sessions.pop(agent_id, None)
+        for sid in [sid for sid, owner in self._tool_sessions.items() if owner == agent_id]:
+            del self._tool_sessions[sid]
         task = asyncio.create_task(self._save_and_stop(agent_id, session))
         self._background.add(task)
         task.add_done_callback(self._background.discard)
@@ -406,6 +427,34 @@ class AgoraClient:
         except Exception as exc:  # never block leaving a call on this
             print(f"[transcript] could not save {agent_id}: {exc}", flush=True)
             return None
+
+    async def model_was_said(self, tool_sid: str, model: str) -> bool | None:
+        """Whether this model was actually said in the call. gpt-5-mini sometimes invents
+        one ("MG ZS") to call lookupManual; the prompt alone did not stop it. None = can't tell."""
+        agent_id = self._tool_sessions.get(tool_sid)
+        active = self._sessions.get(agent_id) if agent_id else None
+        if active is None:
+            return None
+        try:
+            result = await active[1].get_history()
+            data = result.dict() if hasattr(result, "dict") else result
+        except Exception as exc:
+            print(f"[guard] history unavailable: {str(exc)[:120]}", flush=True)
+            return None
+        texts = []
+        # The driver's words, plus anything the agent said out loud ("Did you mean Creta?" "Yes"):
+        # the driver could correct those. An invented model was never said by either.
+        for entry in (data or {}).get("contents") or []:
+            if entry.get("role") not in ("user", "assistant"):
+                continue
+            content = entry.get("content")
+            if isinstance(content, str):
+                texts.append(content)
+            elif isinstance(content, list):
+                texts += [part.get("text", "") for part in content if isinstance(part, dict)]
+        said = model_mentioned(model, " ".join(texts)) if any(texts) else None
+        print(f"[guard] model {model!r} said={said} heard={' | '.join(texts)[-200:]!r}", flush=True)
+        return said
 
     async def debug_history(self, agent_id: str) -> dict[str, Any]:
         """Conversation history and turn analytics for a session this server started (debugging)."""
