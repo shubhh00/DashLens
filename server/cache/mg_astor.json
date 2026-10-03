@@ -31,7 +31,7 @@
     {
       "lamp": "Front Fog Lamp Indicator",
       "colour": "green",
-      "steady": "Illuminates when the headlamp high beam is turned on.",
+      "steady": "The front fog lamps are turned on.",
       "flashing": null
     },
     {
