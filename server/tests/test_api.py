@@ -135,7 +135,8 @@ async def test_sdk_custom_tool_and_text_actions_reach_agora():
     assert properties["advanced_features"]["enable_tools"] is True
     tool = properties["llm"]["tools"][0]
     assert tool["function"]["name"] == "lookupManual"
-    assert tool["server"]["url"] == "https://example.com/v1/tools/manual?make={{args.make}}&model={{args.model}}"
+    # Each agent's tool URL carries a session id so the server can check the model was really said.
+    assert tool["server"]["url"].startswith("https://example.com/v1/tools/manual?make={{args.make}}&model={{args.model}}&sid=")
     assert requests[1].url.path.endswith("/agents/agent-1/speak")
     assert json.loads(requests[1].content)["priority"] == "APPEND"
     assert requests[2].url.path.endswith("/agents/agent-1/think")
@@ -182,6 +183,7 @@ async def test_leave_returns_immediately_and_background_stop_failure_is_containe
     # and the agent's idle timeout ends it anyway.
     agora = object.__new__(AgoraClient)
     agora._sessions = {"agent-1": ("room-a", FailingStopSession())}
+    agora._tool_sessions = {}
     agora._background = set()
 
     await agora.leave_agent("agent-1", "room-a")
