@@ -41,8 +41,8 @@ internal object AgentTags {
 
     private val STOP_ADVICE = Regex("""\b(pull over|stop now|stop the car|stop safely|stop driving)\b""", RegexOption.IGNORE_CASE)
     private val NEGATION = Regex("""\b(no need to|don't|do not|not|never|without)\s+(\w+\s+){0,2}$""", RegexOption.IGNORE_CASE)
-    // "If any red lamp stays on after you start, pull over" is advice for later, not a verdict now.
-    private val LATER = Regex("""\b(stays?|remains?|comes? back|after you start|once you start)\b""", RegexOption.IGNORE_CASE)
+    // "If it stays on, stop safely" / "release it — if it stays on while driving, stop" is a condition, not a verdict.
+    private val CONDITION = Regex("""\b(if|unless|in case|should it)\b""", RegexOption.IGNORE_CASE)
     private val SPOKEN_NUMBER = Regex("""\d(?:[\s,]*\d){9,11}""")
 
     /** Shows the stop card when the reply tells the driver to pull over now. */
@@ -50,8 +50,8 @@ internal object AgentTags {
         val spoken = strip(text)
         STOP_ADVICE.findAll(spoken).firstOrNull { match ->
             val before = spoken.substring(0, match.range.first)
-            val sentence = before.substring(before.lastIndexOfAny(charArrayOf('.', '!', '?', ';')) + 1)
-            !NEGATION.containsMatchIn(before) && !(sentence.trim().startsWith("if ", ignoreCase = true) && LATER.containsMatchIn(sentence))
+            val sentence = before.substring(before.lastIndexOfAny(charArrayOf('.', '!', '?')) + 1)
+            !NEGATION.containsMatchIn(before) && !CONDITION.containsMatchIn(sentence)
         } ?: return null
         // The verified helpline comes with the car tag; a number the agent spoke is the fallback.
         car?.helplineNumber?.let { return CallCard(true, car.helplineLabel, it) }

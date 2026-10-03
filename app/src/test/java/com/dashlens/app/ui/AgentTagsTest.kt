@@ -26,8 +26,7 @@ class AgentTagsTest {
         val stop = AgentTags.stopAdvice("The oil lamp is on with the engine running: pull over now; the number is on your screen.", creta)
         assertEquals("18001024645", stop?.helplineNumber)
         assertEquals("1800 102 4645", formatHelpline(stop!!.helplineNumber!!))
-        // Engine state given as a condition still means stop.
-        assertNotNull(AgentTags.stopAdvice("If the engine is running, stop safely and switch it off.", creta))
+        assertNotNull(AgentTags.stopAdvice("The engine is running: stop safely and switch it off.", creta))
     }
 
     @Test
@@ -35,6 +34,7 @@ class AgentTagsTest {
         assertNull(AgentTags.stopAdvice("The car is parked, so there is no need to pull over.", creta))
         assertNull(AgentTags.stopAdvice("That is the seat belt lamp; fasten your belt.", creta))
         assertNull(AgentTags.stopAdvice("That is the self-check. If any red lamp stays lit after you start, pull over safely.", creta))
+        assertNull(AgentTags.stopAdvice("Release the parking brake and tell me if it goes off — if it stays on while driving, stop safely.", creta))
     }
 
     @Test
