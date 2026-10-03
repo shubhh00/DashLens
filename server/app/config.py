@@ -20,7 +20,9 @@ class Settings:
     agora_app_id: str
     agora_app_certificate: str
     asr_model: str = "nova-3"
-    llm_model: str = "gpt-5-mini"  # Agora-managed; reads small dashboard icons best (minimal reasoning)
+    llm_model: str = "gpt-5-mini"  # Agora-managed; reads small dashboard icons best
+    # "low" thinks before answering (fewer guessed lamps and models); measured ~2 s slower than "minimal".
+    llm_reasoning_effort: str = "low"
     tts_model: str = "speech_2_6_turbo"
     tts_vendor: str = "openai"  # "openai" (managed tts-1), "minimax", or "elevenlabs" (own key)
     elevenlabs_api_key: str = ""
@@ -47,6 +49,7 @@ class Settings:
             agora_app_certificate=os.getenv("AGORA_APP_CERTIFICATE", "").strip(),
             asr_model=os.getenv("ASR_MODEL", "nova-3"),
             llm_model=os.getenv("LLM_MODEL", "gpt-5-mini"),
+            llm_reasoning_effort=os.getenv("LLM_REASONING_EFFORT", "low"),
             tts_model=os.getenv("TTS_MODEL", "speech_2_6_turbo"),
             tts_vendor=os.getenv("TTS_VENDOR", "openai").strip().lower(),
             elevenlabs_api_key=os.getenv("ELEVENLABS_API_KEY", "").strip(),

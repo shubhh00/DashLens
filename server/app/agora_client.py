@@ -255,9 +255,11 @@ class AgoraClient:
 
     def _sampling_options(self) -> dict[str, Any]:
         """gpt-5 models are reasoning models: they reject temperature/top_p and count reasoning
-        against max_completion_tokens, so give them minimal reasoning and room for a short reply."""
+        against max_completion_tokens, so leave room for the reasoning as well as a short reply."""
         if self.settings.llm_model.startswith("gpt-5"):
-            return {"params": {"reasoning_effort": "minimal", "verbosity": "low", "max_completion_tokens": 400}}
+            effort = self.settings.llm_reasoning_effort
+            budget = 400 if effort == "minimal" else 1500
+            return {"params": {"reasoning_effort": effort, "verbosity": "low", "max_completion_tokens": budget}}
         return {"max_tokens": 160, "temperature": 0.7, "top_p": 0.95}  # ~35 spoken words
 
     def _build_tts(self):
