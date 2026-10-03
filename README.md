@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="#-demo">🎬 Demo</a> &nbsp;·&nbsp;
+  <a href="#-demo">🎬 Demo</a> &nbsp;·&nbsp; 
   <a href="#-how-it-works">How it works</a> &nbsp;·&nbsp;
   <a href="#-measured-results">Results</a> &nbsp;·&nbsp;
   <a href="#-setup">Setup</a>
@@ -53,42 +53,47 @@ A warning lamp comes on while you're driving. The answer is in a 450–700 page 
 
 ## 🎬 Demo
 
-<!--
-  DEMO VIDEOS: in GitHub's web editor, put the cursor on an empty line below and drag an .mp4 in.
-  GitHub uploads it and inserts a https://github.com/user-attachments/assets/... link; leave that
-  link on its own line and it plays inline. Add a short bold title above each one.
--->
+<table>
+<tr>
+<td width="33%" align="center" valign="top">
 
-<!-- ▼ Video 1: full walkthrough -->
+https://github.com/user-attachments/assets/1d4a1f87-faf5-4a6c-80c5-f3e27d2876b7
 
+<sub><b>Demo 1</b></sub>
+</td>
+<td width="33%" align="center" valign="top">
 
-<!-- ▼ Video 2 (optional) -->
+https://github.com/user-attachments/assets/709ace05-9d3d-4f27-9430-5d18b98f5ebf
 
+<sub><b>Demo 2</b></sub>
+</td>
+<td width="33%" align="center" valign="top">
 
-## 📱 Screens
+https://github.com/user-attachments/assets/5c05d07b-00c3-45ab-a167-f6f4bbc601d5
 
-<!--
-  SCREENSHOTS: in GitHub's web editor, drag each image into the matching cell below (between the
-  <td> tags, above the caption). GitHub inserts <img ...> automatically; add width="200" to keep
-  the four phones the same size.
--->
+<sub><b>Demo 3</b></sub>
+</td>
+</tr>
+</table>
+
+📱 Screens
 
 <table>
   <tr>
     <td align="center" width="25%">
-      <!-- ▼ home screen -->
+     <img width="1080" height="2340" alt="Screenshot_20261003_150719" src="https://github.com/user-attachments/assets/87f53c54-1b7b-4692-b0f9-b26579429aed" />
       <br><sub><b>Point and ask</b><br>tap the mic once, then it's hands-free</sub>
     </td>
     <td align="center" width="25%">
-      <!-- ▼ red stop card -->
+     <img width="1080" height="2340" alt="Screenshot_20261003_152122" src="https://github.com/user-attachments/assets/80ff3018-fe69-4890-bcfa-a65cb56e0650" />
       <br><sub><b>Stop now</b><br>red lamp with the engine running: stop card + verified helpline</sub>
     </td>
     <td align="center" width="25%">
-      <!-- ▼ helpline call button -->
+     <img width="1080" height="2340" alt="Screenshot_20261003_151029" src="https://github.com/user-attachments/assets/f6a4a1ea-070b-4011-bf98-39c78b73c7f1" />
       <br><sub><b>Ask for help</b><br>the carmaker's roadside number, one tap from the dialler</sub>
     </td>
     <td align="center" width="25%">
-      <!-- ▼ "bring the phone closer" -->
+      <img width="1080" height="2340" alt="Screenshot_20261003_151056" src="https://github.com/user-attachments/assets/cc169179-bbaf-408b-a851-7c562142f8e4" />
       <br><sub><b>Asks, doesn't guess</b><br>can't read the icons? it asks for a closer look</sub>
     </td>
   </tr>
