@@ -6,7 +6,7 @@
   <img alt="Android" src="https://img.shields.io/badge/Android-Kotlin%20%C2%B7%20Compose-3DDC84?logo=android&logoColor=white">
   <img alt="Agora" src="https://img.shields.io/badge/Agora-Conversational%20AI-099DFD">
   <img alt="LLM" src="https://img.shields.io/badge/LLM-gpt--5--mini%20%2B%20vision-412991?logo=openai&logoColor=white">
-  <img alt="Voice" src="https://img.shields.io/badge/Voice-ElevenLabs-000000?logo=elevenlabs&logoColor=white">
+  <img alt="Voice" src="https://img.shields.io/badge/Voice-ElevenLabs%20%C2%B7%20OpenAI%20TTS-000000?logo=elevenlabs&logoColor=white">
   <img alt="Server" src="https://img.shields.io/badge/Server-FastAPI-009688?logo=fastapi&logoColor=white">
   <img alt="License" src="https://img.shields.io/badge/License-MIT-F5A623">
 </p>
@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  🎬 <b>Demo video:</b> <i>link coming</i> &nbsp;·&nbsp;
+  <a href="#-demo">🎬 Demo</a> &nbsp;·&nbsp;
   <a href="#-how-it-works">How it works</a> &nbsp;·&nbsp;
   <a href="#-measured-results">Results</a> &nbsp;·&nbsp;
   <a href="#-setup">Setup</a>
@@ -51,7 +51,48 @@ A warning lamp comes on while you're driving. The answer is in a 450–700 page 
 >
 > 🔧 **DashLens:** That's all it was, the parking brake. You're fine to drive.
 
-Screen: `MG Astor · owner's manual`, live caption, and (for a stop-now lamp) a red **Stop the car safely** card with the MG helpline one tap from the dialler.
+## 🎬 Demo
+
+<!--
+  DEMO VIDEOS: in GitHub's web editor, put the cursor on an empty line below and drag an .mp4 in.
+  GitHub uploads it and inserts a https://github.com/user-attachments/assets/... link; leave that
+  link on its own line and it plays inline. Add a short bold title above each one.
+-->
+
+<!-- ▼ Video 1: full walkthrough -->
+
+
+<!-- ▼ Video 2 (optional) -->
+
+
+## 📱 Screens
+
+<!--
+  SCREENSHOTS: in GitHub's web editor, drag each image into the matching cell below (between the
+  <td> tags, above the caption). GitHub inserts <img ...> automatically; add width="200" to keep
+  the four phones the same size.
+-->
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <!-- ▼ home screen -->
+      <br><sub><b>Point and ask</b><br>tap the mic once, then it's hands-free</sub>
+    </td>
+    <td align="center" width="25%">
+      <!-- ▼ red stop card -->
+      <br><sub><b>Stop now</b><br>red lamp with the engine running: stop card + verified helpline</sub>
+    </td>
+    <td align="center" width="25%">
+      <!-- ▼ helpline call button -->
+      <br><sub><b>Ask for help</b><br>the carmaker's roadside number, one tap from the dialler</sub>
+    </td>
+    <td align="center" width="25%">
+      <!-- ▼ "bring the phone closer" -->
+      <br><sub><b>Asks, doesn't guess</b><br>can't read the icons? it asks for a closer look</sub>
+    </td>
+  </tr>
+</table>
 
 ## ✨ What DashLens does
 
@@ -97,7 +138,7 @@ flowchart LR
         UI[Captions, source line,<br/>stop card, call button]
     end
     subgraph Agora["Agora Conversational AI"]
-        ASR[Deepgram nova-3<br/>speech to text] --> LLM[gpt-5-mini<br/>text + camera frame] --> TTS[ElevenLabs Flash v2.5<br/>voice]
+        ASR[Deepgram nova-3<br/>speech to text] --> LLM[gpt-5-mini<br/>text + camera frame] --> TTS[ElevenLabs Flash v2.5<br/>or OpenAI tts-1 voice]
     end
     subgraph Server["FastAPI server"]
         Tools[Tools: lookupManual,<br/>getRoadsideHelpline]
@@ -124,7 +165,7 @@ flowchart LR
 
 | Piece | How DashLens uses it |
 |---|---|
-| **Conversational AI engine** | Cascade pipeline started per call by the server through the `agora-agents` Python SDK: Deepgram nova-3 ASR → gpt-5-mini (Agora-managed, low reasoning effort) → ElevenLabs Flash v2.5 TTS. |
+| **Conversational AI engine** | Cascade pipeline started per call by the server through the `agora-agents` Python SDK: Deepgram nova-3 ASR → gpt-5-mini (Agora-managed, low reasoning effort) → ElevenLabs Flash v2.5 TTS. Each call checks the ElevenLabs character balance first and falls back to Agora-managed OpenAI tts-1 when it runs low, so the agent never goes silent. |
 | **Vision input** | The LLM is configured with `input_modalities: ["text", "image"]`; Agora forwards the latest frame of the user's RTC video stream with each turn. |
 | **RTC video** | The app publishes the rear camera at 720p/30 fps. A pre-encoder frame observer (`UprightFrameRotator`) rotates frames so the agent always sees the dashboard upright, even with the phone held sideways to fit a wide cluster, while the app UI stays portrait. |
 | **Tools** | Two HTTP tools the agent calls synchronously: `lookupManual(make, model)` and `getRoadsideHelpline(make)`. Each agent gets a session id in its tool URL, so the server can check that a car model was actually said in the call before fetching a manual (the LLM sometimes invented one). |
@@ -183,7 +224,7 @@ pip install -r requirements.txt
 cp .env.example .env.local         # then fill in the keys
 ```
 
-In `server/.env.local` set at least `AGORA_APP_ID` and `AGORA_APP_CERTIFICATE`. For the demo voice also set `TTS_VENDOR=elevenlabs`, `ELEVENLABS_API_KEY` and `TTS_VOICE_ID`.
+In `server/.env.local` set at least `AGORA_APP_ID` and `AGORA_APP_CERTIFICATE`. For the ElevenLabs voice also set `TTS_VENDOR=elevenlabs`, `ELEVENLABS_API_KEY` and `TTS_VOICE_ID`; calls switch to the free Agora-managed OpenAI voice (`TTS_FALLBACK_VOICE_ID`, default `onyx`) automatically when the ElevenLabs quota runs low.
 
 ### 2. Tunnel
 

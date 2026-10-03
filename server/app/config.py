@@ -27,6 +27,10 @@ class Settings:
     tts_vendor: str = "openai"  # "openai" (managed tts-1), "minimax", or "elevenlabs" (own key)
     elevenlabs_api_key: str = ""
     elevenlabs_model: str = "eleven_flash_v2_5"
+    # With TTS_VENDOR=elevenlabs, calls fall back to Agora-managed OpenAI tts-1 with this voice once
+    # the ElevenLabs character quota runs low (the voice is fixed for the whole call).
+    tts_fallback_voice_id: str = "onyx"
+    elevenlabs_min_characters: int = 1000
     tts_voice_id: str = "onyx"
     tts_speed: float = 1.15
     agora_area: str = "NORTH_AMERICA"
@@ -54,6 +58,8 @@ class Settings:
             tts_vendor=os.getenv("TTS_VENDOR", "openai").strip().lower(),
             elevenlabs_api_key=os.getenv("ELEVENLABS_API_KEY", "").strip(),
             elevenlabs_model=os.getenv("ELEVENLABS_MODEL", "eleven_flash_v2_5").strip(),
+            tts_fallback_voice_id=os.getenv("TTS_FALLBACK_VOICE_ID", "onyx").strip(),
+            elevenlabs_min_characters=int(os.getenv("ELEVENLABS_MIN_CHARACTERS", "1000")),
             tts_voice_id=os.getenv("TTS_VOICE_ID", "onyx"),
             tts_speed=float(os.getenv("TTS_SPEED", "1.15")),
             agora_area=os.getenv("AGORA_AREA", "NORTH_AMERICA"),

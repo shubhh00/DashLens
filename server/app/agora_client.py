@@ -131,7 +131,8 @@ class AgoraClient:
             httpx_client=self._http,
         )
         self._sessions: dict[str, tuple[str, Any]] = {}
-        self._tool_sessions: dict[str, str] = {}  # tool sid -> agent_id, so tools can read the call
+        self._tool_sessions: dict[str, str] = {}
+        self._elevenlabs_check: tuple[float, bool] | None = None  # (checked at, enough characters left)  # tool sid -> agent_id, so tools can read the call
         self._background: set[asyncio.Task] = set()
 
     def create_user_tokens(self, channel_name: str, rtc_uid: int) -> tuple[str, str, int]:
@@ -145,7 +146,7 @@ class AgoraClient:
         expires_at = int(time.time()) + self.settings.token_expiry_seconds
         return token, token, expires_at
 
-    def _build_agent(self, system_prompt: str | None = None, tool_sid: str = "") -> Agent:
+    def _build_agent(self, system_prompt: str | None = None, tool_sid: str = "", use_elevenlabs: bool = True) -> Agent:
         tools = []
         if self.settings.public_base_url:
             tools.append({
@@ -267,7 +268,7 @@ class AgoraClient:
                     input_modalities=["text", "image"],
                 )
             )
-            .with_tts(self._build_tts())
+            .with_tts(self._build_tts(use_elevenlabs))
         )
 
     def _sampling_options(self) -> dict[str, Any]:
@@ -279,9 +280,34 @@ class AgoraClient:
             return {"params": {"reasoning_effort": effort, "verbosity": "low", "max_completion_tokens": budget}}
         return {"max_tokens": 160, "temperature": 0.7, "top_p": 0.95}  # ~35 spoken words
 
-    def _build_tts(self):
+    async def _elevenlabs_available(self) -> bool:
+        """Enough ElevenLabs characters left for a whole call? Checked once per call (cached for a
+        minute); any failure counts as no, so the call still gets a voice."""
+        now = time.monotonic()
+        if self._elevenlabs_check and now - self._elevenlabs_check[0] < 60:
+            return self._elevenlabs_check[1]
+        try:
+            response = await self._http.get(
+                "https://api.elevenlabs.io/v1/user/subscription",
+                headers={"xi-api-key": self.settings.elevenlabs_api_key},
+                timeout=5.0,
+            )
+            response.raise_for_status()
+            data = response.json()
+            left = int(data["character_limit"]) - int(data["character_count"])
+            available = left >= self.settings.elevenlabs_min_characters
+            print(f"[tts] ElevenLabs characters left: {left} -> {'elevenlabs' if available else 'openai fallback'}", flush=True)
+        except Exception as exc:
+            print(f"[tts] ElevenLabs quota check failed ({str(exc)[:80]}); using the OpenAI fallback", flush=True)
+            available = False
+        self._elevenlabs_check = (now, available)
+        return available
+
+    def _build_tts(self, use_elevenlabs: bool = True):
         # OpenAI tts-1 (Agora-managed) reads whole sentences fluently; MiniMax character voices
         # sounded slow and stop-and-go on long replies.
+        if self.settings.tts_vendor == "elevenlabs" and not use_elevenlabs:
+            return OpenAITTS(model="tts-1", voice=self.settings.tts_fallback_voice_id, speed=self.settings.tts_speed, skip_patterns=SKIP_CURLY_BRACES)
         if self.settings.tts_vendor == "elevenlabs":
             if not self.settings.elevenlabs_api_key:
                 raise ValueError("TTS_VENDOR=elevenlabs needs ELEVENLABS_API_KEY in server/.env.local.")
@@ -311,7 +337,8 @@ class AgoraClient:
         system_prompt: str | None = None,
     ) -> dict[str, Any]:
         tool_sid = secrets.token_urlsafe(12)
-        session = self._build_agent(system_prompt, tool_sid).create_async_session(
+        use_elevenlabs = self.settings.tts_vendor == "elevenlabs" and await self._elevenlabs_available()
+        session = self._build_agent(system_prompt, tool_sid, use_elevenlabs).create_async_session(
             channel=channel_name,
             agent_uid=str(self.settings.agent_uid),
             remote_uids=[str(requester_rtc_uid)],

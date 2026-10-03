@@ -386,23 +386,32 @@ def model_family(make: str, model: str) -> str:
     BMW names variants by series ("M340i", "330i", "320d", "M3" are all the 3 Series manual).
     Other makes pass through unchanged.
     """
-    make_key, model_key = slug(make.split()[0] if make.split() else ""), slug(model)
-    if make_key == "bmw":
+    make_slug, model_key = make_key(make), slug(model)
+    if make_slug == "bmw":
         match = re.fullmatch(r"m?([1-8])(?:\d\d[a-z]*|series)?", model_key)
         if match:
             return f"{match.group(1)} Series"
     return model
 
 
+# The same brand under other names, so "Suzuki Swift" finds the cached maruti_swift manual.
+MAKE_ALIASES = {"suzuki": "maruti", "nexa": "maruti", "morris": "mg", "vw": "volkswagen"}
+
+
+def make_key(make: str) -> str:
+    key = slug(make.split()[0]) if make.split() else ""
+    return MAKE_ALIASES.get(key, key)
+
+
 def find_cached(make: str, model: str) -> dict | None:
     """Cached result for this car, allowing near-miss spellings from speech recognition ("Aster" -> astor)."""
     model = model_family(make, model)
-    make_key, model_key = slug(make.split()[0]), slug(model)
-    exact = CACHE_DIR / f"{make_key}_{model_key}.json"
+    make_slug, model_key = make_key(make), slug(model)
+    exact = CACHE_DIR / f"{make_slug}_{model_key}.json"
     if exact.exists():
         log(f"cache hit for {make} {model}")
         return json.loads(exact.read_text(encoding="utf-8"))
-    same_make = {path.stem.split("_", 1)[1]: path for path in CACHE_DIR.glob(f"{make_key}_*.json")}
+    same_make = {path.stem.split("_", 1)[1]: path for path in CACHE_DIR.glob(f"{make_slug}_*.json")}
     close = difflib.get_close_matches(model_key, list(same_make), n=1, cutoff=0.75)
     if close:
         log(f"cache hit for {make} {model} (close match: {close[0]})")
@@ -431,7 +440,7 @@ def lookup_manual(make: str, model: str, year: int | None = None, search: bool =
         log(f"{car} uses the {make} {family} manual")
         model, car = family, f"{make} {family}"
     # First word only, so "Maruti Suzuki" / "Tata Motors" / "MG Motor" hit the same file as "Maruti" / "Tata" / "MG".
-    cache_file = CACHE_DIR / f"{slug(make.split()[0])}_{slug(model)}.json"
+    cache_file = CACHE_DIR / f"{make_key(make)}_{slug(model)}.json"
     cached = find_cached(make, model)
     # A text-only entry (Gemini was unavailable) is good enough to answer from now, but full
     # lookups (background/prewarm) retry so it gets upgraded to structured lamps.
