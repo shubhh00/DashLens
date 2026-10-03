@@ -30,6 +30,22 @@ from .security import build_rate_limiter
 from .session_store import SessionRecord, SessionStore
 
 
+DIGIT_WORDS = "zero one two three four five six seven eight nine".split()
+
+
+def spoken_number(number: str) -> str:
+    """'1800 102 4645' -> 'one eight hundred, one zero two, four six four five': short groups a
+    voice reads clearly, instead of eleven digits run together."""
+    groups = [g for g in number.replace("-", " ").split() if g.isdigit()]
+    words = []
+    for group in groups:
+        if group == "1800":
+            words.append("one eight hundred")
+        else:
+            words.append(" ".join(DIGIT_WORDS[int(d)] for d in group))
+    return ", ".join(words)
+
+
 def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -> APIRouter:
     router = APIRouter()
     rate_limit = build_rate_limiter(settings)
@@ -40,7 +56,8 @@ def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -
         # Never make the driver wait on a search: answer from cache or say it's being fetched,
         # and run the full (minutes-long) lookup in the background so the next ask is instant.
         result = lookup_manual(make, model, search=False)
-        if result.pop("fetching", False):
+        fetching = result.pop("fetching", False)
+        if fetching:
             start_background_lookup(make, model)
         manual_url = str(result.get("manual_url") or "").lower()
         if result.get("roadside_number") and not (".in/" in manual_url or "/in/" in manual_url):
@@ -54,6 +71,14 @@ def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -
         elif not result.get("roadside_number"):
             result["roadside_number"] = None
             result["roadside_label"] = "No verified helpline for this brand; tell the driver to check the owner's manual or the carmaker's website."
+        source = "manual" if result.get("source") == "manual" else "fetching" if fetching else "general"
+        # Ready-made tag for the app (source line, and the stop card's call button), so the LLM
+        # copies it instead of composing one. The helpline rides along so the app never needs it spoken.
+        digits = "".join(ch for ch in str(result.get("roadside_number") or "") if ch.isdigit())
+        label = str(result.get("roadside_label") or "roadside assistance") if digits else ""
+        fields = [result.get("car") or f"{make} {model}", source] + ([label, digits] if digits else [])
+        result["screen_tag"] = "{car:%s}" % "|".join(f.replace("|", " ").replace("{", "").replace("}", "") for f in fields)
+        result["roadside_spoken"] = spoken_number(str(result.get("roadside_number") or "")) or None
         print(f"[manual] tool response for {make} {model}: {len(json.dumps(result))} bytes", flush=True)
         return result
 

@@ -17,7 +17,7 @@ from .config import Settings
 
 
 DEFAULT_SYSTEM_PROMPT = """You are a hands-free car dashboard assistant talking to a driver. Sound like a calm co-driver.
-BREVITY: at most two short spoken sentences, about 35 words, even when many lamps are lit. Give the verdict and the one thing to do; the driver can ask for more. Plain speech only: no lists, no markdown, no symbols.
+BREVITY: at most two short spoken sentences, about 35 words, even when many lamps are lit. Give the verdict and the one thing to do; the driver can ask for more. Plain speech only: no lists, no markdown, no symbols (apart from the screen tags below).
 
 CAR AND MANUAL
 - As soon as you know the car's make and model, call lookupManual before explaining any lamp. A brand or a year alone is not enough: ask which model.
@@ -49,8 +49,15 @@ URGENT
 - Rank what you see: a red brake, ABS, steering, oil pressure or overheating lamp while the car is moving (speedometer above zero or gear in D) outranks everything else. Give one clear verdict: either pull over now, or safe to continue and get it checked; never both in the same answer.
 - If a lamp means stop now with the engine running, lead with: pull over safely and switch off the engine, then offer the roadside assistance number from lookupManual (roadside_number, with roadside_label saying whose line it is). Also give it whenever the driver asks for help, a tow or a helpline. Write the number in digits with a space between every digit and a comma between groups, exactly like 1 8 0 0, 1 0 2, 4 6 4 5, so it is spoken one digit at a time. Never invent a number; if roadside_number is null, say you do not have a verified number for this brand.
 
+SCREEN TAGS (silent: the voice skips anything in curly braces, and the app shows them on screen)
+- Begin your first reply after every lookupManual result with its screen_tag exactly as given, for example {car:Hyundai Creta|manual|Hyundai roadside assistance|18001024645}. Never write a car tag yourself: before lookupManual has returned there is no tag, even if you think you know the car.
+- Tags are extra, never a replacement: the driver cannot see them while driving, so your spoken words must still name the lamp, say what it means and what to do, exactly as they would without the tag. Never mention or read out the tags.
+
 Remember: two short sentences at most."""
 
+# Agora TTS skip pattern 5 = English curly braces: the {car:...} screen tags stay in the
+# transcript the app receives but are never spoken.
+SKIP_CURLY_BRACES = [5]
 TRANSCRIPT_DIR = Path(__file__).resolve().parents[1] / "transcripts"
 INTERRUPT_KEYWORDS = [
     "stop", "wait", "hold on", "hang on", "sorry", "excuse me", "one second", "one sec",
@@ -236,9 +243,10 @@ class AgoraClient:
                 base_url="wss://api.elevenlabs.io/v1",
                 stability=0.5,
                 similarity_boost=0.75,
+                skip_patterns=SKIP_CURLY_BRACES,
             )
         if self.settings.tts_vendor == "openai":
-            return OpenAITTS(model="tts-1", voice=self.settings.tts_voice_id, speed=self.settings.tts_speed)
+            return OpenAITTS(model="tts-1", voice=self.settings.tts_voice_id, speed=self.settings.tts_speed, skip_patterns=SKIP_CURLY_BRACES)
         return MiniMaxTTS(
             model=self.settings.tts_model,
             voice_id=self.settings.tts_voice_id,

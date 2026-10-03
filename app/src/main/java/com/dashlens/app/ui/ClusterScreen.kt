@@ -1,5 +1,7 @@
 package com.dashlens.app.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.view.SurfaceView
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Animatable
@@ -33,6 +35,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.MicOff
 import androidx.compose.material.icons.filled.PowerSettingsNew
@@ -63,6 +66,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -121,8 +125,15 @@ fun ClusterScreen(
     onUnbindPreview: () -> Unit,
     onDismissMessages: () -> Unit,
 ) {
-    val agentLine = uiState.latestLine(TranscriptSpeaker.AGENT) ?: DEFAULT_AGENT_LINE
+    val rawAgentLine = uiState.latestLine(TranscriptSpeaker.AGENT)
+    val agentLine = rawAgentLine?.let(AgentTags::strip) ?: DEFAULT_AGENT_LINE
     val userLine = uiState.latestLine(TranscriptSpeaker.USER)
+    val car = if (uiState.inConversation) uiState.latestCarTag() else null
+    val stop = if (uiState.inConversation && rawAgentLine != null) {
+        AgentTags.callCard(rawAgentLine, car)
+    } else {
+        null
+    }
 
     Column(
         modifier = Modifier
@@ -132,8 +143,8 @@ fun ClusterScreen(
             .padding(horizontal = 20.dp)
             .padding(top = 8.dp, bottom = 12.dp),
     ) {
-        Header(uiState)
-        Spacer(Modifier.height(18.dp))
+        Header(uiState, car)
+        Spacer(Modifier.height(14.dp))
 
         CameraCard(
             uiState = uiState,
@@ -144,7 +155,12 @@ fun ClusterScreen(
             modifier = Modifier.weight(1f).fillMaxWidth(),
         )
 
-        Spacer(Modifier.height(22.dp))
+        if (stop != null) {
+            Spacer(Modifier.height(14.dp))
+            StopCard(stop)
+        }
+
+        Spacer(Modifier.height(if (stop != null) 14.dp else 22.dp))
         if (userLine != null) {
             Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
                 Text(
@@ -194,12 +210,15 @@ fun ClusterScreen(
 }
 
 @Composable
-private fun Header(uiState: ConversationUiState) {
-    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().height(40.dp)) {
+private fun Header(uiState: ConversationUiState, car: CarTag?) {
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().heightIn(min = 40.dp)) {
         LensMark(Modifier.size(28.dp))
         Spacer(Modifier.width(10.dp))
-        Text("DashLens", fontFamily = Grotesk, fontWeight = FontWeight.Bold, fontSize = 20.sp, color = TextPrimary)
-        Spacer(Modifier.weight(1f))
+        Column(Modifier.weight(1f)) {
+            Text("DashLens", fontFamily = Grotesk, fontWeight = FontWeight.Bold, fontSize = 20.sp, color = TextPrimary)
+            if (car != null) SourceLine(car)
+        }
+        Spacer(Modifier.width(8.dp))
         if (uiState.inConversation) {
             val (label, color) = when (uiState.agentVisualState) {
                 AgentVisualState.LISTENING -> "Listening" to Green
@@ -212,6 +231,70 @@ private fun Header(uiState: ConversationUiState) {
             StatusPill(label = label, color = color, pulse = uiState.agentVisualState != AgentVisualState.IDLE)
         } else {
             StatusPill(label = "No car yet", color = TextFaint, pulse = false)
+        }
+    }
+}
+
+/** Which car the agent is answering for, and whether the answer comes from its own manual. */
+@Composable
+private fun SourceLine(car: CarTag) {
+    val source = when (car.source) {
+        ManualSource.MANUAL -> "owner's manual"
+        ManualSource.GENERAL -> "general guidance"
+        ManualSource.FETCHING -> "finding manual…"
+    }
+    Text(
+        text = buildAnnotatedString {
+            append(car.name)
+            append(" · ")
+            withStyle(SpanStyle(color = if (car.source == ManualSource.MANUAL) Green else TextMuted)) { append(source) }
+        },
+        style = Body.copy(fontSize = 12.sp),
+        maxLines = 1,
+        overflow = TextOverflow.Ellipsis,
+    )
+}
+
+/**
+ * Red stop card when the agent says to pull over; just the call button when it gave the helpline.
+ * Tapping the helpline opens the dialler with the number filled in; the driver still presses call.
+ */
+@Composable
+private fun StopCard(stop: CallCard) {
+    val context = LocalContext.current
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(14.dp))
+            .border(BorderStroke(1.dp, if (stop.urgent) Red else Hairline), RoundedCornerShape(14.dp))
+            .padding(horizontal = 14.dp, vertical = if (stop.urgent) 12.dp else 8.dp),
+    ) {
+        if (stop.urgent) {
+            Text("Stop the car safely", fontFamily = Grotesk, fontWeight = FontWeight.Medium, fontSize = 15.sp, color = Red)
+            Text("Pull over and switch off the engine", style = Body.copy(fontSize = 12.sp))
+        }
+        val number = stop.helplineNumber
+        if (number != null) {
+            if (stop.urgent) Spacer(Modifier.height(8.dp))
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(8.dp))
+                    .clickable {
+                        context.startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number")))
+                    }
+                    .padding(vertical = 4.dp),
+            ) {
+                Icon(Icons.Filled.Call, contentDescription = null, tint = TextPrimary, modifier = Modifier.size(16.dp))
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    text = "Call ${stop.helplineLabel ?: "roadside assistance"} · ${formatHelpline(number)}",
+                    style = Body.copy(fontSize = 12.sp, color = TextPrimary, fontWeight = FontWeight.Medium),
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
         }
     }
 }
@@ -581,6 +664,14 @@ private fun ControlButton(label: String, size: androidx.compose.ui.unit.Dp, butt
         Box(contentAlignment = Alignment.Center, modifier = Modifier.size(72.dp)) { button() }
         Spacer(Modifier.height(6.dp))
         Text(label, fontFamily = Inter, fontWeight = FontWeight.Medium, fontSize = 11.sp, color = TextMuted)
+    }
+}
+
+/** The car tag from the agent's most recent reply that named one (it is only sent after each manual lookup). */
+private fun ConversationUiState.latestCarTag(): CarTag? {
+    liveTranscript?.takeIf { it.speaker == TranscriptSpeaker.AGENT }?.let { AgentTags.car(it.text) }?.let { return it }
+    return transcriptHistory.asReversed().firstNotNullOfOrNull { turn ->
+        turn.takeIf { it.speaker == TranscriptSpeaker.AGENT }?.let { AgentTags.car(it.text) }
     }
 }
 
