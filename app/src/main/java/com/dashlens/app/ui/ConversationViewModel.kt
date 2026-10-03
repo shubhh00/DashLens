@@ -9,6 +9,9 @@ import com.dashlens.app.config.ServerConfig
 import com.dashlens.app.data.ConversationRepository
 import com.dashlens.app.model.ConversationUiState
 import com.dashlens.app.rtc.AgoraConversationSessionManager
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -198,6 +201,15 @@ class ConversationViewModel(
     }
 
     override fun onCleared() {
+        // App closed mid-call (e.g. swiped away after opening the dialler): still tell the server, so
+        // it saves the transcript and stops the agent instead of waiting for the idle timeout.
+        val agentId = activeAgentId
+        val channelName = sessionManager.snapshot.value.channelName
+        if (agentId != null && channelName != null) {
+            CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
+                runCatching { repository.stopConversation(agentId, channelName) }
+            }
+        }
         sessionManager.release()
         super.onCleared()
     }

@@ -348,13 +348,29 @@ class AgoraClient:
         task.add_done_callback(self._background.discard)
 
     async def _save_and_stop(self, agent_id: str, session: Any) -> None:
-        await self._save_transcript(agent_id, session)  # history is only served while the agent runs
+        out_dir = await self._save_transcript(agent_id, session)  # history is only served while the agent runs
         try:
             await session.stop()
         except Exception as exc:  # the idle timeout stops it anyway
             print(f"[agent] stop failed for {agent_id}: {exc}", flush=True)
+        if out_dir is not None:
+            await self._save_turn_metrics(agent_id, session, out_dir)
 
-    async def _save_transcript(self, agent_id: str, session: Any) -> None:
+    @staticmethod
+    async def _save_turn_metrics(agent_id: str, session: Any, out_dir: Path) -> None:
+        """Per-turn latency (ASR, LLM, TTS, end to end) is only served once the agent has stopped."""
+        for _ in range(5):
+            await asyncio.sleep(3)
+            try:
+                result = await session.get_turns()
+                data = result.dict() if hasattr(result, "dict") else result
+                (out_dir / "turns.json").write_text(json.dumps(data, indent=1, default=str), encoding="utf-8")
+                return
+            except Exception as exc:
+                error = exc
+        print(f"[transcript] no turn metrics for {agent_id}: {str(error)[:200]}", flush=True)
+
+    async def _save_transcript(self, agent_id: str, session: Any) -> Path | None:
         """Keep each call's history (and the camera frames the LLM saw) in server/transcripts/,
         because Agora only serves history while the agent is running."""
         try:
@@ -373,8 +389,10 @@ class AgoraClient:
                         (out_dir / f"frame{frame}.jpg").write_bytes(base64.b64decode(url.split(",", 1)[1]))
                         part["image_url"] = f"frame{frame}.jpg"
             (out_dir / "history.json").write_text(json.dumps(data, indent=1, default=str), encoding="utf-8")
+            return out_dir
         except Exception as exc:  # never block leaving a call on this
             print(f"[transcript] could not save {agent_id}: {exc}", flush=True)
+            return None
 
     async def debug_history(self, agent_id: str) -> dict[str, Any]:
         """Conversation history and turn analytics for a session this server started (debugging)."""
