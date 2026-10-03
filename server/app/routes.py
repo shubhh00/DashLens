@@ -82,6 +82,23 @@ def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -
         print(f"[manual] tool response for {make} {model}: {len(json.dumps(result))} bytes", flush=True)
         return result
 
+    @router.get("/v1/tools/helpline")
+    def helpline(make: str):
+        # Helplines are per brand, so the driver never has to name a model just to get one.
+        found = helpline_for(make)
+        if not found:
+            return {"make": make, "roadside_number": None,
+                    "note": "No verified helpline for this brand; tell the driver to check the owner's manual or the carmaker's website."}
+        digits = "".join(ch for ch in found["number"] if ch.isdigit())
+        label = found["label"].replace("|", " ")
+        return {
+            "make": make,
+            "roadside_label": found["label"],
+            "roadside_number": found["number"],
+            "roadside_spoken": spoken_number(found["number"]),
+            "screen_tag": "{help:%s|%s}" % (label, digits),
+        }
+
     @router.get("/v1/debug/agent/{agent_id}")
     async def debug_agent(agent_id: str, request: Request):
         # Local-only: requests through the ngrok tunnel always carry X-Forwarded-For.

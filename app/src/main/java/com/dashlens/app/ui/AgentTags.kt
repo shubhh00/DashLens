@@ -20,6 +20,7 @@ internal data class CallCard(val urgent: Boolean, val helplineLabel: String?, va
 
 internal object AgentTags {
     private val CAR_TAG = Regex("""\{\s*car\s*:([^{}]*)\}""", RegexOption.IGNORE_CASE)
+    private val HELP_TAG = Regex("""\{\s*help\s*:([^{}]*)\}""", RegexOption.IGNORE_CASE)
     private val CLOSED_BRACES = Regex("""\{[^{}]*\}""")
     private val OPEN_BRACE_AT_END = Regex("""\{[^{}]*$""") // a tag still streaming in
 
@@ -64,6 +65,10 @@ internal object AgentTags {
     /** The stop card, or just the call button when the agent read out the helpline. */
     fun callCard(text: String, car: CarTag?): CallCard? {
         stopAdvice(text, car)?.let { return it }
+        // {help:MG Motor India helpline|18001006464} from getRoadsideHelpline (brand only, no car tag).
+        HELP_TAG.findAll(text).lastOrNull()?.groupValues?.get(1)?.split('|')?.map { it.trim() }?.let { fields ->
+            dialable(fields.getOrNull(1))?.let { return CallCard(false, fields.getOrNull(0)?.takeIf { it.isNotBlank() }, it) }
+        }
         val number = car?.helplineNumber ?: return null
         return if (HELPLINE_MENTION.containsMatchIn(strip(text))) CallCard(false, car.helplineLabel, number) else null
     }

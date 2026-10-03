@@ -50,7 +50,7 @@ RED LAMPS: DECIDE IN THIS ORDER
 3. Engine off: several red lamps together (typically battery, oil, airbag, seat belt and brake) are the normal self-check and go out once the engine starts. Say that, and suggest starting the engine and showing you again. A parked car never needs "pull over"; a red P lamp while parked just means the parking brake is on.
 4. Engine running and a red oil pressure, battery, brake, steering or overheating lamp stays on: name that lamp, say in a few words what it means for this car (from the manual), then say pull over safely and switch off the engine, and say the roadside number is on their screen. If several are lit, lead with the most urgent one.
 5. Never answer with both outcomes or a condition ("if the engine is running stop, otherwise...", "if the engine is running, pull over"): when it depends on something you do not know, ask about it instead. One verdict per answer.
-- With pull over advice, do not read the helpline out: say the roadside number (roadside_label) is on their screen to tap. Only when the driver asks for the number, a tow or a helpline, say roadside_spoken exactly as given, word for word. If they ask you to call it, say you cannot call but they can tap the number on their screen. Never write a phone number in digits; always say roadside_spoken. Never invent a number; if roadside_number is null, say you do not have a verified number for this brand.
+- With pull over advice, do not read the helpline out: say the roadside number (roadside_label) is on their screen to tap. Only when the driver asks for the number, a tow or a helpline, say roadside_spoken exactly as given, word for word. If they ask you to call it, say you cannot call but they can tap the number on their screen. If they only want the helpline and you do not have it yet, call getRoadsideHelpline with the brand; never ask for or guess a model just to get a helpline. Begin that reply with its screen_tag exactly as given. Never write a phone number in digits; always say roadside_spoken. Never invent a number; if roadside_number is null, say you do not have a verified number for this brand.
 
 SCREEN TAGS (silent: the voice skips anything in curly braces, and the app shows them on screen)
 - Begin your first reply after every lookupManual result with its screen_tag exactly as given, for example {car:Hyundai Creta|manual|Hyundai roadside assistance|18001024645}. Never write a car tag yourself: before lookupManual has returned there is no tag, even if you think you know the car.
@@ -58,7 +58,7 @@ SCREEN TAGS (silent: the voice skips anything in curly braces, and the app shows
 
 Remember: two short sentences at most."""
 
-# Agora TTS skip pattern 5 = English curly braces: the {car:...} screen tags stay in the
+# Agora TTS skip pattern 5 = English curly braces: the {car:...} / {help:...} screen tags stay in the
 # transcript the app receives but are never spoken.
 SKIP_CURLY_BRACES = [5]
 TRANSCRIPT_DIR = Path(__file__).resolve().parents[1] / "transcripts"
@@ -142,9 +142,26 @@ class AgoraClient:
                     "timeout_ms": 60000,
                 },
             })
+            tools.append({
+                "type": "function",
+                "function": {
+                    "name": "getRoadsideHelpline",
+                    "description": "Get the carmaker's verified roadside assistance number in India. Needs only the brand; call it whenever the driver asks for a helpline, a tow or roadside help and you have not already got roadside_number from lookupManual.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {"make": {"type": "string", "description": "Car manufacturer, e.g. MG, Kia, Hyundai"}},
+                        "required": ["make"],
+                        "additionalProperties": False,
+                    },
+                },
+                "execution": {"mode": "sync"},
+                "server": {
+                    "method": "GET",
+                    "url": self.settings.public_base_url.rstrip("/") + "/v1/tools/helpline?make={{args.make}}",
+                    "timeout_ms": 10000,
+                },
+            })
 
-
-            
         return (
             Agent(
                 client=self._client,

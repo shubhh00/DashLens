@@ -53,4 +53,11 @@ class AgentTagsTest {
         assertEquals(true, AgentTags.callCard("Pull over now.", creta)?.urgent)
         assertNull(AgentTags.callCard("That is the seat belt lamp.", creta))
     }
+
+    @Test
+    fun callButtonFromTheBrandHelplineTag() {
+        val card = AgentTags.callCard("{help:MG Motor India helpline|18001006464}The MG helpline is on your screen.", null)
+        assertEquals(CallCard(false, "MG Motor India helpline", "18001006464"), card)
+        assertEquals("The MG helpline is on your screen.", AgentTags.strip("{help:MG Motor India helpline|18001006464}The MG helpline is on your screen."))
+    }
 }
