@@ -1,208 +1,185 @@
-# Agora Conversational AI Android Quickstart
+# DashLens
 
-This repository is a template-style Android starter for building a Voice AI app with Agora Conversational AI.
+**A hands-free voice and camera co-driver that explains dashboard warning lights from your car's own owner's manual.**
 
-It gives you a Kotlin + Jetpack Compose app backed by a small Python service that:
+Point your phone at the instrument cluster and ask, out loud, "what's this light?". DashLens sees the lamp, looks up that exact car's owner's manual, asks the one question that changes the answer (is the engine running? is the parking brake on?), and tells you what to do in a sentence or two. If you need to stop, it shows the carmaker's verified roadside helpline, one tap from the dialler.
 
-- joins an Agora RTC channel
-- starts and manages an Agora Conversational AI agent through the backend
-- listens for transcript, agent state, and pipeline metrics over RTM
-- lets the user talk, mute, interrupt, and end the session
-- supports typed instructions, direct speech, and queued requests
-- fills long response pauses with generated phrases and static fallbacks
-- optionally looks up the project's setup and troubleshooting guidance
-- keeps the App Certificate and token generation off the Android device
+Built for the **Agora Voice AI Hackathon (AI Mobile Coders)** on Agora Conversational AI.
 
-## Release 1.1.0 — Agora Conversational AI v2.12
+> **Demo video:** _link coming_
 
-This release integrates the Conversational AI Engine's v2.12 features with
-`agora-agents==2.8.1` on the Python backend. Android uses RTC `4.6.4` and RTM
-`2.3.0`. Engine, Python SDK, and Android SDK versions are independent.
+---
 
-See [the changelog](CHANGELOG.md) for the changes and [setup instructions](docs/setup.md#text-controls-and-project-guidance)
-for the new text controls and optional custom tool. Each developer runs their
-own backend and configures its HTTPS URL before building the Android app.
+## The problem
 
-> [!NOTE]
-> This quickstart requires the included Python backend. Local mobile testing uses a temporary public HTTPS tunnel so the Android device can reach the development server.
+A warning lamp comes on while you're driving. The answer is in a 450–700 page owner's manual in the glovebox, which you can't read while driving. Google Lens and general chatbots give generic answers: they don't know your car, whether the engine is running, or that on most Indian cars the red brake lamp is also the handbrake lamp. A wrong "pull over now" is stressful; a wrong "it's fine" is dangerous.
 
-## Prerequisites
+## What DashLens does
 
-- Android Studio with JDK 17 or newer
-- Python 3.10 or newer
-- Bash for the scripts in `server/`
-- An Android device or emulator with microphone support
-- An Agora account with access to Conversational AI
-- A development tunnel provider; the included helper supports Cloudflare Tunnel, ngrok, Tailscale Funnel, and LocalTunnel
+- **Talk, don't type.** Fully voice-driven with barge-in: say "wait" and it stops.
+- **It looks.** The phone's rear camera streams to the agent in real time, and the LLM sees the latest frame with every question. It reads written warning messages on the display, the rev counter, and the lamp symbols.
+- **Your car, not cars in general.** As soon as it hears the make and model it calls a tool that returns that car's lamps from its own owner's manual (27 popular Indian cars cached, more fetched on demand).
+- **It asks before it guesses.** Engine off and many red lamps? That's the start-up self-check. Red brake lamp on a stationary car? It asks you to release the parking brake and watch the lamp. Can't read a small icon? It asks you to bring the phone closer.
+- **It ends in an action.** For a stop-now lamp it shows a red **Stop the car safely** card with the carmaker's verified roadside number; tap it to open the dialler.
+- **Honest about sources.** The screen shows `MG Astor · owner's manual`, `· general guidance` or `· finding manual…`, so you always know where an answer comes from.
 
-The commands below assume a macOS or Linux shell. On Windows, run the backend scripts from WSL or an equivalent Bash environment.
+## How it works
 
-## Quick Start
-
-### 1. Install the Agora CLI and sign in
-
-Skip this step if `agora` is already on your `PATH`.
-
-```bash
-curl -fsSL https://dl.agora.io/cli/install.sh | sh
-agora --help
-agora login
+```mermaid
+flowchart LR
+    subgraph Phone["Android app (Kotlin, Jetpack Compose)"]
+        Mic[Mic] --- Cam[Rear camera, 720p]
+        UI[Captions, source line,<br/>stop card, call button]
+    end
+    subgraph Agora["Agora Conversational AI"]
+        ASR[Deepgram nova-3<br/>speech to text] --> LLM[gpt-5-mini<br/>text + camera frame] --> TTS[ElevenLabs Flash v2.5<br/>voice]
+    end
+    subgraph Server["FastAPI server"]
+        Tools[Tools: lookupManual,<br/>getRoadsideHelpline]
+        Cache[(Manual cache<br/>27 cars, 825 lamps)]
+        Pipe[Manual pipeline<br/>background]
+    end
+    Mic -- RTC audio --> ASR
+    Cam -- RTC video --> LLM
+    TTS -- RTC audio --> Phone
+    Agora -- RTM: transcripts, agent state --> UI
+    LLM -- HTTP tool calls --> Tools
+    Tools --> Cache
+    Tools -. uncached car .-> Pipe --> Cache
+    Server -- tokens, start / stop agent --> Agora
 ```
 
-### 2. Get the quickstart
+### Agora integration
 
-The recommended path lets the CLI clone the template and bind an Agora project. Replace `my-android-demo` with your app folder name:
+| Piece | How DashLens uses it |
+|---|---|
+| **Conversational AI engine** | Cascade pipeline started per call by the server through the `agora-agents` Python SDK: Deepgram nova-3 ASR → gpt-5-mini (Agora-managed, low reasoning effort) → ElevenLabs Flash v2.5 TTS. |
+| **Vision input** | The LLM is configured with `input_modalities: ["text", "image"]`; Agora forwards the latest frame of the user's RTC video stream with each turn. |
+| **RTC video** | The app publishes the rear camera at 720p/30 fps. A pre-encoder frame observer (`UprightFrameRotator`) rotates frames so the agent always sees the dashboard upright, even with the phone held sideways to fit a wide cluster, while the app UI stays portrait. |
+| **Tools** | Two HTTP tools the agent calls synchronously: `lookupManual(make, model)` and `getRoadsideHelpline(make)`. Each agent gets a session id in its tool URL, so the server can check that a car model was actually said in the call before fetching a manual (the LLM sometimes invented one). |
+| **RTM** | Live transcripts and agent state (listening / thinking / speaking) drive the word-by-word caption and status pill. |
+| **Screen tags + TTS `skip_patterns`** | Tool results include a ready-made tag such as `{car:MG Astor\|manual\|MG Motor India helpline\|18001006464}`. The agent copies it into its reply; TTS skip pattern 5 keeps anything in curly braces silent, and the app turns it into the source line and the call button. |
+| **Interruption** | Keyword barge-in ("stop", "wait", "hold on", …) so road noise and the radio don't cut the agent off, while the driver still can. |
+| **Turn analytics** | After each call the server saves Agora's per-turn latency breakdown (ASR, LLM, TTS) with the transcript and the camera frames the LLM saw, which is how the numbers below were measured. |
 
-```bash
-agora init my-android-demo --template android
-cd my-android-demo
-```
+### The manual pipeline
 
-`agora init` selects or creates an Agora project and records the project binding in `.agora/project.json`.
+For a car that isn't cached yet, a background job finds and reads its owner's manual so the next question is instant:
 
-To work from an existing clone instead:
+1. **Find candidates**: Maruti Suzuki and Nexa's own manual feeds first, then Tavily and Serper web search. Candidates are scored (model name present, Indian edition preferred, brochures, EV variants and other markets penalised).
+2. **Verify the PDF**: must be a real manual (50+ pages, warning-lamp content).
+3. **Keep only the lamp pages**: a 450–700 page manual is cut to roughly 26 pages.
+4. **Structure it**: Gemini turns those pages into JSON (lamp, colour, steady meaning, flashing meaning), falling back across several models when one is overloaded, and to the manual's raw lamp text if all fail.
+5. **Cache**: `server/cache/<make>_<model>.json`. Cached answers return in under 10 ms.
 
-```bash
-git clone https://github.com/AgoraIO-Conversational-AI/agent-quickstart-android.git
-cd agent-quickstart-android
-```
+While that runs, the agent says the manual is being fetched and gives clearly labelled general guidance, instead of leaving the driver in silence.
 
-If you use an existing clone, you will select the Agora project when you configure the server in the next step.
+Roadside helplines come from a hand-verified table of 12 brands (each checked on the carmaker's site); the agent never makes up a number.
 
-### 3. Configure and run the Python server
+## Measured results
 
-```bash
-python3 -m venv server/.venv
-source server/.venv/bin/activate
-pip install -r server/requirements-dev.txt
-cp -n server/.env.example server/.env.local
-agora project env write server/.env.local --template standard
-./server/run.sh
-```
+Measured from saved test calls, in a real MG Astor and on photos of Kia and Hyundai clusters.
 
-The command above uses the project selected by `agora init`. For an existing clone, select the project explicitly instead:
+| Metric | Result |
+|---|---|
+| Voice round trip (you stop talking → voice starts), median | **5.1 s** at low reasoning (3.3 s at minimal) |
+| └ speech recognition / LLM first token / voice first audio | 0.64 s / 3.3 s / 0.27 s |
+| Lamp identification, red warning lamps | 11 / 15 correct (73%) |
+| Lamp identification, written messages and panels | 2 / 2 |
+| Lamp identification, overall | 15 / 22 (68%) |
+| Manual coverage | 27 cars, 8 brands, 825 lamps; 19 manuals from carmakers' own sites |
+| Cached manual lookup | 7 ms |
 
-```bash
-agora project env write server/.env.local \
-  --project <project-name-or-id> \
-  --template standard
-./server/run.sh
-```
+Low reasoning costs about 2 s per reply but reads the rev counter itself, asks instead of guessing, and asks for a closer look when an icon is unclear; for safety advice that trade is worth it. Misses were mostly tiny or blurred icons at night and indicators the manual describes only by name (see limitations).
 
-The server listens on `http://127.0.0.1:8000` and keeps `AGORA_APP_CERTIFICATE` off the Android device. Leave this terminal running. The local endpoint uses HTTP; the selected tunnel provider supplies the public HTTPS endpoint required by Android.
+## Setup
 
-### 4. Create a temporary public HTTPS URL
+### Prerequisites
 
-In another terminal, run:
+- Android Studio (JDK 17+) and an Android phone with a camera (Android 7.0, API 24+)
+- Python 3.10+
+- An [Agora](https://console.agora.io) project with Conversational AI enabled (App ID and App Certificate)
+- An HTTPS tunnel such as [ngrok](https://ngrok.com), so Agora's cloud and the phone can reach your server
+- Optional: an ElevenLabs API key (the demo voice; without it the agent uses Agora-managed OpenAI TTS), and Gemini, Tavily and Serper keys (only needed to add cars that aren't cached)
 
-```bash
-./server/tunnel.sh --provider ngrok
-```
-
-Choose `cloudflare`, `ngrok`, `tailscale`, or `localtunnel` with `--provider`. Keep the tunnel running and copy its generated `https://` URL.
-
-Verify that the public endpoint reaches the Python server:
-
-```bash
-curl https://your-public-host/health
-```
-
-The response must be backend health JSON, not a tunnel-provider login or warning page. See [Local HTTPS tunnels](docs/local-tunnels.md) for explicit ngrok, Cloudflare Tunnel, Tailscale Funnel, and LocalTunnel commands.
-
-### 5. Configure Android
-
-Write the public server URL to root `local.properties`:
+### 1. Server
 
 ```bash
-./server/configure-android.sh https://your-public-host
+cd server
+python -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env.local         # then fill in the keys
 ```
 
-The script writes only this client value:
+In `server/.env.local` set at least `AGORA_APP_ID` and `AGORA_APP_CERTIFICATE`. For the demo voice also set `TTS_VENDOR=elevenlabs`, `ELEVENLABS_API_KEY` and `TTS_VOICE_ID`.
+
+### 2. Tunnel
+
+```bash
+ngrok http 8000
+```
+
+Put the HTTPS URL into `server/.env.local` as `PUBLIC_BASE_URL=https://…`. The manual and helpline tools are only registered when this is set, because Agora's cloud calls them over the internet.
+
+### 3. Run the server
+
+```bash
+cd server
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+
+`GET /health` should return `"agora_configured": true`.
+
+### 4. App
+
+Add the same tunnel URL to `local.properties` in the project root (or run `./server/configure-android.sh https://…`):
 
 ```properties
-QUICKSTART_SERVER_URL=https://your-public-host
+DASHLENS_SERVER_URL=https://your-tunnel.ngrok-free.app
 ```
 
-Do not put `AGORA_APP_CERTIFICATE` in `local.properties`.
+Open the project in Android Studio and run the `app` configuration on your phone. Grant microphone and camera access, tap **Start**, tell it your car, and point the camera at the lamp.
 
-### 6. Build the app
+### Tests
 
 ```bash
-JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew :app:assembleDebug
+./gradlew :app:testDebugUnitTest     # app unit tests
+cd server && python -m pytest -q     # server tests
 ```
 
-If your shell already uses JDK 17 or newer, `./gradlew :app:assembleDebug` is sufficient.
+## Project structure
 
-### 7. Run it
-
-Open the project in Android Studio, or run it from the command line, then launch it on a device or emulator.
-
-Tap **Start voice session**, allow microphone permission, speak to the agent, and watch transcripts appear in real time.
-
-If the agent does not join or transcripts do not appear, run:
-
-```bash
-agora project doctor --deep
+```
+app/src/main/java/com/dashlens/app/
+  ui/ClusterScreen.kt                 the single screen: camera, captions, source line, stop card
+  ui/AgentTags.kt                     reads the agent's screen tags and stop advice
+  rtc/AgoraConversationSessionManager.kt   RTC + RTM session, camera, zoom, barge-in
+  rtc/UprightFrameRotator.kt          keeps the frames the agent sees upright
+server/app/
+  agora_client.py                     agent config (ASR, LLM, TTS, tools, prompt), transcripts, metrics
+  routes.py                           API: tokens, join/leave, tool endpoints
+  manual/manual_pipeline.py           find, verify and structure owner's manuals
+  manual/helplines.py                 verified roadside helplines
+server/cache/                         structured lamp data for 27 cars
 ```
 
-If the temporary tunnel URL changes, run `server/configure-android.sh` again, rebuild, and reinstall the app. For manual setup, optional configuration, and production notes, see [docs/setup.md](docs/setup.md).
+## Built on
 
-## What To Read First
+DashLens started from Agora's [agent-quickstart-android](https://github.com/AgoraIO-Conversational-AI/agent-quickstart-android) (MIT): the Kotlin RTC/RTM session layer, the token-minting FastAPI server and its scripts. Everything specific to DashLens was built during the hackathon: the camera pipeline and upright frame rotation, the cluster UI, the agent prompt and tools, the manual pipeline and cache, the helpline table, the screen tags, the server-side model check, and transcript and metrics capture. Camera-to-LLM vision follows the pattern from Agora's vision recipe.
 
-If you are using this as a template, start here:
+While building it I found and fixed a quickstart bug: the RTM client wasn't released on disconnect, so a second session in the same app run failed with `INVALID_TOKEN` (`client.release()` in `disconnect()` and in the `ensureRtmClient` error path).
 
-- [ConversationScreen.kt](app/src/main/java/com/androidengineers/agent_quickstart_android/ui/ConversationScreen.kt)
-- [ConversationViewModel.kt](app/src/main/java/com/androidengineers/agent_quickstart_android/ui/ConversationViewModel.kt)
-- [AgoraConversationSessionManager.kt](app/src/main/java/com/androidengineers/agent_quickstart_android/rtc/AgoraConversationSessionManager.kt)
-- [ConversationAgoraApi.kt](app/src/main/java/com/androidengineers/agent_quickstart_android/data/ConversationAgoraApi.kt)
-- [Python backend](server/app/main.py)
+## Limitations and what's next
 
-Those files show the full flow from UI action to Agora session setup.
+- **Small icons.** At arm's length at night a lamp can be ~25 px in a 720p frame; the agent then asks for a closer look, but it can still misread. Next: store each lamp's symbol description alongside its meaning, so the agent matches by shape rather than by name, and crop/zoom on the lamp area.
+- **Latency.** ~5 s per reply with low reasoning. Next: a faster vision model as it becomes available on Agora, and streaming a short acknowledgement first.
+- **Coverage.** 27 cars cached; others depend on a public PDF existing (some brands don't publish them).
+- **Production.** Host the server instead of a laptop and tunnel, add app authentication and per-user limits, a privacy policy for camera and voice data, release signing, and a Play Store closed test.
+- **More languages.** Hindi and other Indian languages for both speech and answers.
 
-## What To Customize First
+DashLens is a driving aid, not a mechanic. Use it while parked or let a passenger hold the phone, and always follow your owner's manual and the carmaker's advice.
 
-Most teams will customize these pieces first:
+## License
 
-1. `ConversationScreen.kt` for UI layout, branding, and session cards
-2. `ConversationViewModel.kt` for app state, button actions, and session orchestration
-3. `AgoraConversationSessionManager.kt` for RTC, RTM, and media behavior
-4. `server/app/agora_client.py` for agent presets, geofence, and model configuration
-
-## Build And Test
-
-Run the Python server tests:
-
-```bash
-server/.venv/bin/python -m pytest server/tests
-```
-
-Compile Kotlin:
-
-```bash
-JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew :app:compileDebugKotlin
-```
-
-Run unit tests:
-
-```bash
-JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew :app:testDebugUnitTest
-```
-
-Assemble debug APK:
-
-```bash
-JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew :app:assembleDebug
-```
-
-## Docs
-
-- [Setup](docs/setup.md): CLI, server, tunnel, and Android configuration
-- [Local HTTPS tunnels](docs/local-tunnels.md): expose the development server to a physical device
-- [Backend runbook](docs/backend-runbook.md): local server, public tunnel, API contract, deployment, and smoke checks
-- [Architecture](docs/architecture.md): app structure, code map, session lifecycle, and state flow
-- [Troubleshooting](docs/troubleshooting.md): common setup, agent, RTM, metrics, and microphone issues
-- [Agent coding guidance](docs/agent-guidance.md): Agora CLI skills and guidance for AI coding agents
-
-## Security Note
-
-`AGORA_APP_CERTIFICATE` stays in `server/.env.local` and is never compiled into Android. The Python server generates the Android user's RTC/RTM token and uses the Agora Python SDK to start, interrupt, and stop the agent. A development tunnel URL is public while the tunnel is running, so stop the tunnel when testing is complete and add appropriate application authentication before adapting this demo for production.
+MIT, see [license.md](license.md).
