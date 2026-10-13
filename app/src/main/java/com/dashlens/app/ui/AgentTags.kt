@@ -39,7 +39,10 @@ internal object AgentTags {
         return CarTag(name, source, fields.getOrNull(2)?.takeIf { it.isNotBlank() && number != null }, number)
     }
 
-    private val STOP_ADVICE = Regex("""\b(pull over|stop now|stop the car|stop safely|stop driving)\b""", RegexOption.IGNORE_CASE)
+    private val STOP_ADVICE = Regex(
+        """\b(pull over|stop now|stop immediately|stop the (car|vehicle)|stop safely|stop driving)\b""",
+        RegexOption.IGNORE_CASE,
+    )
     private val NEGATION = Regex("""\b(no need to|don't|do not|not|never|without)\s+(\w+\s+){0,2}$""", RegexOption.IGNORE_CASE)
     // "If it stays on, stop safely" / "release it — if it stays on while driving, stop" is a condition, not a verdict.
     private val CONDITION = Regex("""\b(if|unless|in case|should it)\b""", RegexOption.IGNORE_CASE)
@@ -55,7 +58,7 @@ internal object AgentTags {
         } ?: return null
         // The verified helpline comes with the car tag; a number the agent spoke is the fallback.
         car?.helplineNumber?.let { return CallCard(true, car.helplineLabel, it) }
-        val spokenNumber = dialable(SPOKEN_NUMBER.find(spoken)?.value)
+        val spokenNumber = dialable(SPOKEN_NUMBER.find(spoken)?.value) ?: spokenHelpline(spoken)
         val brand = car?.name?.substringBefore(' ')
         return CallCard(true, brand?.let { "$it roadside assistance" }?.takeIf { spokenNumber != null }, spokenNumber)
     }
@@ -69,8 +72,25 @@ internal object AgentTags {
         HELP_TAG.findAll(text).lastOrNull()?.groupValues?.get(1)?.split('|')?.map { it.trim() }?.let { fields ->
             dialable(fields.getOrNull(1))?.let { return CallCard(false, fields.getOrNull(0)?.takeIf { it.isNotBlank() }, it) }
         }
-        val number = car?.helplineNumber ?: return null
-        return if (HELPLINE_MENTION.containsMatchIn(strip(text))) CallCard(false, car.helplineLabel, number) else null
+        val spoken = strip(text)
+        if (!HELPLINE_MENTION.containsMatchIn(spoken)) return null
+        car?.helplineNumber?.let { return CallCard(false, car.helplineLabel, it) }
+        // The agent read a helpline out but left out its tag: dial the number it spoke.
+        return spokenHelpline(spoken)?.let { CallCard(false, null, it) }
+    }
+
+    private val DIGIT_WORDS = mapOf(
+        "zero" to "0", "oh" to "0", "one" to "1", "two" to "2", "three" to "3", "four" to "4",
+        "five" to "5", "six" to "6", "seven" to "7", "eight" to "8", "nine" to "9",
+    )
+
+    /** "one eight hundred, two zero nine, eight two eight two" -> 18002098282, only for a spoken helpline. */
+    private fun spokenHelpline(spoken: String): String? {
+        if (!HELPLINE_MENTION.containsMatchIn(spoken)) return null
+        val digits = spoken.lowercase()
+            .replace(Regex("""\bone[ -]eight[ -]hundred\b"""), "1800")
+            .replace(Regex("""\b(zero|oh|one|two|three|four|five|six|seven|eight|nine)\b""")) { DIGIT_WORDS.getValue(it.value) }
+        return dialable(SPOKEN_NUMBER.find(digits)?.value)
     }
 
     /** Indian helplines are 10-12 digits (1800 numbers); anything else is not a dialable number. */

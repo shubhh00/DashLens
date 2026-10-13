@@ -1,0 +1,266 @@
+{
+  "source": "manual",
+  "car": "Mahindra XUV700",
+  "manual_url": "https://mvault-cloudfront.mahindra.com/2025/08/26/Owners-Manuals/XUV700/XUV700-Owners-Manual.html",
+  "roadside_number": null,
+  "lamps": [
+    {
+      "lamp": "Left Turn Indicator",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Slow blinking indicates normal left turn operation. Fast blinking indicates a fused left turn bulb that needs replacing."
+    },
+    {
+      "lamp": "Right Turn Indicator",
+      "colour": "green",
+      "steady": null,
+      "flashing": "Slow blinking indicates normal right turn operation. Fast blinking indicates a fused right turn bulb that needs replacing."
+    },
+    {
+      "lamp": "Cruise Control telltale",
+      "colour": "green",
+      "steady": "Indicates the vehicle is in cruise mode.",
+      "flashing": "Blinking indicates the accelerator is pressed to temporarily override cruise mode for overtaking."
+    },
+    {
+      "lamp": "Automatic Emergency Braking System Malfunction",
+      "colour": "yellow",
+      "steady": "Indicates a fault in the Automatic Emergency Braking system. Contact a Mahindra authorized dealer immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Water-in-Fuel Warning telltale",
+      "colour": "amber",
+      "steady": "Indicates water accumulated in the fuel filter. Drain the filter or contact a Mahindra authorized dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Immobiliser lamp",
+      "colour": "red",
+      "steady": "Indicates an engine immobilizer system malfunction. Contact a Mahindra authorized dealer immediately.",
+      "flashing": "Slow blinking means vehicle is armed. Fast blinking indicates an immobilizer system malfunction."
+    },
+    {
+      "lamp": "ABS Warning telltale",
+      "colour": "yellow",
+      "steady": "Indicates an ABS malfunction. Normal brakes still work, but wheels may lock. Contact a Mahindra dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Park Brake / EBD / Low Brake Fluid Telltale",
+      "colour": "red",
+      "steady": "Indicates parking brake is engaged, low brake fluid, EBD malfunction, or worn brake pads. Contact dealer immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Parking Lamp telltale",
+      "colour": "green",
+      "steady": "Indicates the parking lamps are switched on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Airbag Warning telltale",
+      "colour": "red",
+      "steady": "Indicates an airbag system malfunction. Contact a Mahindra authorized dealer immediately.",
+      "flashing": "Indicates an airbag system malfunction if it flashes intermittently while driving."
+    },
+    {
+      "lamp": "HHC Malfunction",
+      "colour": "yellow",
+      "steady": "Indicates a malfunction in the Hill Hold Control system. Contact a Mahindra authorized dealer immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Door Ajar Warning telltale",
+      "colour": "red",
+      "steady": "Indicates that one or more doors, the hood, or the boot are open.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Fuel Warning telltale",
+      "colour": "yellow",
+      "steady": "Indicates fuel level has reached the reserve limit. Refuel immediately.",
+      "flashing": "Indicates fuel is extremely low. Refuel immediately."
+    },
+    {
+      "lamp": "ESP OFF telltale",
+      "colour": "yellow",
+      "steady": "Indicates the Electronic Stability Program has been manually switched off.",
+      "flashing": null
+    },
+    {
+      "lamp": "ESP Malfunction Warning telltale",
+      "colour": "yellow",
+      "steady": "Indicates a malfunction in the ESP system. Contact a Mahindra authorized dealer immediately.",
+      "flashing": "Blinking indicates the ESP system is actively controlling the vehicle's stability."
+    },
+    {
+      "lamp": "Front Fog Lamp telltale",
+      "colour": "green",
+      "steady": "Indicates the front fog lamps are switched on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Tiretronics telltale",
+      "colour": "yellow",
+      "steady": "Indicates low/high tire pressure, high temperature, or an air leak.",
+      "flashing": "Blinking for 90 seconds followed by steady light indicates a system or sensor malfunction."
+    },
+    {
+      "lamp": "Seat Belt Warning telltale",
+      "colour": "red",
+      "steady": "Reminds the driver to fasten their seat belt. Contact a dealer if it stays on after fastening.",
+      "flashing": null
+    },
+    {
+      "lamp": "SCR/DEF malfunction telltale",
+      "colour": "yellow",
+      "steady": "Indicates low DEF level, incorrect DEF fluid, or a dosing malfunction. Refer to the emissions manual.",
+      "flashing": null
+    },
+    {
+      "lamp": "DPF telltale",
+      "colour": "yellow",
+      "steady": "Indicates DPF regeneration has not occurred. Drive on a highway to clear it or follow emissions instructions.",
+      "flashing": "Indicates DPF park regeneration must be performed immediately."
+    },
+    {
+      "lamp": "Glow Plug telltale",
+      "colour": "yellow",
+      "steady": "Indicates glow plugs are active. Contact a dealer if it illuminates while driving.",
+      "flashing": null
+    },
+    {
+      "lamp": "Head Lamp High Beam",
+      "colour": "blue",
+      "steady": "Indicates the high beams are switched on or being flashed.",
+      "flashing": null
+    },
+    {
+      "lamp": "OBD telltale",
+      "colour": "yellow",
+      "steady": "Potential emission or fuel management system malfunction if on while engine runs. Contact dealer immediately.",
+      "flashing": "Indicates a potential emission control system malfunction. Contact a Mahindra authorized dealer immediately."
+    },
+    {
+      "lamp": "EPS Warning telltale",
+      "colour": "yellow",
+      "steady": "Indicates Electronic Power Steering malfunction. Steering will require increased effort. Contact dealer immediately.",
+      "flashing": null
+    },
+    {
+      "lamp": "Low Engine Oil Pressure Warning telltale",
+      "colour": "red",
+      "steady": "Indicates dangerously low oil pressure. Stop immediately, check level, top up, or contact a dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Check Engine telltale",
+      "colour": "yellow",
+      "steady": "Indicates a potential engine management system malfunction. Turn off engine and contact a dealer immediately.",
+      "flashing": "Blinking indicates a fault in the engine management system. Stop immediately and contact a dealer."
+    },
+    {
+      "lamp": "Battery Charging System Warning telltale",
+      "colour": "red",
+      "steady": "Indicates battery is not charging or alternator malfunction. Turn off extra electricals and contact dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Engine Coolant Temperature Warning telltale",
+      "colour": "red",
+      "steady": "Engine temperature is critically high (115C or above). Stop immediately and contact a dealer.",
+      "flashing": "Flashes when engine coolant temperature exceeds 113C. Stop safely to prevent engine damage."
+    },
+    {
+      "lamp": "REGEN telltale",
+      "colour": "yellow",
+      "steady": "Indicates manual DPF regeneration is required.",
+      "flashing": "Indicates manual DPF regeneration is currently in progress."
+    },
+    {
+      "lamp": "AT Warning telltale",
+      "colour": "yellow",
+      "steady": "Indicates transmission component or sensor malfunction. Contact a Mahindra dealer immediately.",
+      "flashing": "Indicates clutch overheating due to abuse. Reduce speed until the lamp turns off."
+    },
+    {
+      "lamp": "HDC Malfunction telltale",
+      "colour": "yellow",
+      "steady": "Indicates a malfunction in the Hill Descent Control system. Contact a Mahindra dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Rear Fog lamp telltale",
+      "colour": "amber",
+      "steady": "Indicates the rear fog lamps are switched on.",
+      "flashing": null
+    },
+    {
+      "lamp": "Engine Start/Stop telltale",
+      "colour": "green",
+      "steady": "Indicates the engine is currently in auto-stop mode.",
+      "flashing": "Blinking indicates auto-stop is imminent. Fast blinking indicates auto-stop is disabled due to weak battery."
+    },
+    {
+      "lamp": "Automatic Emergency Braking System OFF telltale",
+      "colour": "yellow",
+      "steady": "Indicates the AEB system is deactivated by the user.",
+      "flashing": null
+    },
+    {
+      "lamp": "Lane Keep Assist System (LKA)",
+      "colour": "yellow",
+      "steady": "Indicates LKA is in standby, active, or has malfunctioned. If failed, contact a dealer.",
+      "flashing": "Blinking indicates the system is warning the driver, or the camera is uncalibrated."
+    },
+    {
+      "lamp": "Lane Departure Warning System (LDW)",
+      "colour": "yellow",
+      "steady": "Indicates LDW is in standby, active, or has malfunctioned. If failed, contact a dealer.",
+      "flashing": "Blinking indicates the system is warning the driver, or the camera is uncalibrated."
+    },
+    {
+      "lamp": "Smart Pilot Assist",
+      "colour": "white",
+      "steady": "Indicates standby, active, or failed state. If failed, contact a dealer.",
+      "flashing": "Blinking indicates the system is transiting to standby and stopping steering assistance."
+    },
+    {
+      "lamp": "Adaptive Cruise Control",
+      "colour": "yellow",
+      "steady": "Indicates standby, active, temporary blockage/unavailability, or malfunction. If failed, contact a dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "Auto High Beam Boost",
+      "colour": "blue",
+      "steady": "Indicates auto high beam booster is active above 80 km/h.",
+      "flashing": null
+    },
+    {
+      "lamp": "High Beam Assist",
+      "colour": "green",
+      "steady": "Indicates high beam assist is enabled and active.",
+      "flashing": null
+    },
+    {
+      "lamp": "Auto Vehicle Hold",
+      "colour": "yellow",
+      "steady": "Indicates standby, active, or failed state. If failed, contact a dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "AWD Malfunction",
+      "colour": "yellow",
+      "steady": "Indicates a malfunction in the All-Wheel Drive system. Contact a Mahindra dealer.",
+      "flashing": null
+    },
+    {
+      "lamp": "EPB Malfunction",
+      "colour": "yellow",
+      "steady": "Indicates a malfunction in the Electric Parking Brake. Contact a Mahindra dealer immediately.",
+      "flashing": null
+    }
+  ]
+}

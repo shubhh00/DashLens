@@ -13,20 +13,21 @@
 
 <p align="center">
   <b>Point your phone at the dashboard. Ask what the light means. Get the answer from <i>your</i> car's manual.</b><br>
-  Built for the <b>Agora Voice AI Hackathon</b> (AI Mobile Coders).
+  🥉 <b>3rd place, Agora Voice AI Hackathon 2026</b> (AI Mobile Coders).
 </p>
 
 <p align="center">
   <a href="#-demo">🎬 Demo</a> &nbsp;·&nbsp; 
   <a href="#-how-it-works">How it works</a> &nbsp;·&nbsp;
   <a href="#-measured-results">Results</a> &nbsp;·&nbsp;
-  <a href="#-setup">Setup</a>
+  <a href="#-setup">Setup</a> &nbsp;·&nbsp;
+  <a href="docs/ai/RECIPE.md">Agora recipe</a>
 </p>
 
 <table align="center">
   <tr>
-    <td align="center"><h3>27</h3>cars with their<br>own manual data</td>
-    <td align="center"><h3>825</h3>warning lamps<br>structured</td>
+    <td align="center"><h3>28</h3>cars with their<br>own manual data</td>
+    <td align="center"><h3>868</h3>warning lamps<br>structured</td>
     <td align="center"><h3>12</h3>verified roadside<br>helplines</td>
     <td align="center"><h3>7 ms</h3>cached manual<br>lookup</td>
     <td align="center"><h3>0 taps</h3>to ask: voice<br>+ live camera</td>
@@ -76,24 +77,24 @@ https://github.com/user-attachments/assets/5c05d07b-00c3-45ab-a167-f6f4bbc601d5
 </tr>
 </table>
 
-📱 Screens
+## 📱 Screens
 
 <table>
   <tr>
     <td align="center" width="25%">
-     <img width="1080" height="2340" alt="Screenshot_20261003_150719" src="https://github.com/user-attachments/assets/87f53c54-1b7b-4692-b0f9-b26579429aed" />
+     <img width="200" alt="Screenshot_20261003_150719" src="https://github.com/user-attachments/assets/87f53c54-1b7b-4692-b0f9-b26579429aed" />
       <br><sub><b>Point and ask</b><br>tap the mic once, then it's hands-free</sub>
     </td>
     <td align="center" width="25%">
-     <img width="1080" height="2340" alt="Screenshot_20261003_152122" src="https://github.com/user-attachments/assets/80ff3018-fe69-4890-bcfa-a65cb56e0650" />
+     <img width="200" alt="Screenshot_20261003_152122" src="https://github.com/user-attachments/assets/80ff3018-fe69-4890-bcfa-a65cb56e0650" />
       <br><sub><b>Stop now</b><br>red lamp with the engine running: stop card + verified helpline</sub>
     </td>
     <td align="center" width="25%">
-     <img width="1080" height="2340" alt="Screenshot_20261003_151029" src="https://github.com/user-attachments/assets/f6a4a1ea-070b-4011-bf98-39c78b73c7f1" />
+     <img width="200" alt="Screenshot_20261003_151029" src="https://github.com/user-attachments/assets/f6a4a1ea-070b-4011-bf98-39c78b73c7f1" />
       <br><sub><b>Ask for help</b><br>the carmaker's roadside number, one tap from the dialler</sub>
     </td>
     <td align="center" width="25%">
-      <img width="1080" height="2340" alt="Screenshot_20261003_151056" src="https://github.com/user-attachments/assets/cc169179-bbaf-408b-a851-7c562142f8e4" />
+      <img width="200" alt="Screenshot_20261003_151056" src="https://github.com/user-attachments/assets/cc169179-bbaf-408b-a851-7c562142f8e4" />
       <br><sub><b>Asks, doesn't guess</b><br>can't read the icons? it asks for a closer look</sub>
     </td>
   </tr>
@@ -115,7 +116,7 @@ https://github.com/user-attachments/assets/5c05d07b-00c3-45ab-a167-f6f4bbc601d5
   <tr>
     <td valign="top">
       <h4>📘 Your car, not cars in general</h4>
-      As soon as it hears the make and model it pulls that car's lamps from its own owner's manual. 27 Indian cars are ready; others are fetched on demand.
+      As soon as it hears the make and model it pulls that car's lamps from its own owner's manual. 28 Indian cars are ready; others are fetched on demand.
     </td>
     <td valign="top">
       <h4>🤔 It asks before it guesses</h4>
@@ -147,7 +148,7 @@ flowchart LR
     end
     subgraph Server["FastAPI server"]
         Tools[Tools: lookupManual,<br/>getRoadsideHelpline]
-        Cache[(Manual cache<br/>27 cars, 825 lamps)]
+        Cache[(Manual cache<br/>28 cars, 868 lamps)]
         Pipe[Manual pipeline<br/>background]
     end
     Mic -- RTC audio --> ASR
@@ -170,7 +171,7 @@ flowchart LR
 
 | Piece | How DashLens uses it |
 |---|---|
-| **Conversational AI engine** | Cascade pipeline started per call by the server through the `agora-agents` Python SDK: Deepgram nova-3 ASR → gpt-5-mini (Agora-managed, low reasoning effort) → ElevenLabs Flash v2.5 TTS. Each call checks the ElevenLabs character balance first and falls back to Agora-managed OpenAI tts-1 when it runs low, so the agent never goes silent. |
+| **Conversational AI engine** | Cascade pipeline started per call by the server through the `agora-agents` Python SDK: Deepgram nova-3 ASR → gpt-5-mini (Agora-managed, minimal reasoning effort) → ElevenLabs Flash v2.5 TTS. Each call checks the ElevenLabs character balance first and falls back to Agora-managed OpenAI tts-1 when it runs low, so the agent never goes silent. |
 | **Vision input** | The LLM is configured with `input_modalities: ["text", "image"]`; Agora forwards the latest frame of the user's RTC video stream with each turn. |
 | **RTC video** | The app publishes the rear camera at 720p/30 fps. A pre-encoder frame observer (`UprightFrameRotator`) rotates frames so the agent always sees the dashboard upright, even with the phone held sideways to fit a wide cluster, while the app UI stays portrait. |
 | **Tools** | Two HTTP tools the agent calls synchronously: `lookupManual(make, model)` and `getRoadsideHelpline(make)`. Each agent gets a session id in its tool URL, so the server can check that a car model was actually said in the call before fetching a manual (the LLM sometimes invented one). |
@@ -191,6 +192,8 @@ For a car that isn't cached yet, a background job finds and reads its owner's ma
 
 While that runs, the agent says the manual is being fetched and gives clearly labelled general guidance, instead of leaving the driver in silence.
 
+**How a lookup works in a call:** the agent calls `lookupManual` → Agora calls `/v1/tools/manual` on our server ([routes.py](server/app/routes.py)) → the cache answers in ~10 ms with the lamps, the verified helpline and a ready-made screen tag. For a car that isn't cached, the server first checks the model was actually said in the call (the LLM occasionally invents one), starts the search in the background and tells the agent to say it's fetching; a car whose manual can't be found is remembered, so the agent stops promising it.
+
 Roadside helplines come from a hand-verified table of 12 brands (each checked on the carmaker's site); the agent never makes up a number.
 
 ## 📊 Measured results
@@ -199,15 +202,15 @@ Measured from saved test calls, in a real MG Astor and on photos of Kia and Hyun
 
 | Metric | Result |
 |---|---|
-| Voice round trip (you stop talking → voice starts), median | **5.1 s** at low reasoning (3.3 s at minimal) |
-| └ speech recognition / LLM first token / voice first audio | 0.64 s / 3.3 s / 0.27 s |
+| Voice round trip (you stop talking → voice starts), median | **3.3 s** at minimal reasoning (5.1 s at low) |
+| └ speech recognition / LLM first token / voice first audio | 0.64 s / 1.4 s / 0.3 s |
 | Lamp identification, red warning lamps | 11 / 15 correct (73%) |
 | Lamp identification, written messages and panels | 2 / 2 |
 | Lamp identification, overall | 15 / 22 (68%) |
-| Manual coverage | 27 cars, 8 brands, 825 lamps; 19 manuals from carmakers' own sites |
-| Cached manual lookup | 7 ms |
+| Manual coverage | 28 cars, 9 brands, 868 lamps; 20 manuals from carmakers' own sites |
+| Cached manual lookup | 7–15 ms |
 
-Low reasoning costs about 2 s per reply but reads the rev counter itself, asks instead of guessing, and asks for a closer look when an icon is unclear; for safety advice that trade is worth it. Misses were mostly tiny or blurred icons at night and indicators the manual describes only by name (see limitations).
+We tried both reasoning levels. Low reasoning read the rev counter more often by itself, but occasionally stalled for 20–55 s before answering, which is unusable in a live conversation. Minimal reasoning answers in about 1.4 s with no stalls, and the safety behaviour moved into explicit prompt rules, worked examples and server-side checks instead. Misses were mostly tiny, blurred or rotated icons (see limitations).
 
 ## 🛠️ Setup
 
@@ -278,7 +281,7 @@ server/app/
   routes.py                           API: tokens, join/leave, tool endpoints
   manual/manual_pipeline.py           find, verify and structure owner's manuals
   manual/helplines.py                 verified roadside helplines
-server/cache/                         structured lamp data for 27 cars
+server/cache/                         structured lamp data for 28 cars
 ```
 
 ## 🧱 Built on
@@ -290,8 +293,8 @@ While building it I found and fixed a quickstart bug: the RTM client wasn't rele
 ## 🚧 Limitations and what's next
 
 - **Small icons.** At arm's length at night a lamp can be ~25 px in a 720p frame; the agent then asks for a closer look, but it can still misread. Next: store each lamp's symbol description alongside its meaning, so the agent matches by shape rather than by name, and crop/zoom on the lamp area.
-- **Latency.** ~5 s per reply with low reasoning. Next: a faster vision model as it becomes available on Agora, and streaming a short acknowledgement first.
-- **Coverage.** 27 cars cached; others depend on a public PDF existing (some brands don't publish them).
+- **Latency.** ~3 s per reply. Next: identify the lamp on-device so the LLM only phrases the answer, and a short spoken acknowledgement while it thinks.
+- **Coverage.** 28 cars cached; others depend on a public manual existing. Mahindra publishes web-page manuals rather than PDFs, so the XUV700 was added from its HTML manual; HTML support in the pipeline is next.
 - **Production.** Host the server instead of a laptop and tunnel, add app authentication and per-user limits, a privacy policy for camera and voice data, release signing, and a Play Store closed test.
 - **More languages.** Hindi and other Indian languages for both speech and answers.
 

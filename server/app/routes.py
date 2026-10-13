@@ -12,7 +12,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request, status
 from .agora_client import AgoraClient, AgoraTimeoutError, AgoraUpstreamError
 from .config import Settings
 from .manual.helplines import helpline_for
-from .manual.manual_pipeline import lookup_manual
+from .manual.manual_pipeline import find_cached, lookup_manual
 from .schemas import (
     ActionResponse,
     AgentActionRequest,
@@ -53,7 +53,9 @@ def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -
 
     @router.get("/v1/tools/manual", dependencies=throttled)
     async def manual(make: str, model: str, sid: str = ""):
-        if sid and await agora.model_was_said(sid, model) is False:
+        # The history check costs a 2-3 s Agora call, so only for cars we don't already know: an
+        # invented model matters most when it would start a pointless manual search.
+        if sid and find_cached(make, model) is None and await agora.model_was_said(sid, model) is False:
             # The agent made the model up; don't fetch a manual for it.
             return {"source": "none", "car": f"{make} {model}",
                     "note": f"The driver never said this model. Ask them which {make} model it is; do not guess one."}
@@ -61,7 +63,10 @@ def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -
         # and run the full (minutes-long) lookup in the background so the next ask is instant.
         result = lookup_manual(make, model, search=False)
         fetching = result.pop("fetching", False)
-        if fetching:
+        if fetching and manual_not_found(make, model):
+            fetching = False  # already searched this run and found nothing; don't promise it again
+            result["note"] = "No owner's manual could be found for this car. Tell the driver you are giving general guidance, not manual-specific advice."
+        elif fetching:
             start_background_lookup(make, model)
         manual_url = str(result.get("manual_url") or "").lower()
         if result.get("roadside_number") and not (".in/" in manual_url or "/in/" in manual_url):
@@ -254,19 +259,31 @@ def create_router(settings: Settings, store: SessionStore, agora: AgoraClient) -
 
 
 _fetching: set[str] = set()
+_not_found: set[str] = set()  # lookups that found no manual: don't promise "fetching" again this run
 _fetching_lock = threading.Lock()
 
 
-def start_background_lookup(make: str, model: str) -> None:
-    key = f"{make.split()[0]}_{model}".lower()
+def _lookup_key(make: str, model: str) -> str:
+    return f"{make.split()[0]}_{model}".lower() if make.split() else model.lower()
+
+
+def manual_not_found(make: str, model: str) -> bool:
     with _fetching_lock:
-        if key in _fetching:
+        return _lookup_key(make, model) in _not_found
+
+
+def start_background_lookup(make: str, model: str) -> None:
+    key = _lookup_key(make, model)
+    with _fetching_lock:
+        if key in _fetching or key in _not_found:
             return  # already being fetched
         _fetching.add(key)
 
     def run() -> None:
         try:
-            lookup_manual(make, model)
+            if lookup_manual(make, model).get("source") != "manual":
+                with _fetching_lock:
+                    _not_found.add(key)
         finally:
             with _fetching_lock:
                 _fetching.discard(key)

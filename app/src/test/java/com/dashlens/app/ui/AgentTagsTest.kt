@@ -27,6 +27,7 @@ class AgentTagsTest {
         assertEquals("18001024645", stop?.helplineNumber)
         assertEquals("1800 102 4645", formatHelpline(stop!!.helplineNumber!!))
         assertNotNull(AgentTags.stopAdvice("The engine is running: stop safely and switch it off.", creta))
+        assertNotNull(AgentTags.stopAdvice("The manual says stop the vehicle, switch off the engine and allow it to cool.", creta))
     }
 
     @Test
@@ -52,6 +53,15 @@ class AgentTagsTest {
         assertEquals("18001024645", card?.helplineNumber)
         assertEquals(true, AgentTags.callCard("Pull over now.", creta)?.urgent)
         assertNull(AgentTags.callCard("That is the seat belt lamp.", creta))
+    }
+
+    @Test
+    fun callButtonFromASpokenHelplineWithoutATag() {
+        val card = AgentTags.callCard("The Tata roadside number is one eight hundred, two zero nine, eight two eight two.", null)
+        assertEquals("18002098282", card?.helplineNumber)
+        val stop = AgentTags.stopAdvice("Pull over safely now; call one eight hundred, two zero nine, eight two eight two.", null)
+        assertEquals("18002098282", stop?.helplineNumber)
+        assertNull(AgentTags.callCard("One of the lamps is the seat belt lamp.", null))
     }
 
     @Test
